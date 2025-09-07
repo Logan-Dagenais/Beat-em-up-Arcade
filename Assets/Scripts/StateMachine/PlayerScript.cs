@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerScript : CharacterScript
 {
     private PlayerInput input;
-    private StateMachine sm;
 
     InputAction move;
 
-    private void Awake()
+    protected void Awake()
     {
+        base.Awake();
         input = GetComponent<PlayerInput>();
         move = input.currentActionMap.FindAction("Move");
 
@@ -24,6 +24,12 @@ public class PlayerScript : CharacterScript
 
         sm.States.Add((int)CharacterScript.GeneralStates.WALK,
             new WalkState((int)CharacterScript.GeneralStates.WALK, this));
+
+        sm.States.Add((int)CharacterScript.GeneralStates.AIR,
+            new AirState((int)CharacterScript.GeneralStates.AIR, this));
+
+        sm.States.Add((int)CharacterScript.GeneralStates.CROUCH,
+    new CrouchState((int)CharacterScript.GeneralStates.CROUCH, this));
     }
 
     void OnMove()
@@ -39,6 +45,6 @@ public class PlayerScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

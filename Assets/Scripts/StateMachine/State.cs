@@ -5,8 +5,7 @@ abstract public class State
 {
     //  should get this from CharacterScript.GeneralStates
     public int Id;
-    //  measured in frames, assuming 60 fps cap
-    protected int time;
+
     protected bool stateComplete;
 
     protected int prevStateId;
@@ -33,6 +32,5 @@ abstract public class State
     public virtual void EndState()
     {
         stateComplete = true;
-        time = 0;
     }
 }
