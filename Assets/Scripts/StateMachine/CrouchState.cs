@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class CrouchState : State
 {
-    public CrouchState(int id, CharacterScript c) : base(id, c) {}
+    public CrouchState(CharacterScript c) : base(c)
+    {
+        Id = (int)GeneralStates.CROUCH;
+    }
 
     public override int StateAction()
     {
-        if (character.direction.y > -1)
+        if (character.Direction.y > -1)
         {
-            return (int)CharacterScript.GeneralStates.IDLE;
+            return (int)GeneralStates.IDLE;
         }
 
-        character.rb.linearVelocityX = Mathf.MoveTowards(character.rb.linearVelocityX, 0, 1f);
+        character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
 
         return nextStateId;
     }

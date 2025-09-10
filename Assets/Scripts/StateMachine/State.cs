@@ -12,11 +12,12 @@ abstract public class State
     protected int nextStateId;
 
     protected CharacterScript character;
+    protected StateMachine stateMach;
 
-    public State(int id, CharacterScript c)
+    public State(CharacterScript c)
     {
-        Id = id;
         character = c;
+        stateMach = c.StateMach;
     }
 
     public virtual void StartState(int prevState)
@@ -24,6 +25,7 @@ abstract public class State
         stateComplete = false;
         prevStateId = prevState;
         nextStateId = Id;
+        stateMach.StateTime = 0;
     }
 
     //  this should only be ran in FixedUpdate()
