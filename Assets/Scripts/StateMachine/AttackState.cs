@@ -8,14 +8,22 @@ public struct AttackProperties
     public int RecoverFrames;
     */
 
-    public AttackProperties(float hitstun, float blockstun, float knockback, bool knockdown, bool heavy)
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy)
     {
+        Damage = damage;
         Hitstun = hitstun;
         Blockstun = blockstun;
         Knockback = knockback;
         CanKnockdown = knockdown;
         Heavy = heavy;
+
+        // AtkAnimName = 
     }
+
+    //  not sure if we need this but i am preemptively putting this here just in case
+    //  public string AtkAnimName;
+
+    public float Damage;
 
     // hitstun and blockstun are counted in seconds
     public float Hitstun;
@@ -29,18 +37,20 @@ public struct AttackProperties
 public class AttackState : State
 {
     private StateMachine attackStates;
-    private AttackProperties properties;
+    public AttackProperties Properties;
 
     public AttackState(CharacterScript c, int id, AttackProperties properties) : base(c)
     {
         Id = id;
-        this.properties = properties;
+        Properties = properties;
     }
 
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
 
+        //  for testing purposes, we will probably let the animator handle this
+        character.Hitboxes.SetActive(true);
     }
 
     public override int StateAction()
@@ -48,11 +58,33 @@ public class AttackState : State
 
         character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
 
+        //  cancels air attack when character touches ground
+        if ((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) && character.OnGround)
+        {
+            return (int)GeneralStates.IDLE;
+        }
+
+        //  attack interruption
+        if (character.Hit)
+        {
+            character.Hitboxes.SetActive(false);
+            return (int)GeneralStates.HITSTUN;
+        }
+
+        //  test attack state, remove this later
         if (character.OnGround && !(character.AtkHeavy || character.AtkLight))
         {
             return (int)GeneralStates.IDLE;
         }
 
         return nextStateId;
+    }
+
+    public override void EndState()
+    {
+        base.EndState();
+
+        //  for testing purposes, we will probably let the animator handle this
+        character.Hitboxes.SetActive(false);
     }
 }

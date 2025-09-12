@@ -38,12 +38,9 @@ public class AirState : State
 
     public override int StateAction()
     {
-        //  when character is hit out of air, they should be
-        //  helpless until they hit the ground and go into knockdown state
-        //  unless we really want to add juggle combos then i can change this
         if (character.Hit)
         {
-            character.Hurtboxes.SetActive(false);
+            return (int)GeneralStates.HITSTUN;
         }
 
         if (character.OnGround)

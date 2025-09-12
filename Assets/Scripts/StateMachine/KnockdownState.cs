@@ -4,9 +4,11 @@ using UnityEngine;
 public class KnockdownState : State
 {
     //  adjust later
-    private float downTime = 1;
+    private float downTime = 2;
 
-    public KnockdownState(CharacterScript c) : base(c) { }
+    public KnockdownState(CharacterScript c) : base(c) {
+        Id = (int)GeneralStates.KNOCKDOWN;
+    }
 
     public override void StartState(int prevState)
     {
@@ -20,10 +22,14 @@ public class KnockdownState : State
          *  hurtbox should be disabled during this state
          */
         character.Hit = false;
+
+        character.transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
     }
 
     public override int StateAction()
     {
+
+        character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, .25f);
 
         if (stateMach.StateTime >= downTime)
         {
@@ -37,6 +43,9 @@ public class KnockdownState : State
     {
         base.EndState();
 
+        // Debug.Log("back to idle");
+
+        character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         character.Hurtboxes.SetActive(true);
     }
 

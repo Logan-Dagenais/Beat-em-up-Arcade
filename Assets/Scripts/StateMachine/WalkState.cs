@@ -39,6 +39,11 @@ public class WalkState : State
             return (int)GeneralStates.BLOCK;
         }
 
+        if (character.Hit)
+        {
+            return (int)GeneralStates.HITSTUN;
+        }
+
         character.RB2D.linearVelocityX = character.Direction.x * character.WalkSpeed;
 
         return nextStateId;
