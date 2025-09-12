@@ -39,14 +39,26 @@ public class HitstunState : State
 
         character.Health -= atkTaken.Damage;
 
+        //  knocked back upwards slightly when hit in midair
+        if (!character.OnGround)
+        {
+            character.RB2D.linearVelocityY = 0;
+            character.RB2D.AddForceY(200);
+        }
+
+        character.RB2D.linearVelocityX = 0;
         if (hitFromLeft)
         {
-            character.RB2D.AddForce(Vector2.right * atkTaken.Knockback);
+            character.RB2D.AddForceX(atkTaken.Knockback);
         }
         else
         {
-            character.RB2D.AddForce(Vector2.left * atkTaken.Knockback);
+            character.RB2D.AddForceX(-atkTaken.Knockback);
         }
+
+        //  replace this with an animation instead of just rotating it
+        character.transform.rotation = hitFromLeft ?
+            Quaternion.AngleAxis(-45, Vector3.forward) : Quaternion.AngleAxis(45, Vector3.forward);
 
         //  knocks down when hit with a heavy while still in hitstun
         knockedDown = comboCounter >= 2 && atkTaken.Heavy ?
@@ -56,7 +68,10 @@ public class HitstunState : State
         if (prevState == (int)GeneralStates.AIR)
         {
             knockedDown = true;
-            character.Hurtboxes.SetActive(false);
+
+            //  this is literally the only line of code preventing juggling
+            //  i think it would be more fun to have air combos
+            //character.Hurtboxes.SetActive(false);
         }
     }
 
@@ -96,6 +111,9 @@ public class HitstunState : State
         base.EndState();
         knockedDown = false;
         comboCounter = 0;
+
+        //  replace this with animation instead of just rotating it
+        character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
 
         //Debug.Log("back to idle");
     }

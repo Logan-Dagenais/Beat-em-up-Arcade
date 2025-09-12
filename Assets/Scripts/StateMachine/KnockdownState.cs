@@ -23,6 +23,7 @@ public class KnockdownState : State
          */
         character.Hit = false;
 
+        //  replace this with an animation instead of just rotating it
         character.transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
     }
 
@@ -45,6 +46,7 @@ public class KnockdownState : State
 
         // Debug.Log("back to idle");
 
+        //  replace this with animation instead of just rotating it
         character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         character.Hurtboxes.SetActive(true);
     }
