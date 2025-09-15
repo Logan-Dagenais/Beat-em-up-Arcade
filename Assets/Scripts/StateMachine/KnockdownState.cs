@@ -48,6 +48,8 @@ public class KnockdownState : State
 
         //  replace this with animation instead of just rotating it
         character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+
+        character.Hit = false;
         character.Hurtboxes.SetActive(true);
     }
 

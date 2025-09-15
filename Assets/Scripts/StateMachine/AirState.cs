@@ -45,22 +45,10 @@ public class AirState : State
 
         if (character.OnGround)
         {
-
-            if (character.Hit)
-            {
-                return (int)GeneralStates.KNOCKDOWN;
-            }
-
             if (jumped && stateMach.StateTime > jumpSquatTime + 0.1f)
             {
-                if (character.Direction.x == 0)
-                {
-                    return (int)GeneralStates.IDLE;
-                }
-                else
-                {
-                    return (int)GeneralStates.WALK;
-                }
+                return character.Direction.x == 0 ?
+                    (int)GeneralStates.IDLE : (int)GeneralStates.WALK;
             }
 
             JumpCheck();

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public struct AttackProperties
@@ -8,17 +9,10 @@ public struct AttackProperties
     public int RecoverFrames;
     */
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy)
-    {
-        Damage = damage;
-        Hitstun = hitstun;
-        Blockstun = blockstun;
-        Knockback = knockback;
-        CanKnockdown = knockdown;
-        Heavy = heavy;
-
-        // AtkAnimName = 
-    }
+    //  probably will need this at some point, i will add it later
+    //  keeps track of which enemies have already been hit
+    //  within a single attack
+    //public List<CharacterScript> TargetList;
 
     //  not sure if we need this but i am preemptively putting this here just in case
     //  public string AtkAnimName;
@@ -29,9 +23,23 @@ public struct AttackProperties
     public float Hitstun;
     public float Blockstun;
 
+    //  might make knockback a vector2 instead?
     public float Knockback;
     public bool CanKnockdown;
     public bool Heavy;
+
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy)
+    {
+        Damage = damage;
+        Hitstun = hitstun;
+        Blockstun = blockstun;
+        Knockback = knockback;
+        CanKnockdown = knockdown;
+        Heavy = heavy;
+
+
+        // AtkAnimName = 
+    }
 }
 
 public class AttackState : State

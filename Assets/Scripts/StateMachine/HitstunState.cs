@@ -4,7 +4,7 @@ public class HitstunState : State
 {
     //  timer test, replace this with code
     //  that hitstun timer from attack properties later
-    private float hitstun = 2;
+    private float hitstun;
     public float Hitstun { get { return hitstun; } set { hitstun = value; } }
 
     private bool knockedDown;
@@ -38,6 +38,8 @@ public class HitstunState : State
         comboCounter++;
 
         character.Health -= atkTaken.Damage;
+
+        hitstun = atkTaken.Hitstun;
 
         //  knocked back upwards slightly when hit in midair
         if (!character.OnGround)
@@ -81,7 +83,8 @@ public class HitstunState : State
         {
             //  when character is hit out of air, they should be
             //  helpless until they hit the ground and go into knockdown state
-            //  unless we really want to add juggle combos then i can change this
+            //  might need to add some kind of air tech or a way to regain control
+            //  in mid air if we add this
             if (knockedDown)
             {
                 return (int)GeneralStates.KNOCKDOWN;
@@ -100,7 +103,14 @@ public class HitstunState : State
 
         if (stateMach.StateTime >= hitstun && !knockedDown)
         {
-            return (int)GeneralStates.IDLE;
+            if (character.Blocking)
+            {
+                return (int)GeneralStates.BLOCK;
+            }
+            else
+            {
+                return (int)GeneralStates.IDLE;
+            }
         }
 
         return nextStateId;

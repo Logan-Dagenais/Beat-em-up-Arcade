@@ -103,9 +103,8 @@ public class CharacterScript : MonoBehaviour
     //  since every character only has one hitstun state anyways
     public void PassToHitState(AttackProperties atkTaken, bool hitFromLeft)
     {
-        Hit = true;
-
         ((HitstunState)StateMach.StateList[(int)GeneralStates.HITSTUN]).PassToHitState(atkTaken, hitFromLeft);
+        Hit = true;
     }
 
 }
