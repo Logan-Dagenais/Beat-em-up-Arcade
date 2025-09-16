@@ -47,6 +47,11 @@ public class IdleState : State
             return (int)GeneralStates.BLOCK;
         }
 
+        if (character.Hit)
+        {
+            return (int)GeneralStates.HITSTUN;
+        }
+
         return nextStateId;
     }
 
