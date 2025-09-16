@@ -693,6 +693,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Managers",
+            "id": "45d71fa9-6181-4c86-914c-7c510e731f0d",
+            "actions": [
+                {
+                    "name": "OpenSceneSelect",
+                    "type": "Button",
+                    "id": "8c5f0805-2811-42c5-aded-b7a1c4ba020c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PanicButton",
+                    "type": "Button",
+                    "id": "13b01d5a-3c29-41fc-8ae8-e0a950b1484e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dea6aa18-9344-495d-bcff-278a4c34deb2",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSceneSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc0799a1-cba0-4020-aa50-ba6f4f6662d2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PanicButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

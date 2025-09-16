@@ -20,13 +20,11 @@ public class PlayerScript : CharacterScript
         atkH = input.currentActionMap.FindAction("Heavy Attack");
         block = input.currentActionMap.FindAction("Block");
 
-        StateMach = GetComponent<StateMachine>();
-
         //  unfortunately as of now we will need to manually add every state
         //  with this long line
         //  honestly could not figure out a better way for right now
 
-        StateMach.States = new()
+        StateMach.StateList = new()
         {
             {(int)GeneralStates.IDLE, 
             new IdleState(this)},
@@ -41,10 +39,25 @@ public class PlayerScript : CharacterScript
             new CrouchState(this) },
 
             {(int)GeneralStates.ATKLIGHT,
-            new AttackState(this, (int)GeneralStates.ATKLIGHT, new AttackProperties(.5f, .25f, 100, false, false))},
+            new AttackState(this,
+                (int)GeneralStates.ATKLIGHT,
+                new AttackProperties(5, .5f, .25f, 100, false, false, false))},
 
             {(int)GeneralStates.ATKHEAVY,
-            new AttackState(this, (int)GeneralStates.ATKHEAVY, new AttackProperties(1f, .5f, 200, false, true))},
+            new AttackState(this,
+                (int)GeneralStates.ATKHEAVY,
+                new AttackProperties(10, 1f, .5f, 200, false, true, false))},
+
+            {(int)GeneralStates.ATKLIGHTCR,
+            new AttackState(this,
+                (int)GeneralStates.ATKLIGHTCR,
+                new AttackProperties(5, .5f, .25f, 100, false, false, true))},
+
+            {(int)GeneralStates.HITSTUN,
+            new HitstunState(this)},
+
+            {(int)GeneralStates.KNOCKDOWN,
+            new KnockdownState(this)},
 
             {(int)GeneralStates.BLOCK,
             new BlockState(this)}

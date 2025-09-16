@@ -13,9 +13,7 @@ public class StateMachine : MonoBehaviour
 
     public float StateTime;
 
-    private Dictionary<int, State> StateList; 
-
-    public Dictionary<int, State> States { get {return StateList;} set { StateList = value; } }
+    public Dictionary<int, State> StateList; 
 
     private void TransitionState(int newStateId)
     {
@@ -29,20 +27,21 @@ public class StateMachine : MonoBehaviour
         currentStateId = newStateId;
         StateList[currentStateId].StartState(previousStateId);
 
-        print("switching to " + StateList[currentStateId].ToString());
+        print(gameObject.name+": switching to " + StateList[currentStateId].ToString());
     }
 
     private const int MAX_TIME = 99;
 
     private void FixedUpdate()
     {
-        int nextStateId = StateList.ContainsKey(currentStateId) ?
-            StateList[currentStateId].StateAction() : previousStateId;
+        int nextStateId = StateList[currentStateId].StateAction();
 
-        if (StateList.ContainsKey(currentStateId))
+        if (!StateList.ContainsKey(nextStateId))
         {
-            TransitionState(nextStateId);
+            nextStateId = currentStateId;
         }
+
+        TransitionState(nextStateId);
 
         if (StateTime < MAX_TIME)
         {
