@@ -27,8 +27,9 @@ public struct AttackProperties
     public float Knockback;
     public bool CanKnockdown;
     public bool Heavy;
+    public bool Low;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy)
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
     {
         Damage = damage;
         Hitstun = hitstun;
@@ -36,6 +37,7 @@ public struct AttackProperties
         Knockback = knockback;
         CanKnockdown = knockdown;
         Heavy = heavy;
+        Low = low;
 
 
         // AtkAnimName = 

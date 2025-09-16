@@ -41,12 +41,17 @@ public class PlayerScript : CharacterScript
             {(int)GeneralStates.ATKLIGHT,
             new AttackState(this,
                 (int)GeneralStates.ATKLIGHT,
-                new AttackProperties(5, .5f, .25f, 100, false, false))},
+                new AttackProperties(5, .5f, .25f, 100, false, false, false))},
 
             {(int)GeneralStates.ATKHEAVY,
             new AttackState(this,
                 (int)GeneralStates.ATKHEAVY,
-                new AttackProperties(10, 1f, .5f, 200, false, true))},
+                new AttackProperties(10, 1f, .5f, 200, false, true, false))},
+
+            {(int)GeneralStates.ATKLIGHTCR,
+            new AttackState(this,
+                (int)GeneralStates.ATKLIGHTCR,
+                new AttackProperties(5, .5f, .25f, 100, false, false, true))},
 
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},
