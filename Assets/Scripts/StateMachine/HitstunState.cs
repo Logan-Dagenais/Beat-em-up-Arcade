@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HitstunState : State
+public class HitstunState : State, IAttackInteraction
 {
     //  timer test, replace this with code
     //  that hitstun timer from attack properties later
@@ -19,7 +19,7 @@ public class HitstunState : State
     /*
      *  this is a little weird and funky but it works
      */
-    public void PassToHitState(AttackProperties atkTaken, bool hitFromLeft)
+    public void PassToState(AttackProperties atkTaken, bool hitFromLeft)
     {
         this.atkTaken = atkTaken;
         this.hitFromLeft = hitFromLeft;

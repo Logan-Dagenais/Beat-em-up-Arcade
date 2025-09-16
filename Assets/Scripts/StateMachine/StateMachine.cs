@@ -34,13 +34,14 @@ public class StateMachine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int nextStateId = StateList.ContainsKey(currentStateId) ?
-            StateList[currentStateId].StateAction() : previousStateId;
+        int nextStateId = StateList[currentStateId].StateAction();
 
-        if (StateList.ContainsKey(currentStateId))
+        if (!StateList.ContainsKey(nextStateId))
         {
-            TransitionState(nextStateId);
+            nextStateId = currentStateId;
         }
+
+        TransitionState(nextStateId);
 
         if (StateTime < MAX_TIME)
         {

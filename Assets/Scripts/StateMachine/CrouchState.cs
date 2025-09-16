@@ -19,6 +19,16 @@ public class CrouchState : State
             return (int)GeneralStates.IDLE;
         }
 
+        if (character.AtkLight)
+        {
+            return (int)GeneralStates.ATKLIGHTCR;
+        }
+
+        if (character.AtkHeavy)
+        {
+            return (int)GeneralStates.ATKHEAVYCR;
+        }
+
         character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
 
         return nextStateId;
