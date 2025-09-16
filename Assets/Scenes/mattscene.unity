@@ -428,6 +428,7 @@ MonoBehaviour:
   JumpForce: 600
   WalkSpeed: 5
   Facingleft: 0
+  Friction: 1
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}
@@ -938,6 +939,7 @@ MonoBehaviour:
   JumpForce: 600
   WalkSpeed: 5
   Facingleft: 0
+  Friction: 1
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}

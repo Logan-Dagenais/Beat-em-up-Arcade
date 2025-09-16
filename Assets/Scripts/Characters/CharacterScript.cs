@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-interface IAttackInteraction
-{
-    public void PassToState(AttackProperties atkTaken, bool hitFromLeft);
-}
-
-public class CharacterScript : MonoBehaviour, IAttackInteraction
+public class CharacterScript : MonoBehaviour
 {
     //  character attributes
     public float Health;
@@ -19,6 +14,12 @@ public class CharacterScript : MonoBehaviour, IAttackInteraction
     public bool Facingleft;
 
     public AttackProperties[] AttackList;
+
+    public float Friction;
+
+    //  keeps track of what enemies have already been hit
+    //  so that attacks can only hit once on activation
+    public List<CharacterScript> EnemiesHit;
 
     //  components
     public Rigidbody2D RB2D;
@@ -42,6 +43,10 @@ public class CharacterScript : MonoBehaviour, IAttackInteraction
     [SerializeField] public bool Blocking;
 
     public bool Hit;
+
+    public AttackProperties AtkTaken;
+    public bool HitFromLeft;
+    public bool GuardBreak;
 
     protected void Awake()
     {
@@ -67,53 +72,65 @@ public class CharacterScript : MonoBehaviour, IAttackInteraction
         }
     }
 
+    //  this function basically takes the attack state data and transfers it
+    //  to the target that was hit so it reacts accordingly
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Hurtbox"))
+        if (!collision.gameObject.CompareTag("Hurtbox"))
         {
-            AttackProperties atkData;
+            return;
+        }
 
-            //  checking if current state is an attack
-            //  skips method if not
-            switch (StateMach.CurrentState)
-            {
-                case (int)GeneralStates.ATKLIGHT:
-                case (int)GeneralStates.ATKHEAVY:
+        AttackProperties atkData;
 
-                case (int)GeneralStates.ATKLIGHTCR:
-                case (int)GeneralStates.ATKHEAVYCR:
+        //  checking if current state is an attack
+        //  skips method if not
+        switch (StateMach.CurrentState)
+        {
+            case (int)GeneralStates.ATKLIGHT:
+            case (int)GeneralStates.ATKHEAVY:
 
-                case (int)GeneralStates.ATKLIGHTAIR:
-                case (int)GeneralStates.ATKHEAVYAIR:
-                    atkData = ((AttackState)StateMach.StateList[StateMach.CurrentState]).Properties;
-                    break;
+            case (int)GeneralStates.ATKLIGHTCR:
+            case (int)GeneralStates.ATKHEAVYCR:
 
-                default:
-                    return;
-            }
+            case (int)GeneralStates.ATKLIGHTAIR:
+            case (int)GeneralStates.ATKHEAVYAIR:
+                atkData = ((AttackState)StateMach.StateList[StateMach.CurrentState]).Properties;
+                break;
 
-            Transform collisionParent = collision.transform.parent;
+            default:
+                return;
+        }
+
+        Transform collisionParent = collision.transform.parent;
+        CharacterScript collisionCharacter = collisionParent.GetComponent<CharacterScript>();
+
+        if (!EnemiesHit.Contains(collisionCharacter))
+        {
+            EnemiesHit.Add(collisionCharacter);
 
             //  checking what direction the attack was from
             bool hitFromLeft = collisionParent.position.x < transform.position.x ? false : true;
 
-            collisionParent.GetComponent<CharacterScript>().PassToState(atkData, hitFromLeft);
-
+            collisionCharacter.HitReaction(atkData, hitFromLeft);
         }
     }
 
-    //  hit detection stuff kinda messy right now
-    //  not sure if this is how you properly use dependency injection
-    //  since every character only has one hitstun state anyways
-    public void PassToState(AttackProperties atkTaken, bool hitFromLeft)
+    public void HitReaction(AttackProperties atkTaken, bool hitFromLeft)
     {
-        //  this is a little janky but works for now
-        //  should probably find a better way to do this later
-        ((HitstunState)StateMach.StateList[(int)GeneralStates.HITSTUN]).PassToState(atkTaken, hitFromLeft);
-        ((BlockState)StateMach.StateList[(int)GeneralStates.BLOCK]).PassToState(atkTaken, hitFromLeft);
+        AtkTaken = atkTaken;
+        HitFromLeft = hitFromLeft;
 
         Hit = true;
+    }
+
+    private void FixedUpdate()
+    {
+        if (OnGround)
+        {
+            RB2D.linearVelocityX = Mathf.MoveTowards(RB2D.linearVelocityX, 0, Friction);
+        }
+
     }
 
 }
@@ -145,6 +162,7 @@ public enum GeneralStates
     //  pain
     HITSTUN,
     KNOCKDOWN,
+    BLOCKSTUN,
 
     //  pain avoidance
     BLOCK,

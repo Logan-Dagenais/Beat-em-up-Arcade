@@ -53,11 +53,29 @@ public class PlayerScript : CharacterScript
                 (int)GeneralStates.ATKLIGHTCR,
                 new AttackProperties(5, .5f, .25f, 100, false, false, true))},
 
+            {(int)GeneralStates.ATKHEAVYCR,
+            new AttackState(this,
+                (int)GeneralStates.ATKHEAVYCR,
+                new AttackProperties(10, 1f, .5f, 200, true, true, true))},
+
+            {(int)GeneralStates.ATKLIGHTAIR,
+            new AttackState(this,
+                (int)GeneralStates.ATKLIGHTAIR,
+                new AttackProperties(5, .5f, .25f, 100, false, false, false))},
+
+            {(int)GeneralStates.ATKHEAVYAIR,
+            new AttackState(this,
+                (int)GeneralStates.ATKHEAVYAIR,
+                new AttackProperties(10, 1f, .5f, 200, true, true, false))},
+
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},
 
             {(int)GeneralStates.KNOCKDOWN,
             new KnockdownState(this)},
+
+            {(int)GeneralStates.BLOCKSTUN,
+            new BlockstunState(this)},
 
             {(int)GeneralStates.BLOCK,
             new BlockState(this)}

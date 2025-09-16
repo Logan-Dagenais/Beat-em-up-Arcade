@@ -9,11 +9,6 @@ public struct AttackProperties
     public int RecoverFrames;
     */
 
-    //  probably will need this at some point, i will add it later
-    //  keeps track of which enemies have already been hit
-    //  within a single attack
-    //public List<CharacterScript> TargetList;
-
     //  not sure if we need this but i am preemptively putting this here just in case
     //  public string AtkAnimName;
 
@@ -59,15 +54,14 @@ public class AttackState : State
     {
         base.StartState(prevState);
 
+        character.EnemiesHit.Clear();
+
         //  for testing purposes, we will probably let the animator handle this
         character.Hitboxes.SetActive(true);
     }
 
     public override int StateAction()
     {
-
-        character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
-
         //  cancels air attack when character touches ground
         if ((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) && character.OnGround)
         {
