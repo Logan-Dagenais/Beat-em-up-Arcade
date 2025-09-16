@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Hitbox
   - Hurtbox
   layers:
   - Default
@@ -14,8 +13,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Combat
-  - 
+  - Hurtbox
+  - Hitbox
   - 
   - 
   - 
