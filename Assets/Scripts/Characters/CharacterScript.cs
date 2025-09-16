@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class CharacterScript : MonoBehaviour
+interface IAttackInteraction
+{
+    public void PassToState(AttackProperties atkTaken, bool hitFromLeft);
+}
+
+public class CharacterScript : MonoBehaviour, IAttackInteraction
 {
     //  character attributes
     public float Health;
@@ -93,7 +98,7 @@ public class CharacterScript : MonoBehaviour
             //  checking what direction the attack was from
             bool hitFromLeft = collisionParent.position.x < transform.position.x ? false : true;
 
-            collisionParent.GetComponent<CharacterScript>().PassToHitState(atkData, hitFromLeft);
+            collisionParent.GetComponent<CharacterScript>().PassToState(atkData, hitFromLeft);
 
         }
     }
@@ -101,9 +106,13 @@ public class CharacterScript : MonoBehaviour
     //  hit detection stuff kinda messy right now
     //  not sure if this is how you properly use dependency injection
     //  since every character only has one hitstun state anyways
-    public void PassToHitState(AttackProperties atkTaken, bool hitFromLeft)
+    public void PassToState(AttackProperties atkTaken, bool hitFromLeft)
     {
-        ((HitstunState)StateMach.StateList[(int)GeneralStates.HITSTUN]).PassToHitState(atkTaken, hitFromLeft);
+        //  this is a little janky but works for now
+        //  should probably find a better way to do this later
+        ((HitstunState)StateMach.StateList[(int)GeneralStates.HITSTUN]).PassToState(atkTaken, hitFromLeft);
+        ((BlockState)StateMach.StateList[(int)GeneralStates.BLOCK]).PassToState(atkTaken, hitFromLeft);
+
         Hit = true;
     }
 
