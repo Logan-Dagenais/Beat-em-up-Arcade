@@ -13,7 +13,7 @@ public class BlockstunState : StunState
 
         stunTime = character.AtkTaken.Blockstun;
 
-        character.Friction = .25f;
+        //character.Friction = .25f;
     }
 
     public override int StateAction()
@@ -36,7 +36,7 @@ public class BlockstunState : StunState
     {
         base.EndState();
 
-        character.Friction = 1;
+        //character.Friction = 1;
     }
 
 

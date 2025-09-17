@@ -15,7 +15,7 @@ public class HitstunState : StunState
     {
         base.StartState(prevState);
 
-        character.Friction = .25f;
+        //character.Friction = .25f;
 
         comboCounter++;
 
@@ -34,8 +34,9 @@ public class HitstunState : StunState
         //  knocked back upwards slightly when hit in midair
         if (!character.OnGround)
         {
-            character.RB2D.linearVelocityY = 0;
-            character.RB2D.AddForceY(200);
+            //character.Velocity.y = 0;
+            //character.RB2D.AddForceY(200);
+            character.Velocity.y = 15;
 
             knockedDown = true;
 
@@ -78,7 +79,7 @@ public class HitstunState : StunState
     public override void EndState()
     {
         base.EndState();
-        character.Friction = 1;
+        //character.Friction = 1;
 
         knockedDown = false;
         comboCounter = 0;

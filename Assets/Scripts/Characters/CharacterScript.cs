@@ -21,6 +21,8 @@ public class CharacterScript : MonoBehaviour
     //  so that attacks can only hit once on activation
     public List<CharacterScript> EnemiesHit;
 
+    public Vector2 Velocity;
+
     //  components
     public Rigidbody2D RB2D;
 
@@ -32,6 +34,7 @@ public class CharacterScript : MonoBehaviour
     public GameObject Hitboxes;
 
     [SerializeField] private ContactFilter2D contactFilter;
+    [SerializeField] private Rigidbody2D.SlideMovement slideMove;
 
     //  state machine inputs
     public Vector2 Direction;
@@ -126,9 +129,15 @@ public class CharacterScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
+
         if (OnGround)
         {
-            RB2D.linearVelocityX = Mathf.MoveTowards(RB2D.linearVelocityX, 0, Friction);
+            Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
+        }
+        else
+        {
+            Velocity.y = Mathf.MoveTowards(Velocity.y, -60, 2);
         }
 
     }
