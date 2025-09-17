@@ -424,7 +424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b751de1cab6bfad41b16d4438675ad42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   Health: 100
+  MaxGuardIntegrity: 30
+  GuardIntegrity: 30
   JumpForce: 20
   WalkSpeed: 5
   Facingleft: 0
@@ -474,6 +477,8 @@ MonoBehaviour:
   Hit: 0
   HitFromLeft: 0
   GuardBreak: 0
+  GuardIntCooldown: 6
+  GuardIntTimer: 0
 --- !u!114 &452350158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b8ff7d649355e499b18e0287f3df01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   Health: 100
+  MaxGuardIntegrity: 30
+  GuardIntegrity: 30
   JumpForce: 20
   WalkSpeed: 5
   Facingleft: 0
@@ -913,6 +921,8 @@ MonoBehaviour:
   Hit: 0
   HitFromLeft: 0
   GuardBreak: 0
+  GuardIntCooldown: 6
+  GuardIntTimer: 0
 --- !u!114 &1384633046
 MonoBehaviour:
   m_ObjectHideFlags: 0

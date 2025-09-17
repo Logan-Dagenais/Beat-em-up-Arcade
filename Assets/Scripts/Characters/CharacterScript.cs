@@ -6,7 +6,10 @@ using UnityEngine.TextCore.Text;
 public class CharacterScript : MonoBehaviour
 {
     //  character attributes
+    [SerializeField] private float MaxHealth;
     public float Health;
+    [SerializeField] private float MaxGuardIntegrity;
+    public float GuardIntegrity;
 
     public float JumpForce;
     public float WalkSpeed;
@@ -51,11 +54,16 @@ public class CharacterScript : MonoBehaviour
     public bool HitFromLeft;
     public bool GuardBreak;
 
+    [SerializeField] private float GuardIntCooldown;
+    public float GuardIntTimer;
+
     protected void Awake()
     {
         RB2D = GetComponent<Rigidbody2D>();
         StateMach = GetComponent<StateMachine>();
 
+        Health = MaxHealth;
+        GuardIntegrity = MaxGuardIntegrity;
 
         //  code for making sure character has a hurtbox and hitbox
         //  while ignoring the order
@@ -138,6 +146,28 @@ public class CharacterScript : MonoBehaviour
         else
         {
             Velocity.y = Mathf.MoveTowards(Velocity.y, -60, 2);
+        }
+
+        if (GuardIntTimer >= GuardIntCooldown)
+        {
+            GuardIntTimer = 0;
+            GuardIntegrity = MaxGuardIntegrity;
+        }
+
+
+        if (GuardIntegrity != MaxGuardIntegrity)
+        {
+            switch (StateMach.CurrentState)
+            {
+                case (int)GeneralStates.BLOCKSTUN:
+                case (int)GeneralStates.BLOCK:
+                    break;
+
+                default:
+                    GuardIntTimer += Time.deltaTime;
+                    break;
+            }
+
         }
 
     }
