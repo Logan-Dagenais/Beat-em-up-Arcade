@@ -30,10 +30,11 @@ public class ButtonManager : MonoBehaviour
 
     private void Handle_OpenSceneSelection(InputAction.CallbackContext context)
     {
-        if (!SceneSelectUI.activeInHierarchy)
+        if(!SceneSelectUI.activeInHierarchy)
         {
-            SceneSelectUIButton();
+            SceneSelectUI.SetActive(true);
         }
+        
     }
 
 
@@ -67,6 +68,8 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            SceneSelectUI = null;
+            SceneSelect.started -= Handle_OpenSceneSelection;
             print("Opening" + select);
             SceneManager.LoadScene(select);
         }
