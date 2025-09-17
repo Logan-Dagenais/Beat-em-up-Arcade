@@ -1,4 +1,8 @@
 using System;
+using System.Collections;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,6 +16,10 @@ public class ButtonManager : MonoBehaviour
     public PlayerInput MenuActions;
     public InputAction SceneSelect;
     public InputAction PanicButton;
+
+    public string Warning1;
+    public string Warning2;
+    public TMP_Text WarningBox;
 
 
     private void Start()
@@ -30,11 +38,11 @@ public class ButtonManager : MonoBehaviour
 
     private void Handle_OpenSceneSelection(InputAction.CallbackContext context)
     {
-        if(!SceneSelectUI.activeInHierarchy)
+        if (!SceneSelectUI.activeInHierarchy)
         {
             SceneSelectUI.SetActive(true);
         }
-        
+
     }
 
 
@@ -62,9 +70,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (select.Contains("Unused"))
         {
-            print("This scene has not been added. Please create a new scene and apply it's use through the" +
-                " Build Profiles menu in the File category at the top of the Unity Editor, then edit this button " +
-                "to include the name of the added scene. (Formatting matters)");
+            StartCoroutine(WarningSceneSelect());
         }
         else
         {
@@ -106,6 +112,16 @@ public class ButtonManager : MonoBehaviour
     public void DoQuit()
     {
         Application.Quit();
+    }
+
+
+    public IEnumerator WarningSceneSelect()
+    {
+        WarningBox.text = Warning1;
+        yield return new WaitForSeconds(2);
+        WarningBox.text = Warning2;
+        yield return new WaitForSeconds(7);
+        WarningBox.text = " ";
     }
 
 }
