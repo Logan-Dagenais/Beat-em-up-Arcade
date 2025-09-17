@@ -20,6 +20,13 @@ public class CharacterScript : MonoBehaviour
 
     public float Friction;
 
+    //  note: gravity and terminal velocity are kinda affected by slideMove.gravity
+    //  i don't think by much though
+    //  also note that these do not use unity's normal gravity scale, i am pretty sure
+    //  the measurements are based on the unity unit though.
+    [SerializeField] private float Gravity;
+    [SerializeField] private float TerminalVelocity;
+
     //  keeps track of what enemies have already been hit
     //  so that attacks can only hit once on activation
     public List<CharacterScript> EnemiesHit;
@@ -145,7 +152,7 @@ public class CharacterScript : MonoBehaviour
         }
         else
         {
-            Velocity.y = Mathf.MoveTowards(Velocity.y, -60, 2);
+            Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
         }
 
         if (GuardIntTimer >= GuardIntCooldown)
