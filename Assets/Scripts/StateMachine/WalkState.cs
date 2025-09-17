@@ -7,6 +7,20 @@ public class WalkState : State
         Id = (int)GeneralStates.WALK;
     }
 
+    public override void StartState(int prevState)
+    {
+        base.StartState(prevState);
+
+        if (character.Direction.x < 0)
+        {
+            character.Facingleft = true;
+        }
+        else if (character.Direction.x > 0)
+        {
+            character.Facingleft = false;
+        }
+    }
+
     public override int StateAction()
     {
         if (!character.OnGround || character.Direction.y > 0)

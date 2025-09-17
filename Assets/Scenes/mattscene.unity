@@ -428,6 +428,8 @@ MonoBehaviour:
   JumpForce: 600
   WalkSpeed: 5
   Facingleft: 0
+  Friction: 1
+  EnemiesHit: []
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}
@@ -452,6 +454,8 @@ MonoBehaviour:
   AtkHeavy: 0
   Blocking: 0
   Hit: 0
+  HitFromLeft: 0
+  GuardBreak: 0
 --- !u!114 &452350158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bc33f3003780f41bdb2efd1ae9dacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateId: 0
   StateTime: 0
 --- !u!114 &452350159
 MonoBehaviour:
@@ -529,6 +534,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
+      propertyPath: MenuActions
+      value: 
+      objectReference: {fileID: 452350159}
+    - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
+      propertyPath: SceneSelectUI
+      value: 
+      objectReference: {fileID: 777360366}
     - target: {fileID: 2516677798987611884, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: m_Name
       value: DebugSceneSelectionPackage
@@ -582,6 +595,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
+--- !u!1 &777360366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4968806741777717713, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
+  m_PrefabInstance: {fileID: 777360364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &794943406
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bc33f3003780f41bdb2efd1ae9dacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateId: 0
   StateTime: 0
 --- !u!50 &1506754582
 Rigidbody2D:
@@ -1003,6 +1022,8 @@ MonoBehaviour:
   JumpForce: 600
   WalkSpeed: 5
   Facingleft: 0
+  Friction: 1
+  EnemiesHit: []
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}
@@ -1027,6 +1048,8 @@ MonoBehaviour:
   AtkHeavy: 0
   Blocking: 0
   Hit: 0
+  HitFromLeft: 0
+  GuardBreak: 0
 --- !u!1 &1726392242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,3 +1542,4 @@ SceneRoots:
   - {fileID: 794943409}
   - {fileID: 452350156}
   - {fileID: 1506754585}
+  - {fileID: 777360364}

@@ -52,8 +52,16 @@ public class AirState : State
             }
 
             JumpCheck();
+        }
 
-            character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
+        if (character.AtkLight)
+        {
+            return (int)GeneralStates.ATKLIGHTAIR;
+        }
+
+        if (character.AtkHeavy)
+        {
+            return (int)GeneralStates.ATKHEAVYAIR;
         }
 
         return nextStateId;

@@ -1,4 +1,8 @@
 using System;
+using System.Collections;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -13,10 +17,14 @@ public class ButtonManager : MonoBehaviour
     public InputAction SceneSelect;
     public InputAction PanicButton;
 
+    public string Warning1;
+    public string Warning2;
+    public TMP_Text WarningBox;
+
 
     private void Start()
     {
-        MenuActions.currentActionMap.Enable();
+        //MenuActions.currentActionMap.Enable();
         SceneSelect = MenuActions.currentActionMap.FindAction("OpenSceneSelect");
         PanicButton = MenuActions.currentActionMap.FindAction("PanicButton");
         SceneSelect.started += Handle_OpenSceneSelection;
@@ -32,8 +40,9 @@ public class ButtonManager : MonoBehaviour
     {
         if (!SceneSelectUI.activeInHierarchy)
         {
-            SceneSelectUIButton();
+            SceneSelectUI.SetActive(true);
         }
+
     }
 
 
@@ -61,12 +70,12 @@ public class ButtonManager : MonoBehaviour
     {
         if (select.Contains("Unused"))
         {
-            print("This scene has not been added. Please create a new scene and apply it's use through the" +
-                " Build Profiles menu in the File category at the top of the Unity Editor, then edit this button " +
-                "to include the name of the added scene. (Formatting matters)");
+            StartCoroutine(WarningSceneSelect());
         }
         else
         {
+            SceneSelectUI = null;
+            SceneSelect.started -= Handle_OpenSceneSelection;
             print("Opening" + select);
             SceneManager.LoadScene(select);
         }
@@ -103,6 +112,16 @@ public class ButtonManager : MonoBehaviour
     public void DoQuit()
     {
         Application.Quit();
+    }
+
+
+    public IEnumerator WarningSceneSelect()
+    {
+        WarningBox.text = Warning1;
+        yield return new WaitForSeconds(2);
+        WarningBox.text = Warning2;
+        yield return new WaitForSeconds(7);
+        WarningBox.text = " ";
     }
 
 }
