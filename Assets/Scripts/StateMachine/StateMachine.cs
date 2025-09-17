@@ -6,7 +6,7 @@ using static UnityEditor.VersionControl.Asset;
 
 public class StateMachine : MonoBehaviour
 {
-    private int currentStateId;
+    [SerializeField] private int currentStateId;
     public int CurrentState {  get { return currentStateId; } set { currentStateId = value; } }
 
     private int previousStateId;
