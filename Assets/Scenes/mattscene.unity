@@ -742,6 +742,7 @@ MonoBehaviour:
   GuardIntegrity: 0
   JumpForce: 20
   WalkSpeed: 5
+  AirMobilityAccel: 1
   Facingleft: 0
   Friction: 1
   Gravity: 2
@@ -1647,6 +1648,7 @@ MonoBehaviour:
   GuardIntegrity: 0
   JumpForce: 20
   WalkSpeed: 5
+  AirMobilityAccel: 0
   Facingleft: 0
   Friction: 1
   Gravity: 2
@@ -1897,6 +1899,7 @@ MonoBehaviour:
   GuardIntegrity: 0
   JumpForce: 20
   WalkSpeed: 5
+  AirMobilityAccel: 0
   Facingleft: 0
   Friction: 1
   Gravity: 2

@@ -13,6 +13,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public float JumpForce;
     public float WalkSpeed;
+    public float AirMobilityAccel;
 
     public bool Facingleft;
 

@@ -54,6 +54,11 @@ public class AirState : State
 
             JumpCheck();
         }
+        else
+        {
+            character.Velocity.x += character.Direction.x * character.AirMobilityAccel;
+            character.Velocity.x = Mathf.Clamp(character.Velocity.x, -character.WalkSpeed, character.WalkSpeed);
+        }
 
         if (character.AtkLight)
         {
