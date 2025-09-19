@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class CharacterScript : MonoBehaviour
+abstract public class CharacterScript : MonoBehaviour
 {
     //  character attributes
     [SerializeField] private float MaxHealth;
@@ -214,5 +214,3 @@ public enum GeneralStates
     BLOCK,
     DODGE
 }
-
-

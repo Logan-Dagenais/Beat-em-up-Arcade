@@ -14,6 +14,7 @@ public class BlockstunState : StunState
         stunTime = character.AtkTaken.Blockstun;
 
         character.GuardIntegrity -= character.AtkTaken.Damage;
+        character.GetComponent<SpriteRenderer>().color = Color.blue;
 
         //character.Friction = .25f;
     }
@@ -44,6 +45,7 @@ public class BlockstunState : StunState
     {
         base.EndState();
 
+        character.GetComponent<SpriteRenderer>().color = Color.white;
         //character.Friction = 1;
     }
 

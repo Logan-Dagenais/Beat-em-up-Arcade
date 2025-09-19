@@ -45,9 +45,8 @@ public class HitstunState : StunState
             //character.Hurtboxes.SetActive(false);
         }
 
-        //  replace this with an animation instead of just rotating it
-        character.transform.rotation = character.HitFromLeft ?
-            Quaternion.AngleAxis(-45, Vector3.forward) : Quaternion.AngleAxis(45, Vector3.forward);
+        //  replace this with an animation
+        character.GetComponent<SpriteRenderer>().color = Color.red;
 
         character.GuardBreak = false;
     }
@@ -84,8 +83,9 @@ public class HitstunState : StunState
         knockedDown = false;
         comboCounter = 0;
 
-        //  replace this with animation instead of just rotating it
-        character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        //  replace this with animation
+        character.GetComponent<SpriteRenderer>().color = Color.white;
+
 
         //Debug.Log("back to idle");
     }
