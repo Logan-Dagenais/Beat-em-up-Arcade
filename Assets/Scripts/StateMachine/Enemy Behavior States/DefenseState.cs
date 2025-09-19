@@ -53,15 +53,19 @@ public class DefenseState : State
 
         if (Mathf.RoundToInt(character.transform.position.x) < randomTarget)
         {
+            character.Blocking = false;
             character.Direction.x = 1;
         }
         else if (Mathf.RoundToInt(character.transform.position.x) > randomTarget)
         {
+            character.Blocking = false;
             character.Direction.x = -1;
         }
         else
         {
-            character.Direction.x = 0;
+            character.Blocking = true;
+            //  blocking the direction the player is in
+            character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
         }
 
         if (destinationSwitchTimer < stateMach.StateTime)
@@ -75,5 +79,11 @@ public class DefenseState : State
         }
 
         return nextStateId;
+    }
+
+    public override void EndState()
+    {
+        base.EndState();
+        character.Blocking = false;
     }
 }
