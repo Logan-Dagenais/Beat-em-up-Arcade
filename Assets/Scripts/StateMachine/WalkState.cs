@@ -11,6 +11,8 @@ public class WalkState : State
     {
         base.StartState(prevState);
 
+        character.Velocity.y = 0;
+
         if (character.Direction.x < 0)
         {
             character.Facingleft = true;
@@ -58,7 +60,7 @@ public class WalkState : State
             return (int)GeneralStates.HITSTUN;
         }
 
-        character.RB2D.linearVelocityX = character.Direction.x * character.WalkSpeed;
+        character.Velocity.x = character.Direction.x * character.WalkSpeed;
 
         return nextStateId;
     }

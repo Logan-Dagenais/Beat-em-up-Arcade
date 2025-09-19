@@ -14,7 +14,7 @@ public class KnockdownState : State
     {
         base.StartState(prevState);
 
-        character.Friction = .25f;
+        //character.Friction = .25f;
 
         character.Hurtboxes.SetActive(false);
 
@@ -43,7 +43,7 @@ public class KnockdownState : State
     {
         base.EndState();
 
-        character.Friction = 1;
+        //character.Friction = 1;
 
         // Debug.Log("back to idle");
 

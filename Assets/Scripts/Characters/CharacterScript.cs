@@ -6,7 +6,10 @@ using UnityEngine.TextCore.Text;
 public class CharacterScript : MonoBehaviour
 {
     //  character attributes
+    [SerializeField] private float MaxHealth;
     public float Health;
+    [SerializeField] private float MaxGuardIntegrity;
+    public float GuardIntegrity;
 
     public float JumpForce;
     public float WalkSpeed;
@@ -17,9 +20,18 @@ public class CharacterScript : MonoBehaviour
 
     public float Friction;
 
+    //  note: gravity and terminal velocity are kinda affected by slideMove.gravity
+    //  i don't think by much though
+    //  also note that these do not use unity's normal gravity scale, i am pretty sure
+    //  the measurements are based on the unity unit though.
+    [SerializeField] private float Gravity;
+    [SerializeField] private float TerminalVelocity;
+
     //  keeps track of what enemies have already been hit
     //  so that attacks can only hit once on activation
     public List<CharacterScript> EnemiesHit;
+
+    public Vector2 Velocity;
 
     //  components
     public Rigidbody2D RB2D;
@@ -32,6 +44,7 @@ public class CharacterScript : MonoBehaviour
     public GameObject Hitboxes;
 
     [SerializeField] private ContactFilter2D contactFilter;
+    [SerializeField] private Rigidbody2D.SlideMovement slideMove;
 
     //  state machine inputs
     public Vector2 Direction;
@@ -48,11 +61,16 @@ public class CharacterScript : MonoBehaviour
     public bool HitFromLeft;
     public bool GuardBreak;
 
+    [SerializeField] private float GuardIntCooldown;
+    public float GuardIntTimer;
+
     protected void Awake()
     {
         RB2D = GetComponent<Rigidbody2D>();
         StateMach = GetComponent<StateMachine>();
 
+        Health = MaxHealth;
+        GuardIntegrity = MaxGuardIntegrity;
 
         //  code for making sure character has a hurtbox and hitbox
         //  while ignoring the order
@@ -126,9 +144,37 @@ public class CharacterScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
+
         if (OnGround)
         {
-            RB2D.linearVelocityX = Mathf.MoveTowards(RB2D.linearVelocityX, 0, Friction);
+            Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
+        }
+        else
+        {
+            Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
+        }
+
+        if (GuardIntTimer >= GuardIntCooldown)
+        {
+            GuardIntTimer = 0;
+            GuardIntegrity = MaxGuardIntegrity;
+        }
+
+
+        if (GuardIntegrity != MaxGuardIntegrity)
+        {
+            switch (StateMach.CurrentState)
+            {
+                case (int)GeneralStates.BLOCKSTUN:
+                case (int)GeneralStates.BLOCK:
+                    break;
+
+                default:
+                    GuardIntTimer += Time.deltaTime;
+                    break;
+            }
+
         }
 
     }
