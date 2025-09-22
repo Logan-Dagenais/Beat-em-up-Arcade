@@ -7,6 +7,7 @@ abstract public class State
     public int Id;
 
     protected bool stateComplete;
+    protected bool animPlayed;
 
     protected int prevStateId;
     protected int nextStateId;
@@ -26,6 +27,7 @@ abstract public class State
         prevStateId = prevState;
         nextStateId = Id;
         stateMach.StateTime = 0;
+        animPlayed = false;
     }
 
     //  this should only be ran in FixedUpdate()

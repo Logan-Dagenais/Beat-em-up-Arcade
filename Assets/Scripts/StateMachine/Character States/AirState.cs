@@ -18,9 +18,8 @@ public class AirState : State
 
         //  jumped is false if up direction is held at beginning of state
         //  and character is on ground
-        jumped =   character.Direction.y > 0 &&
-                   character.OnGround ?
-                   false : true;
+        jumped =   character.Direction.y != 1 ||
+                   !character.OnGround;
     }
 
     private void JumpCheck()

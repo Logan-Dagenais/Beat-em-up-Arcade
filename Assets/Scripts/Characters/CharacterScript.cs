@@ -69,6 +69,7 @@ abstract public class CharacterScript : MonoBehaviour
     {
         RB2D = GetComponent<Rigidbody2D>();
         StateMach = GetComponent<StateMachine>();
+        Anim = GetComponent<Animator>();
 
         Health = MaxHealth;
         GuardIntegrity = MaxGuardIntegrity;

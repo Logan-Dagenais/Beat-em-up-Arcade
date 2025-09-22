@@ -11,6 +11,8 @@ public class IdleState : State
     {
         base.StartState(prevState);
 
+        character.Anim.Play("Idle");
+
         character.Velocity.y = 0;
     }
 
@@ -33,11 +35,13 @@ public class IdleState : State
 
         if (character.AtkLight)
         {
+            character.AtkLight = false;
             return (int)GeneralStates.ATKLIGHT;
         }
 
         if (character.AtkHeavy)
         {
+            character.AtkHeavy = false;
             return (int)GeneralStates.ATKHEAVY;
         }
 

@@ -10,7 +10,7 @@ public struct AttackProperties
     */
 
     //  not sure if we need this but i am preemptively putting this here just in case
-    //  public string AtkAnimName;
+    public string AtkAnimName;
 
     public float Damage;
 
@@ -24,8 +24,9 @@ public struct AttackProperties
     public bool Heavy;
     public bool Low;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
+    public AttackProperties(string atkAnimName, float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
     {
+        AtkAnimName = atkAnimName;
         Damage = damage;
         Hitstun = hitstun;
         Blockstun = blockstun;
@@ -54,14 +55,41 @@ public class AttackState : State
     {
         base.StartState(prevState);
 
+        /*
+        if (Properties.Heavy)
+        {
+            character.Anim.SetTrigger("AtkHvy");
+        }
+        else
+        {
+            character.Anim.SetTrigger("AtkLight");
+        }
+        */
+
+        character.Anim.Play(Properties.AtkAnimName);
+
+        //tempTime = character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        //Debug.Log(character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+
         character.EnemiesHit.Clear();
 
         //  for testing purposes, we will probably let the animator handle this
         character.Hitboxes.SetActive(true);
     }
 
+    // for testing purposes
+    private float tempTime;
+
     public override int StateAction()
     {
+        if (!animPlayed)
+        {
+            tempTime = character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            animPlayed = true;
+        }
+
+
         //  cancels air attack when character touches ground
         if ((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) && character.OnGround)
         {
@@ -75,10 +103,15 @@ public class AttackState : State
             return (int)GeneralStates.HITSTUN;
         }
 
+        if (tempTime <= stateMach.StateTime)
+        {
+            return (int)GeneralStates.IDLE;
+        }
+
         //  test attack state, remove this later
         if (character.OnGround && !(character.AtkHeavy || character.AtkLight))
         {
-            return (int)GeneralStates.IDLE;
+           // return (int)GeneralStates.IDLE;
         }
 
         return nextStateId;

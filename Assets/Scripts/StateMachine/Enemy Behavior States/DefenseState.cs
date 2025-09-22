@@ -27,7 +27,7 @@ public class DefenseState : State
 
     private void SwitchDestination()
     {
-        Debug.Log("switched");
+        // Debug.Log("switched");
 
         //  this looks awful, i should probably do this better later
         //  if this is too unreadable for you, basically it just chooses a random spot within the engagement range
