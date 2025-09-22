@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlockState : State, IAttackInteraction
+public class BlockState : State
 {
 
     private AttackProperties atkTaken;
@@ -9,12 +9,6 @@ public class BlockState : State, IAttackInteraction
     public BlockState(CharacterScript c) : base(c)
     {
         Id = (int)GeneralStates.BLOCK;
-    }
-
-    public void PassToState(AttackProperties atkTaken, bool hitFromLeft)
-    {
-        this.atkTaken = atkTaken;
-        this.hitFromLeft = hitFromLeft;
     }
 
     public override void StartState(int prevState)
@@ -28,18 +22,39 @@ public class BlockState : State, IAttackInteraction
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
 
-        if (character.Hit &&
-            (character.Facingleft != hitFromLeft || atkTaken.Low != blockLow))
+        if (character.Direction.x < 0)
         {
-            return (int)GeneralStates.HITSTUN;
+            character.Facingleft = true;
         }
-        else if(character.Hit)
+        else if (character.Direction.x > 0)
         {
-            Debug.Log("Blocked");
-            character.Hit = false;
+            character.Facingleft = false;
         }
 
-            character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
+        //  check for if character was blocking properly or if block broken
+        if (character.Hit)
+        {
+            if (character.GuardIntegrity <= 0)
+            {
+                character.GuardBreak = true;
+                return (int)GeneralStates.HITSTUN;
+            }
+
+            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow)
+            {
+                return (int)GeneralStates.HITSTUN;
+            }
+
+            /*
+            if (character.AtkTaken.Heavy)
+            {
+                character.GuardBreak = true;
+                return (int)GeneralStates.HITSTUN;
+            }
+            */
+
+            return (int)GeneralStates.BLOCKSTUN;
+        }
 
         if (!character.Blocking)
         {

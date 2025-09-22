@@ -14,6 +14,8 @@ public class KnockdownState : State
     {
         base.StartState(prevState);
 
+        //character.Friction = .25f;
+
         character.Hurtboxes.SetActive(false);
 
         /*  
@@ -29,10 +31,7 @@ public class KnockdownState : State
 
     public override int StateAction()
     {
-
-        character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, .25f);
-
-        if (stateMach.StateTime >= downTime)
+        if (stateMach.StateTime >= downTime && character.Health > 0)
         {
             return (int)GeneralStates.IDLE;
         }
@@ -43,6 +42,8 @@ public class KnockdownState : State
     public override void EndState()
     {
         base.EndState();
+
+        //character.Friction = 1;
 
         // Debug.Log("back to idle");
 

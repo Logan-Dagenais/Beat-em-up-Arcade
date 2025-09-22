@@ -10,6 +10,8 @@ public class IdleState : State
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
+
+        character.Velocity.y = 0;
     }
 
     public override int StateAction()
@@ -18,9 +20,6 @@ public class IdleState : State
         {
             return (int)GeneralStates.AIR;
         }
-
-        //  custom friction because i didn't want to use unity's built in one
-        character.RB2D.linearVelocityX = Mathf.MoveTowards(character.RB2D.linearVelocityX, 0, 1f);
 
         if (character.Direction.y < 0)
         {
