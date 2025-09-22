@@ -18,6 +18,8 @@ public class IdleState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         if (!character.OnGround || character.Direction.y > 0)
         {
             return (int)GeneralStates.AIR;

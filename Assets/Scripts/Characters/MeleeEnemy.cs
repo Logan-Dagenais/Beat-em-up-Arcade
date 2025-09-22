@@ -6,6 +6,8 @@ public class MeleeEnemy : EnemyScript
     {
         base.Awake();
 
+        WalkBackwards = true;
+
         PlayerTransform = FindAnyObjectByType<PlayerScript>().transform;
 
         BehaviorStateMach = gameObject.AddComponent<StateMachine>();

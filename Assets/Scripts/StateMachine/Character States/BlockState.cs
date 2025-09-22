@@ -19,16 +19,18 @@ public class BlockState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
 
         if (character.Direction.x < 0)
         {
-            character.Facingleft = true;
+            character.SwitchSpriteDirection(true);
         }
         else if (character.Direction.x > 0)
         {
-            character.Facingleft = false;
+            character.SwitchSpriteDirection(false);
         }
 
         //  check for if character was blocking properly or if block broken

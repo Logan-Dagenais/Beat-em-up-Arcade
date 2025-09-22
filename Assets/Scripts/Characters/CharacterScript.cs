@@ -6,6 +6,7 @@ using UnityEngine.TextCore.Text;
 abstract public class CharacterScript : MonoBehaviour
 {
     //  character attributes
+    [Header("character attributes")]
     [SerializeField] private float MaxHealth;
     public float Health;
     [SerializeField] private float MaxGuardIntegrity;
@@ -28,19 +29,14 @@ abstract public class CharacterScript : MonoBehaviour
     [SerializeField] private float Gravity;
     [SerializeField] private float TerminalVelocity;
 
+    public Vector2 Velocity;
+
     //  keeps track of what enemies have already been hit
     //  so that attacks can only hit once on activation
     public List<CharacterScript> EnemiesHit;
 
-    public Vector2 Velocity;
-
-    //  components
-    public Rigidbody2D RB2D;
-
-    public StateMachine StateMach;
-    public Animator Anim;
-
     //  collision detection
+    [Header("collision detection")]
     public GameObject Hurtboxes;
     public GameObject Hitboxes;
 
@@ -48,6 +44,7 @@ abstract public class CharacterScript : MonoBehaviour
     [SerializeField] private Rigidbody2D.SlideMovement slideMove;
 
     //  state machine inputs
+    [Header("state machine inputs")]
     public Vector2 Direction;
 
     public bool OnGround => RB2D.IsTouching(contactFilter);
@@ -55,6 +52,9 @@ abstract public class CharacterScript : MonoBehaviour
     [SerializeField] public bool AtkLight;
     [SerializeField] public bool AtkHeavy;
     [SerializeField] public bool Blocking;
+
+    //  mainly for enemies
+    public bool WalkBackwards;
 
     public bool Hit;
 
@@ -65,11 +65,20 @@ abstract public class CharacterScript : MonoBehaviour
     [SerializeField] private float GuardIntCooldown;
     public float GuardIntTimer;
 
+    //  components
+    [Header("components (they are assigned on awake)")]
+    public Rigidbody2D RB2D;
+
+    public StateMachine StateMach;
+    public Animator Anim;
+    private SpriteRenderer spriteRender;
+
     protected void Awake()
     {
         RB2D = GetComponent<Rigidbody2D>();
         StateMach = GetComponent<StateMachine>();
         Anim = GetComponent<Animator>();
+        spriteRender = GetComponent<SpriteRenderer>();
 
         Health = MaxHealth;
         GuardIntegrity = MaxGuardIntegrity;
@@ -179,6 +188,12 @@ abstract public class CharacterScript : MonoBehaviour
 
         }
 
+    }
+
+    public void SwitchSpriteDirection(bool left)
+    {
+        Facingleft = left;
+        spriteRender.flipX = left;
     }
 
 }

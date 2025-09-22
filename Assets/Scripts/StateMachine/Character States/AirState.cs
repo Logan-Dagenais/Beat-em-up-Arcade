@@ -38,6 +38,8 @@ public class AirState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         if (character.Hit)
         {
             return (int)GeneralStates.HITSTUN;
@@ -57,16 +59,16 @@ public class AirState : State
         {
             character.Velocity.x += character.Direction.x * character.AirMobilityAccel;
             character.Velocity.x = Mathf.Clamp(character.Velocity.x, -character.WalkSpeed, character.WalkSpeed);
-        }
 
-        if (character.AtkLight)
-        {
-            return (int)GeneralStates.ATKLIGHTAIR;
-        }
+            if (character.AtkLight)
+            {
+                return (int)GeneralStates.ATKLIGHTAIR;
+            }
 
-        if (character.AtkHeavy)
-        {
-            return (int)GeneralStates.ATKHEAVYAIR;
+            if (character.AtkHeavy)
+            {
+                return (int)GeneralStates.ATKHEAVYAIR;
+            }
         }
 
         return nextStateId;

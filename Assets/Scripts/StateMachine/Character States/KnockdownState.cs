@@ -31,6 +31,8 @@ public class KnockdownState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         if (stateMach.StateTime >= downTime && character.Health > 0)
         {
             return (int)GeneralStates.IDLE;

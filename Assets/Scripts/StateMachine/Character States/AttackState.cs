@@ -78,20 +78,15 @@ public class AttackState : State
         character.Hitboxes.SetActive(true);
     }
 
-    // for testing purposes
-    private float tempTime;
-
     public override int StateAction()
     {
-        if (!animPlayed)
-        {
-            tempTime = character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-            animPlayed = true;
-        }
-
+        base.StateAction();
 
         //  cancels air attack when character touches ground
-        if ((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) && character.OnGround)
+        //  switches to idle after attack animation ends
+        if (((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) &&
+            character.OnGround) ||
+            (animTiming <= stateMach.StateTime && character.OnGround))
         {
             return (int)GeneralStates.IDLE;
         }
@@ -101,11 +96,6 @@ public class AttackState : State
         {
             character.Hitboxes.SetActive(false);
             return (int)GeneralStates.HITSTUN;
-        }
-
-        if (tempTime <= stateMach.StateTime)
-        {
-            return (int)GeneralStates.IDLE;
         }
 
         //  test attack state, remove this later

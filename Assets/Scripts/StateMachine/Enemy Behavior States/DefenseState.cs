@@ -51,6 +51,7 @@ public class DefenseState : State
             return (int)BehaviorStates.CHASE;
         }
 
+        //  movement
         if (Mathf.RoundToInt(character.transform.position.x) < randomTarget)
         {
             character.Blocking = false;
