@@ -6,6 +6,8 @@ public class FallingObjectScript : MonoBehaviour
     [SerializeField] BoxCollider2D hitbox;
     [SerializeField] BoxCollider2D fell;
     [SerializeField] GameObject stagnantParticles;
+    [SerializeField] GameObject explosionparticle;
+    [SerializeField] GameObject rockfallingparticle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,11 +29,13 @@ public class FallingObjectScript : MonoBehaviour
             hitbox.enabled = false;
             fell.enabled = true;
             stagnantParticles.SetActive(false);
+            Instantiate(rockfallingparticle, (gameObject.transform.position), Quaternion.identity);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameObject.SetActive(false);
+        Instantiate(explosionparticle, (gameObject.transform.position), new Quaternion(90f, 90f, -90f, 0f));
     }
 }
