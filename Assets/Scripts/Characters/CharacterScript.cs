@@ -147,6 +147,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public void HitReaction(AttackProperties atkTaken, bool hitFromLeft)
     {
+        Debug.Log("smacked");
         AtkTaken = atkTaken;
         HitFromLeft = hitFromLeft;
 
@@ -190,6 +191,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     }
 
+    //  passing in true will face left
     public void SwitchSpriteDirection(bool left)
     {
         Facingleft = left;

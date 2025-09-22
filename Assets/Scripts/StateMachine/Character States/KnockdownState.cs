@@ -4,7 +4,7 @@ using UnityEngine;
 public class KnockdownState : State
 {
     //  adjust later
-    private float downTime = 2;
+    private float downTime = 1;
 
     public KnockdownState(CharacterScript c) : base(c) {
         Id = (int)GeneralStates.KNOCKDOWN;
@@ -26,7 +26,7 @@ public class KnockdownState : State
         character.Hit = false;
 
         //  replace this with an animation
-        character.GetComponent<SpriteRenderer>().color = Color.gray;
+        //character.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
     public override int StateAction()
@@ -50,7 +50,7 @@ public class KnockdownState : State
         // Debug.Log("back to idle");
 
         //  replace this with animation
-        character.GetComponent<SpriteRenderer>().color = Color.white;
+        //character.GetComponent<SpriteRenderer>().color = Color.white;
 
         character.Hit = false;
         character.Hurtboxes.SetActive(true);

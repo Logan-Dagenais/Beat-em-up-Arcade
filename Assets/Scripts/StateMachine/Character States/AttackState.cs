@@ -72,10 +72,8 @@ public class AttackState : State
 
         //Debug.Log(character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
-        character.EnemiesHit.Clear();
-
         //  for testing purposes, we will probably let the animator handle this
-        character.Hitboxes.SetActive(true);
+        //character.Hitboxes.SetActive(true);
     }
 
     public override int StateAction()
@@ -111,7 +109,8 @@ public class AttackState : State
     {
         base.EndState();
 
-        //  for testing purposes, we will probably let the animator handle this
+        character.EnemiesHit.Clear();
+
         character.Hitboxes.SetActive(false);
     }
 }

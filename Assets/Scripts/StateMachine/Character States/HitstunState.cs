@@ -46,7 +46,7 @@ public class HitstunState : StunState
         }
 
         //  replace this with an animation
-        character.GetComponent<SpriteRenderer>().color = Color.red;
+        //character.GetComponent<SpriteRenderer>().color = Color.red;
 
         character.GuardBreak = false;
     }
@@ -84,7 +84,7 @@ public class HitstunState : StunState
         comboCounter = 0;
 
         //  replace this with animation
-        character.GetComponent<SpriteRenderer>().color = Color.white;
+        //character.GetComponent<SpriteRenderer>().color = Color.white;
 
 
         //Debug.Log("back to idle");

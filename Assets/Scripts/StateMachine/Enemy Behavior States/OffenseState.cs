@@ -36,7 +36,13 @@ public class OffenseState : State
             character.AtkLight = true;
         }
 
+        if (character.EnemiesHit.Count > 0)
+        {
+            return (int)BehaviorStates.DEFENSIVE;
+        }
+
         //  temporary timer for attacks since haven't added animation timings yet
+        /*
         if (character.AtkLight)
         {
             if (tempTimer < .5f)
@@ -48,6 +54,7 @@ public class OffenseState : State
                 return (int)BehaviorStates.DEFENSIVE;
             }
         }
+        */
 
         if (defensiveTimer < stateMach.StateTime)
         {

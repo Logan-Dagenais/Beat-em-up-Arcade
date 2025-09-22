@@ -24,15 +24,6 @@ public class BlockState : State
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
 
-        if (character.Direction.x < 0)
-        {
-            character.SwitchSpriteDirection(true);
-        }
-        else if (character.Direction.x > 0)
-        {
-            character.SwitchSpriteDirection(false);
-        }
-
         //  check for if character was blocking properly or if block broken
         if (character.Hit)
         {
@@ -61,6 +52,15 @@ public class BlockState : State
         if (!character.Blocking)
         {
             return blockLow ? (int)GeneralStates.CROUCH:(int)GeneralStates.IDLE;
+        }
+
+        if (character.Direction.x < 0)
+        {
+            character.SwitchSpriteDirection(true);
+        }
+        else if (character.Direction.x > 0)
+        {
+            character.SwitchSpriteDirection(false);
         }
 
         return nextStateId;

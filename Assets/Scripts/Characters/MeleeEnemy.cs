@@ -81,4 +81,9 @@ public class MeleeEnemy : EnemyScript
             new BlockState(this)}
         };
     }
+
+    private void Start()
+    {
+        SwitchSpriteDirection(PlayerToLeft);
+    }
 }
