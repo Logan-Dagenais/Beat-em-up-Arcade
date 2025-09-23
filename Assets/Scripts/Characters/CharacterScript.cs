@@ -89,7 +89,8 @@ abstract public class CharacterScript : MonoBehaviour
         GameObject child1 = transform.GetChild(0).gameObject;
         GameObject child2 = transform.GetChild(1).gameObject;
 
-        if (child1.CompareTag("Hurtbox"))
+        //  checking if child1 is hurtbox layer
+        if (child1.gameObject.layer == 6)
         {
             Hurtboxes = child1;
             Hitboxes = child2;
@@ -105,7 +106,9 @@ abstract public class CharacterScript : MonoBehaviour
     //  to the target that was hit so it reacts accordingly
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Hurtbox"))
+        //  ignore method if hitbox layer or if tag matches self (so enemies can't hit each other)
+        if (collision.gameObject.layer == 7 ||
+            collision.gameObject.CompareTag(gameObject.tag))
         {
             return;
         }
