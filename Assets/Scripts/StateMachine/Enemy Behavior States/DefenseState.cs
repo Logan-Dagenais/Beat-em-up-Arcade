@@ -24,6 +24,13 @@ public class DefenseState : State
 
         SwitchDestination();
 
+        //  maybe instead of this, have enemy go into a separate state
+        //  reuse knockdownstate? have some kind of reaction getting up?
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
+
         character.Direction.x = 0;
     }
 
@@ -48,6 +55,7 @@ public class DefenseState : State
 
     public override int StateAction()
     {
+
         if (!((EnemyScript)character).InCombatRange)
         {
             return (int)BehaviorStates.CHASE;
@@ -71,7 +79,10 @@ public class DefenseState : State
             character.Direction.x = 0;
 
             //  blocking the direction the player is in
-            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+            if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+            {
+                character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+            }
         }
 
         if (destinationSwitchTimer < stateMach.StateTime)

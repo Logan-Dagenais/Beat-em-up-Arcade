@@ -16,6 +16,11 @@ public class OffenseState : State
     {
         base.StartState(prevState);
 
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
+
         defensiveTimer = Random.Range(.5f, 1f);
 
         ((EnemyScript)character).CombatRange = ((EnemyScript)character).AttackRange;

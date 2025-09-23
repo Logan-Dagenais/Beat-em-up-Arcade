@@ -147,7 +147,6 @@ abstract public class CharacterScript : MonoBehaviour
 
     public void HitReaction(AttackProperties atkTaken, bool hitFromLeft)
     {
-        Debug.Log("smacked");
         AtkTaken = atkTaken;
         HitFromLeft = hitFromLeft;
 
@@ -165,6 +164,14 @@ abstract public class CharacterScript : MonoBehaviour
         else
         {
             Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
+
+            switch (StateMach.CurrentState)
+            {
+                case (int)GeneralStates.HITSTUN:
+                case (int)GeneralStates.KNOCKDOWN:
+                    Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction * .2f);
+                    break;
+            }
         }
 
         if (GuardIntTimer >= GuardIntCooldown)

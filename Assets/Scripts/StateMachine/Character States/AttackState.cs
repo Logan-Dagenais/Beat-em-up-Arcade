@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public struct AttackProperties
@@ -34,9 +35,6 @@ public struct AttackProperties
         CanKnockdown = knockdown;
         Heavy = heavy;
         Low = low;
-
-
-        // AtkAnimName = 
     }
 }
 
@@ -86,7 +84,7 @@ public class AttackState : State
             character.OnGround) ||
             (animTiming <= stateMach.StateTime && character.OnGround))
         {
-            return (int)GeneralStates.IDLE;
+            return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
         }
 
         //  attack interruption
@@ -97,10 +95,12 @@ public class AttackState : State
         }
 
         //  test attack state, remove this later
+        /*
         if (character.OnGround && !(character.AtkHeavy || character.AtkLight))
         {
            // return (int)GeneralStates.IDLE;
         }
+        */
 
         return nextStateId;
     }

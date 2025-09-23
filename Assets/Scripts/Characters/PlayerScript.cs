@@ -41,32 +41,32 @@ public class PlayerScript : CharacterScript
             {(int)GeneralStates.ATKLIGHT,
             new AttackState(this,
                 (int)GeneralStates.ATKLIGHT,
-                new AttackProperties("LightATK", 5, .5f, .25f, 5, false, false, false))},
+                new AttackProperties("LightATK", 5, .25f, .25f, 5, false, false, false))},
 
             {(int)GeneralStates.ATKHEAVY,
             new AttackState(this,
                 (int)GeneralStates.ATKHEAVY,
-                new AttackProperties("HeavyATK", 10, 1f, .5f, 10, false, true, false))},
+                new AttackProperties("HeavyATK", 10, .25f, .5f, 10, false, true, false))},
 
             {(int)GeneralStates.ATKLIGHTCR,
             new AttackState(this,
                 (int)GeneralStates.ATKLIGHTCR,
-                new AttackProperties("CrouchLight", 5, .5f, .25f, 5, false, false, true))},
+                new AttackProperties("CrouchLight", 5, .25f, .25f, 5, false, false, true))},
 
             {(int)GeneralStates.ATKHEAVYCR,
             new AttackState(this,
                 (int)GeneralStates.ATKHEAVYCR,
-                new AttackProperties("CrouchHeavy", 10, 1f, .5f, 10, true, true, true))},
+                new AttackProperties("CrouchHeavy", 10, .25f, .5f, 10, true, true, true))},
 
             {(int)GeneralStates.ATKLIGHTAIR,
             new AttackState(this,
                 (int)GeneralStates.ATKLIGHTAIR,
-                new AttackProperties("LightAerial", 5, .5f, .25f, 5, false, false, false))},
+                new AttackProperties("LightAerial", 5, .25f, .25f, 5, false, false, false))},
 
             {(int)GeneralStates.ATKHEAVYAIR,
             new AttackState(this,
                 (int)GeneralStates.ATKHEAVYAIR,
-                new AttackProperties("HeavyAerial", 10, 1f, .5f, 10, true, true, false))},
+                new AttackProperties("HeavyAerial", 10, .25f, .5f, 10, true, true, false))},
 
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},

@@ -13,8 +13,8 @@ public class BlockState : State
 
     public override void StartState(int prevState)
     {
+        animName = character.Direction.y < 0 ? "CrouchBlock" : "Block";
         base.StartState(prevState);
-
     }
 
     public override int StateAction()
@@ -23,6 +23,12 @@ public class BlockState : State
 
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
+
+        if ((blockLow && animName == "Block") ||
+            (!blockLow && animName == "CrouchBlock"))
+        {
+            StartState(prevStateId);
+        }
 
         //  check for if character was blocking properly or if block broken
         if (character.Hit)

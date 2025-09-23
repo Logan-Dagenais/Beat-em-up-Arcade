@@ -12,6 +12,11 @@ public class ChaseState : State
     {
         base.StartState(prevState);
 
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
+
         //  there is probably a better way than casting like this, try to fix another time
         character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
     }

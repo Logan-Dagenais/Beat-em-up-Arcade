@@ -891,12 +891,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1730701994, guid: 23cb76c68432ccd4e89445aac082d1c7, type: 3}
+  m_Sprite: {fileID: -2877283838961468542, guid: 8f278a54dd2dc6445922eb229d2c5675, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1936,11 +1936,11 @@ MonoBehaviour:
   Hurtboxes: {fileID: 0}
   Hitboxes: {fileID: 0}
   contactFilter:
-    useTriggers: 0
+    useTriggers: 1
     useLayerMask: 0
     useDepth: 0
     useOutsideDepth: 0
-    useNormalAngle: 0
+    useNormalAngle: 1
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
@@ -1948,7 +1948,7 @@ MonoBehaviour:
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 45
-    maxNormalAngle: -45
+    maxNormalAngle: 135
   slideMove:
     <maxIterations>k__BackingField: 3
     <surfaceSlideAngle>k__BackingField: 90

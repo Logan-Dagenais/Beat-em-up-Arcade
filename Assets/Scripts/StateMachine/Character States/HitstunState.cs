@@ -53,6 +53,7 @@ public class HitstunState : StunState
 
     public override int StateAction()
     {
+        //  bug that enemy some how cancels knockdown?
         nextStateId = base.StateAction();
 
         //  when character is hit out of air, they should be
@@ -61,6 +62,8 @@ public class HitstunState : StunState
         //  in mid air if we add this
         if (character.OnGround && knockedDown)
         {
+            character.SwitchSpriteDirection(character.HitFromLeft);
+            character.Velocity.y = 12;
             return (int)GeneralStates.KNOCKDOWN;
         }
 
