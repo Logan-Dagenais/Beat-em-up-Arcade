@@ -38,6 +38,9 @@ public class TestDummy : CharacterScript
             {(int)GeneralStates.KNOCKDOWN,
             new KnockdownState(this)},
 
+            {(int)GeneralStates.BLOCKSTUN,
+            new BlockstunState(this)},
+
             {(int)GeneralStates.BLOCK,
             new BlockState(this)}
         };
