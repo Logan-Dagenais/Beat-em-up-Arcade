@@ -989,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: MenuActions
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 478019344}
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: SceneSelectUI
       value: 
