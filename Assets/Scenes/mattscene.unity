@@ -743,11 +743,15 @@ PrefabInstance:
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: MenuActions
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 478019344}
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: SceneSelectUI
       value: 
       objectReference: {fileID: 777360366}
+    - target: {fileID: 2391931811526094606, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2516677798987611884, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: m_Name
       value: DebugSceneSelectionPackage
@@ -796,7 +800,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2391931811526094606, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
