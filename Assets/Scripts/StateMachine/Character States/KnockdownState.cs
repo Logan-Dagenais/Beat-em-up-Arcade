@@ -14,7 +14,7 @@ public class KnockdownState : State
     {
         base.StartState(prevState);
 
-        character.Friction = .25f;
+        //character.Friction = .25f;
 
         character.Hurtboxes.SetActive(false);
 
@@ -25,8 +25,8 @@ public class KnockdownState : State
          */
         character.Hit = false;
 
-        //  replace this with an animation instead of just rotating it
-        character.transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+        //  replace this with an animation
+        character.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
     public override int StateAction()
@@ -43,12 +43,12 @@ public class KnockdownState : State
     {
         base.EndState();
 
-        character.Friction = 1;
+        //character.Friction = 1;
 
         // Debug.Log("back to idle");
 
-        //  replace this with animation instead of just rotating it
-        character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        //  replace this with animation
+        character.GetComponent<SpriteRenderer>().color = Color.white;
 
         character.Hit = false;
         character.Hurtboxes.SetActive(true);

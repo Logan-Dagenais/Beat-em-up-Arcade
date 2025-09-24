@@ -10,6 +10,8 @@ public class IdleState : State
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
+
+        character.Velocity.y = 0;
     }
 
     public override int StateAction()

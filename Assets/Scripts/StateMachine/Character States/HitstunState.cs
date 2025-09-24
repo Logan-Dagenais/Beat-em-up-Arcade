@@ -15,7 +15,7 @@ public class HitstunState : StunState
     {
         base.StartState(prevState);
 
-        character.Friction = .25f;
+        //character.Friction = .25f;
 
         comboCounter++;
 
@@ -34,8 +34,9 @@ public class HitstunState : StunState
         //  knocked back upwards slightly when hit in midair
         if (!character.OnGround)
         {
-            character.RB2D.linearVelocityY = 0;
-            character.RB2D.AddForceY(200);
+            //character.Velocity.y = 0;
+            //character.RB2D.AddForceY(200);
+            character.Velocity.y = 15;
 
             knockedDown = true;
 
@@ -44,9 +45,8 @@ public class HitstunState : StunState
             //character.Hurtboxes.SetActive(false);
         }
 
-        //  replace this with an animation instead of just rotating it
-        character.transform.rotation = character.HitFromLeft ?
-            Quaternion.AngleAxis(-45, Vector3.forward) : Quaternion.AngleAxis(45, Vector3.forward);
+        //  replace this with an animation
+        character.GetComponent<SpriteRenderer>().color = Color.red;
 
         character.GuardBreak = false;
     }
@@ -78,13 +78,14 @@ public class HitstunState : StunState
     public override void EndState()
     {
         base.EndState();
-        character.Friction = 1;
+        //character.Friction = 1;
 
         knockedDown = false;
         comboCounter = 0;
 
-        //  replace this with animation instead of just rotating it
-        character.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        //  replace this with animation
+        character.GetComponent<SpriteRenderer>().color = Color.white;
+
 
         //Debug.Log("back to idle");
     }

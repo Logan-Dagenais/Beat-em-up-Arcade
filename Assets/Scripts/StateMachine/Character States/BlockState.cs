@@ -34,16 +34,24 @@ public class BlockState : State
         //  check for if character was blocking properly or if block broken
         if (character.Hit)
         {
+            if (character.GuardIntegrity <= 0)
+            {
+                character.GuardBreak = true;
+                return (int)GeneralStates.HITSTUN;
+            }
+
             if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow)
             {
                 return (int)GeneralStates.HITSTUN;
             }
 
+            /*
             if (character.AtkTaken.Heavy)
             {
                 character.GuardBreak = true;
                 return (int)GeneralStates.HITSTUN;
             }
+            */
 
             return (int)GeneralStates.BLOCKSTUN;
         }

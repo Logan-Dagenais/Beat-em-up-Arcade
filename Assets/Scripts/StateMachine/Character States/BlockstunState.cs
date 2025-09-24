@@ -13,12 +13,21 @@ public class BlockstunState : StunState
 
         stunTime = character.AtkTaken.Blockstun;
 
-        character.Friction = .25f;
+        character.GuardIntegrity -= character.AtkTaken.Damage;
+        character.GetComponent<SpriteRenderer>().color = Color.blue;
+
+        //character.Friction = .25f;
     }
 
     public override int StateAction()
     {
         nextStateId = base.StateAction();
+
+        if (character.GuardIntegrity <= 0)
+        {
+            character.GuardBreak = true;
+            return (int)GeneralStates.HITSTUN;
+        }
 
         //  resets state when hit again
         //  unfortunately have to copy this because otherwise it would
@@ -36,7 +45,8 @@ public class BlockstunState : StunState
     {
         base.EndState();
 
-        character.Friction = 1;
+        character.GetComponent<SpriteRenderer>().color = Color.white;
+        //character.Friction = 1;
     }
 
 

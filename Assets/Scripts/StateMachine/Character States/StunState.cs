@@ -13,14 +13,16 @@ public abstract class StunState : State
         //Debug.Log("pain");
         character.Hit = false;
 
-        character.RB2D.linearVelocityX = 0;
+        character.Velocity.x = 0;
         if (character.HitFromLeft)
         {
-            character.RB2D.AddForceX(character.AtkTaken.Knockback);
+            //character.RB2D.AddForceX(character.AtkTaken.Knockback);
+            character.Velocity.x = character.AtkTaken.Knockback;
         }
         else
         {
-            character.RB2D.AddForceX(-character.AtkTaken.Knockback);
+            //character.RB2D.AddForceX(-character.AtkTaken.Knockback);
+            character.Velocity.x = -character.AtkTaken.Knockback;
         }
     }
 
