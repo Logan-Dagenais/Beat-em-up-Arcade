@@ -5,42 +5,5 @@ public class TestDummy : CharacterScript
     private void Awake()
     {
         base.Awake();
-
-        StateMach.StateList = new()
-        {
-            {(int)GeneralStates.IDLE,
-            new IdleState(this)},
-
-            {(int)GeneralStates.WALK,
-            new WalkState(this)},
-
-            {(int)GeneralStates.AIR,
-            new AirState(this) },
-
-            {(int)GeneralStates.CROUCH,
-            new CrouchState(this) },
-
-            {(int)GeneralStates.ATKLIGHT,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHT,
-                new AttackProperties("LightATK", 5, .5f, .25f, 5, false, false, false))},
-
-            {(int)GeneralStates.ATKHEAVY,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVY,
-                new AttackProperties("HeavyATK", 10, 1f, .5f, 10, false, true, false))},
-
-            {(int)GeneralStates.HITSTUN,
-            new HitstunState(this)},
-
-            {(int)GeneralStates.KNOCKDOWN,
-            new KnockdownState(this)},
-
-            {(int)GeneralStates.BLOCKSTUN,
-            new BlockstunState(this)},
-
-            {(int)GeneralStates.BLOCK,
-            new BlockState(this)}
-        };
     }
 }

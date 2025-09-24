@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,68 +20,6 @@ public class PlayerScript : CharacterScript
         atkL = input.currentActionMap.FindAction("Light Attack");
         atkH = input.currentActionMap.FindAction("Heavy Attack");
         block = input.currentActionMap.FindAction("Block");
-
-        //  unfortunately as of now we will need to manually add every state
-        //  with this long line
-        //  honestly could not figure out a better way for right now
-
-        StateMach.StateList = new()
-        {
-            {(int)GeneralStates.IDLE, 
-            new IdleState(this)},
-
-            {(int)GeneralStates.WALK,
-            new WalkState(this)},
-
-            {(int)GeneralStates.AIR,
-            new AirState(this) },
-
-            {(int)GeneralStates.CROUCH,
-            new CrouchState(this) },
-
-            {(int)GeneralStates.ATKLIGHT,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHT,
-                new AttackProperties("LightATK", 5, .25f, .25f, 5, false, false, false))},
-
-            {(int)GeneralStates.ATKHEAVY,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVY,
-                new AttackProperties("HeavyATK", 10, .25f, .5f, 10, false, true, false))},
-
-            {(int)GeneralStates.ATKLIGHTCR,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHTCR,
-                new AttackProperties("CrouchLight", 5, .25f, .25f, 5, false, false, true))},
-
-            {(int)GeneralStates.ATKHEAVYCR,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVYCR,
-                new AttackProperties("CrouchHeavy", 10, .25f, .5f, 10, true, true, true))},
-
-            {(int)GeneralStates.ATKLIGHTAIR,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHTAIR,
-                new AttackProperties("LightAerial", 5, .25f, .25f, 5, false, false, false))},
-
-            {(int)GeneralStates.ATKHEAVYAIR,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVYAIR,
-                new AttackProperties("HeavyAerial", 10, .25f, .5f, 10, true, true, false))},
-
-            {(int)GeneralStates.HITSTUN,
-            new HitstunState(this)},
-
-            {(int)GeneralStates.KNOCKDOWN,
-            new KnockdownState(this)},
-
-            {(int)GeneralStates.BLOCKSTUN,
-            new BlockstunState(this)},
-
-            {(int)GeneralStates.BLOCK,
-            new BlockState(this)}
-        };
-
     }
 
     void OnMove()

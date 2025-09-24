@@ -18,7 +18,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public bool Facingleft;
 
-    public AttackProperties[] AttackList;
+    [SerializeField] private AttackState[] AttackList;
 
     public float Friction;
 
@@ -100,6 +100,48 @@ abstract public class CharacterScript : MonoBehaviour
             Hitboxes = child1;
             Hurtboxes = child2;
         }
+
+
+        //  unfortunately as of now we will need to manually add every state
+        //  with this long line
+        //  honestly could not figure out a better way for right now
+
+        //  basic states every character would probably have
+        StateMach.StateList = new()
+        {
+            {(int)GeneralStates.IDLE,
+            new IdleState(this)},
+
+            {(int)GeneralStates.WALK,
+            new WalkState(this)},
+
+            {(int)GeneralStates.AIR,
+            new AirState(this) },
+
+            {(int)GeneralStates.CROUCH,
+            new CrouchState(this) },
+
+            {(int)GeneralStates.HITSTUN,
+            new HitstunState(this)},
+
+            {(int)GeneralStates.KNOCKDOWN,
+            new KnockdownState(this)},
+
+            {(int)GeneralStates.BLOCKSTUN,
+            new BlockstunState(this)},
+
+            {(int)GeneralStates.BLOCK,
+            new BlockState(this)}
+        };
+
+        for (int i=0; i<AttackList.Length; i++)
+        {
+            AttackList[i].SetCharacter(this);
+            AttackList[i].Id = (int)AttackList[i].Properties.AttackID;
+
+            StateMach.StateList.Add(AttackList[i].Id, AttackList[i]);
+        }
+
     }
 
     //  this function basically takes the attack state data and transfers it

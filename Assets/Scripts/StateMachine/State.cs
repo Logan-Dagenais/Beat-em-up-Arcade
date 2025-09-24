@@ -4,7 +4,7 @@ using UnityEngine;
 abstract public class State
 {
     //  should get this from CharacterScript.GeneralStates
-    public int Id;
+    [HideInInspector] public int Id;
 
     protected bool stateComplete;
 
@@ -26,6 +26,12 @@ abstract public class State
         //  theoretically, all names of animations should match the state scripts
         animName = GetType().Name;
         animName = animName.Substring(0, animName.Length - 5);
+    }
+
+    public void SetCharacter(CharacterScript c)
+    {
+        character = c;
+        stateMach = c.StateMach;
     }
 
     public virtual void StartState(int prevState)

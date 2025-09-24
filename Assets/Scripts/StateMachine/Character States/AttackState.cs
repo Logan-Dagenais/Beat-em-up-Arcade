@@ -1,7 +1,9 @@
 using NUnit.Framework;
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[Serializable]
 public struct AttackProperties
 {
     /*  assuming we are using animator for these
@@ -9,6 +11,9 @@ public struct AttackProperties
     public int ActiveFrames;
     public int RecoverFrames;
     */
+
+    //  putting this here to make it easier to add attacks in inspector
+    public GeneralStates AttackID;
 
     //  not sure if we need this but i am preemptively putting this here just in case
     public string AtkAnimName;
@@ -25,8 +30,9 @@ public struct AttackProperties
     public bool Heavy;
     public bool Low;
 
-    public AttackProperties(string atkAnimName, float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
+    public AttackProperties(GeneralStates id, string atkAnimName, float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
     {
+        AttackID = id;
         AtkAnimName = atkAnimName;
         Damage = damage;
         Hitstun = hitstun;
@@ -38,6 +44,7 @@ public struct AttackProperties
     }
 }
 
+[Serializable]
 public class AttackState : State
 {
     private StateMachine attackStates;
