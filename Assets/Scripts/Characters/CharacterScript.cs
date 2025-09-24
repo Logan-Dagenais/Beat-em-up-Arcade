@@ -251,37 +251,3 @@ abstract public class CharacterScript : MonoBehaviour
     }
 
 }
-
-//  list of states that every character in the game can have
-public enum GeneralStates
-{
-    //  movement states
-    IDLE,
-    WALK,
-    AIR,
-    CROUCH,
-
-    //  combat states (woo hoo violence)
-
-    //  list of every attack every character can have
-    //  standing
-    ATKLIGHT,
-    ATKHEAVY,
-
-    //  crouching
-    ATKLIGHTCR,
-    ATKHEAVYCR,
-
-    //  aerial
-    ATKLIGHTAIR,
-    ATKHEAVYAIR,
-
-    //  pain
-    HITSTUN,
-    KNOCKDOWN,
-    BLOCKSTUN,
-
-    //  pain avoidance
-    BLOCK,
-    DODGE
-}

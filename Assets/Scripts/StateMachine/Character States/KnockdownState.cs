@@ -16,7 +16,7 @@ public class KnockdownState : State
         base.StartState(prevState);
 
         //character.Friction = .25f;
-        bounce = 2;
+        bounce = 3;
 
         character.Hurtboxes.SetActive(false);
 

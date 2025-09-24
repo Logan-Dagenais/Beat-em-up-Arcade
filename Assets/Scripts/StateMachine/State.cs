@@ -1,6 +1,54 @@
 using System;
 using UnityEngine;
 
+//  list of states that every character in the game can have
+public enum GeneralStates
+{
+    //  movement states
+    IDLE,
+    WALK,
+    AIR,
+    CROUCH,
+
+    //  combat states (woo hoo violence)
+
+    //  list of every attack every character can have
+    //  standing
+    ATKLIGHT,
+    ATKHEAVY,
+
+    //  crouching
+    ATKLIGHTCR,
+    ATKHEAVYCR,
+
+    //  aerial
+    ATKLIGHTAIR,
+    ATKHEAVYAIR,
+
+    //  pain
+    HITSTUN,
+    KNOCKDOWN,
+    BLOCKSTUN,
+
+    //  pain avoidance
+    BLOCK,
+    DODGE
+}
+
+
+//  list of behaviors enemies can have
+//  basically how they decide what inputs to do
+public enum BehaviorStates
+{
+    //  for when the enemy is withn ideal combat range
+    DEFENSIVE,
+    OFFENSIVE,
+
+    //  movement for traversing to target range
+    CHASE,
+    FLEE
+}
+
 abstract public class State
 {
     //  should get this from CharacterScript.GeneralStates

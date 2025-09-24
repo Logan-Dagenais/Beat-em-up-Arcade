@@ -42,11 +42,14 @@ public class DefenseState : State
         //  if this is too unreadable for you, basically it just chooses a random spot within the engagement range
         //  on either to the left or right of the player
         randomTarget = ((EnemyScript)character).PlayerToLeft ? 
-                        Random.Range(((EnemyScript)character).PlayerTransform.transform.position.x,
-                        ((EnemyScript)character).PlayerTransform.transform.position.x + ((EnemyScript)character).CombatRange)
+                        Random.Range(((EnemyScript)character).Target,
+                        ((EnemyScript)character).CombatRangeMax)
                         :
-                        Random.Range(((EnemyScript)character).PlayerTransform.transform.position.x - ((EnemyScript)character).CombatRange,
-                        ((EnemyScript)character).PlayerTransform.transform.position.x);
+                        Random.Range(((EnemyScript)character).CombatRangeMin,
+                        ((EnemyScript)character).Target);
+
+
+        // randomTarget = Random.Range(((EnemyScript)character).CombatRangeMin, ((EnemyScript)character).CombatRangeMax);
 
         randomTarget = Mathf.RoundToInt(randomTarget);
 

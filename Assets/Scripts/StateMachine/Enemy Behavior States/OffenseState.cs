@@ -23,7 +23,7 @@ public class OffenseState : State
 
         defensiveTimer = Random.Range(.5f, 1f);
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).AttackRange;
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).AttackRange;
 
         character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
 
@@ -72,7 +72,7 @@ public class OffenseState : State
     public override void EndState()
     {
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).EngagementRange;
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).EngagementRange;
 
         character.AtkLight = false;
 
