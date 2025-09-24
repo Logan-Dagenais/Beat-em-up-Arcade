@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: bd610f1799d7f8443b16faf3cd031b8b
+guid: d13cc968b9ca1d141a8dd7d6045763bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6100849982027003660
-    second: pixilart-sprite (3)_0
+      213: -7364876344918923916
+    second: pixilart-sprite (5)_0
   - first:
-      213: 5066891840732405123
-    second: pixilart-sprite (3)_1
+      213: -6467025860841578517
+    second: pixilart-sprite (5)_1
   - first:
-      213: 993514550494202319
-    second: pixilart-sprite (3)_2
+      213: 7915215398992673203
+    second: pixilart-sprite (5)_2
   - first:
-      213: -5122777014839730663
-    second: pixilart-sprite (3)_3
+      213: -9161985646020519149
+    second: pixilart-sprite (5)_3
   - first:
-      213: -340289462319648982
-    second: pixilart-sprite (3)_4
+      213: 7818484458793216439
+    second: pixilart-sprite (5)_4
   - first:
-      213: -7073294930776222515
-    second: pixilart-sprite (3)_5
+      213: -8554769550826804246
+    second: pixilart-sprite (5)_5
   - first:
-      213: 5351207042614823211
-    second: pixilart-sprite (3)_6
+      213: 6204673805330249269
+    second: pixilart-sprite (5)_6
   - first:
-      213: 8152833393410905465
-    second: pixilart-sprite (3)_7
+      213: 682907005324160427
+    second: pixilart-sprite (5)_7
+  - first:
+      213: 1283584528884587080
+    second: pixilart-sprite (5)_8
+  - first:
+      213: 2804071573151969303
+    second: pixilart-sprite (5)_9
+  - first:
+      213: -2633889355147648481
+    second: pixilart-sprite (5)_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CaveManPlaceholder_0
+      name: pixilart-sprite (5)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,16 +143,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7c1dc69aea97e2d44bdb6d2e61809dc2
-      internalID: -1167392425
+      spriteID: 4752e6e2cf3bac990800000000000000
+      internalID: -7364876344918923916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_1
+      name: pixilart-sprite (5)_1
       rect:
         serializedVersion: 2
         x: 50
@@ -156,16 +165,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 69f13c84c2936ea4eb6e7f91f288dd0c
-      internalID: -195299573
+      spriteID: befd54b4e328046a0800000000000000
+      internalID: -6467025860841578517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_2
+      name: pixilart-sprite (5)_2
       rect:
         serializedVersion: 2
         x: 100
@@ -178,16 +187,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c91e335c0344d35468101fd61f5fb2a1
-      internalID: -1110179757
+      spriteID: 3b9f8a1087e78dd60800000000000000
+      internalID: 7915215398992673203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_3
+      name: pixilart-sprite (5)_3
       rect:
         serializedVersion: 2
         x: 150
@@ -200,16 +209,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2d71c687083bf6244a5e5a6524091ed1
-      internalID: -2125125492
+      spriteID: 31b18b3e8961ad080800000000000000
+      internalID: -9161985646020519149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_4
+      name: pixilart-sprite (5)_4
       rect:
         serializedVersion: 2
         x: 200
@@ -222,16 +231,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c4ebf8be6e403fa47ad7d8f4d6d984c5
-      internalID: -327516740
+      spriteID: 7b92840f036d08c60800000000000000
+      internalID: 7818484458793216439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_5
+      name: pixilart-sprite (5)_5
       rect:
         serializedVersion: 2
         x: 250
@@ -244,16 +253,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8ddd1fe0b763e09489e6b7af64912ad4
-      internalID: 1018204021
+      spriteID: aebe3ab2b6a574980800000000000000
+      internalID: -8554769550826804246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveManPlaceholder_6
+      name: pixilart-sprite (5)_6
       rect:
         serializedVersion: 2
         x: 300
@@ -266,10 +275,76 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 20af72efabd048e45a4d26f49b3d912f
-      internalID: -1001500168
+      spriteID: 53671e1c3fd6b1650800000000000000
+      internalID: 6204673805330249269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (5)_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bade8fa9d4c2a7900800000000000000
+      internalID: 682907005324160427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (5)_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84a5a5b045530d110800000000000000
+      internalID: 1283584528884587080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (5)_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7107e7a3d301ae620800000000000000
+      internalID: 2804071573151969303
       vertices: []
       indices: 
       edges: []
@@ -278,7 +353,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7fb67674db42bcb4a9d08ffb19d041a0
+    spriteID: d94c68aeb04a8e249a38130d6add0261
     internalID: 0
     vertices: []
     indices: 
@@ -288,13 +363,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CaveManPlaceholder_0: -1167392425
-      CaveManPlaceholder_1: -195299573
-      CaveManPlaceholder_2: -1110179757
-      CaveManPlaceholder_3: -2125125492
-      CaveManPlaceholder_4: -327516740
-      CaveManPlaceholder_5: 1018204021
-      CaveManPlaceholder_6: -1001500168
+      pixilart-sprite (5)_0: -7364876344918923916
+      pixilart-sprite (5)_1: -6467025860841578517
+      pixilart-sprite (5)_2: 7915215398992673203
+      pixilart-sprite (5)_3: -9161985646020519149
+      pixilart-sprite (5)_4: 7818484458793216439
+      pixilart-sprite (5)_5: -8554769550826804246
+      pixilart-sprite (5)_6: 6204673805330249269
+      pixilart-sprite (5)_7: 682907005324160427
+      pixilart-sprite (5)_8: 1283584528884587080
+      pixilart-sprite (5)_9: 2804071573151969303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
