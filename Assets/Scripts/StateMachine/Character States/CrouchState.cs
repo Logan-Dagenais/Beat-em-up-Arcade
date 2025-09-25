@@ -7,6 +7,13 @@ public class CrouchState : State
         Id = (int)GeneralStates.CROUCH;
     }
 
+    public override void StartState(int prevState)
+    {
+        base.StartState(prevState);
+
+        character.Velocity.y = 0;
+    }
+
     public override int StateAction()
     {
         base.StateAction();

@@ -5,6 +5,8 @@ public class EnemyScript : CharacterScript
     public StateMachine BehaviorStateMach;
 
     public Transform PlayerTransform;
+    public PlayerScript PlayerScript;
+    public int PlayerState => (int)PlayerScript.StateMach.CurrentState;
 
     //  changes during combat depending on mode
     public float CombatRangeDistance;
@@ -28,8 +30,8 @@ public class EnemyScript : CharacterScript
     {
         base.Awake();
         CombatRangeDistance = EngagementRange;
-
-        PlayerTransform = FindAnyObjectByType<PlayerScript>().transform;
+        PlayerScript = FindAnyObjectByType<PlayerScript>();
+        PlayerTransform = PlayerScript.transform;
 
         BehaviorStateMach = gameObject.AddComponent<StateMachine>();
 
@@ -47,6 +49,19 @@ public class EnemyScript : CharacterScript
             {(int)BehaviorStates.CHASE,
             new ChaseState(this)}
         };
+    }
+
+    //  probably would want to move this variable and method to a subclass.
+    //  we need a way to customize offset based on animation or projectile enemy type.
+    //  unfortunately the event system won't let us input a vector as a parameter.
+    [SerializeField] private Vector2 projectileOffset;
+    public void SpawnProjectile(GameObject projectile)
+    {
+        if (projectile != null)
+        {
+            GameObject proj = Instantiate(projectile, (Vector2)transform.position + projectileOffset, Quaternion.identity);
+            proj.GetComponent<ProjectileScript>().Direction.x = Facingleft ? -1 : 1;
+        }
     }
 
     private void Start()

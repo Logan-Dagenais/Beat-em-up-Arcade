@@ -17,13 +17,13 @@ public class ChaseState : State
             character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
         }
 
-        //  there is probably a better way than casting like this, try to fix another time
-        character.Direction.x = ((EnemyScript)character).Target < character.transform.position.x ? -1 : 1;
-
     }
 
     public override int StateAction()
     {
+        //  there is probably a better way than casting like this, try to fix another time
+        character.Direction.x = ((EnemyScript)character).Target < character.transform.position.x ? -1 : 1;
+
         if (((EnemyScript)character).InCombatRange)
         {
             return (int)BehaviorStates.DEFENSIVE;

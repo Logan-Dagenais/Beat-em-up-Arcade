@@ -12,12 +12,6 @@ public struct AttackProperties
     public int RecoverFrames;
     */
 
-    //  putting this here to make it easier to add attacks in inspector
-    public GeneralStates AttackID;
-
-    //  not sure if we need this but i am preemptively putting this here just in case
-    public string AtkAnimName;
-
     public float Damage;
 
     // hitstun and blockstun are counted in seconds
@@ -30,10 +24,8 @@ public struct AttackProperties
     public bool Heavy;
     public bool Low;
 
-    public AttackProperties(GeneralStates id, string atkAnimName, float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
     {
-        AttackID = id;
-        AtkAnimName = atkAnimName;
         Damage = damage;
         Hitstun = hitstun;
         Blockstun = blockstun;
@@ -47,7 +39,9 @@ public struct AttackProperties
 [Serializable]
 public class AttackState : State
 {
-    private StateMachine attackStates;
+    //  putting this here to make it easier to add attacks in inspector
+    public GeneralStates AttackID;
+
     public AttackProperties Properties;
 
     public AttackState(CharacterScript c, int id, AttackProperties properties) : base(c)
@@ -70,8 +64,6 @@ public class AttackState : State
             character.Anim.SetTrigger("AtkLight");
         }
         */
-
-        character.Anim.Play(Properties.AtkAnimName);
 
         //tempTime = character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 

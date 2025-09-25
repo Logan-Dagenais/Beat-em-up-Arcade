@@ -363,9 +363,9 @@ MonoBehaviour:
   Facingleft: 0
   AttackList:
   - Id: 0
+    animName: LightATK
+    AttackID: 5
     Properties:
-      AttackID: 4
-      AtkAnimName: LightATK
       Damage: 5
       Hitstun: 0.25
       Blockstun: 0.25
@@ -374,9 +374,9 @@ MonoBehaviour:
       Heavy: 0
       Low: 0
   - Id: 0
+    animName: HeavyATK
+    AttackID: 6
     Properties:
-      AttackID: 5
-      AtkAnimName: HeavyATK
       Damage: 10
       Hitstun: 0.25
       Blockstun: 0.25
@@ -385,9 +385,9 @@ MonoBehaviour:
       Heavy: 1
       Low: 0
   - Id: 0
+    animName: CrouchLight
+    AttackID: 7
     Properties:
-      AttackID: 6
-      AtkAnimName: CrouchLight
       Damage: 5
       Hitstun: 0.25
       Blockstun: 0.25
@@ -396,9 +396,9 @@ MonoBehaviour:
       Heavy: 0
       Low: 1
   - Id: 0
+    animName: CrouchHeavy
+    AttackID: 8
     Properties:
-      AttackID: 7
-      AtkAnimName: CrouchHeavy
       Damage: 10
       Hitstun: 0.25
       Blockstun: 0.25
@@ -407,9 +407,9 @@ MonoBehaviour:
       Heavy: 1
       Low: 1
   - Id: 0
+    animName: LightAerial
+    AttackID: 9
     Properties:
-      AttackID: 8
-      AtkAnimName: LightAerial
       Damage: 5
       Hitstun: 0.25
       Blockstun: 0.25
@@ -418,9 +418,9 @@ MonoBehaviour:
       Heavy: 0
       Low: 0
   - Id: 0
+    animName: HeavyAerial
+    AttackID: 10
     Properties:
-      AttackID: 9
-      AtkAnimName: HeavyAerial
       Damage: 10
       Hitstun: 0.25
       Blockstun: 0.25
@@ -473,8 +473,6 @@ MonoBehaviour:
   WalkBackwards: 0
   Hit: 0
   AtkTaken:
-    AttackID: 0
-    AtkAnimName: 
     Damage: 0
     Hitstun: 0
     Blockstun: 0

@@ -9,6 +9,7 @@ public enum GeneralStates
     WALK,
     AIR,
     CROUCH,
+    JUMPSQUAT,
 
     //  combat states (woo hoo violence)
 
@@ -58,7 +59,7 @@ abstract public class State
 
     protected bool animPlaying;
     protected float animTiming;
-    protected string animName;
+    [SerializeField] protected string animName;
 
     protected int prevStateId;
     protected int nextStateId;

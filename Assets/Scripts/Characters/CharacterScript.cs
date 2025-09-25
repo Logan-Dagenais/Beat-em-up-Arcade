@@ -121,6 +121,9 @@ abstract public class CharacterScript : MonoBehaviour
             {(int)GeneralStates.CROUCH,
             new CrouchState(this) },
 
+            {(int)GeneralStates.JUMPSQUAT,
+            new JumpSquatState(this) },
+
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},
 
@@ -137,7 +140,7 @@ abstract public class CharacterScript : MonoBehaviour
         for (int i=0; i<AttackList.Length; i++)
         {
             AttackList[i].SetCharacter(this);
-            AttackList[i].Id = (int)AttackList[i].Properties.AttackID;
+            AttackList[i].Id = (int)AttackList[i].AttackID;
 
             StateMach.StateList.Add(AttackList[i].Id, AttackList[i]);
         }
@@ -148,8 +151,8 @@ abstract public class CharacterScript : MonoBehaviour
     //  to the target that was hit so it reacts accordingly
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        //  ignore method if hitbox layer or if tag matches self (so enemies can't hit each other)
-        if (collision.gameObject.layer == 7 ||
+        //  ignore method if not hurtbox layer or if tag matches self (so enemies can't hit each other)
+        if (collision.gameObject.layer != 6 ||
             collision.gameObject.CompareTag(gameObject.tag))
         {
             return;
@@ -200,8 +203,6 @@ abstract public class CharacterScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
-
         if (OnGround)
         {
             Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
@@ -218,6 +219,8 @@ abstract public class CharacterScript : MonoBehaviour
                     break;
             }
         }
+
+        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
 
         if (GuardIntTimer >= GuardIntCooldown)
         {

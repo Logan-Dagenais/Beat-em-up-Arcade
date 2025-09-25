@@ -30,9 +30,14 @@ public class WalkState : State
             }
         }
 
-        if (!character.OnGround || character.Direction.y > 0)
+        if (!character.OnGround)
         {
             return (int)GeneralStates.AIR;
+        }
+
+        if (character.Direction.y > 0)
+        {
+            return (int)GeneralStates.JUMPSQUAT;
         }
 
         if (character.Direction.y < 0)

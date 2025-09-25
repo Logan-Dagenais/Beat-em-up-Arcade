@@ -367,8 +367,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190226
-  m_fontColor: {r: 0.5707547, g: 0, b: 0, a: 1}
+    rgba: 4280844544
+  m_fontColor: {r: 0, g: 0.5058824, b: 0.15686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -518,8 +518,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278229263
-  m_fontColor: {r: 0.059095208, g: 0.5990566, b: 0, a: 1}
+    rgba: 4278190209
+  m_fontColor: {r: 0.504717, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -915,9 +915,9 @@ MonoBehaviour:
   Facingleft: 0
   AttackList:
   - Id: 0
+    animName: LightATK
+    AttackID: 5
     Properties:
-      AttackID: 4
-      AtkAnimName: LightATK
       Damage: 5
       Hitstun: 0.25
       Blockstun: 0.25
@@ -970,8 +970,6 @@ MonoBehaviour:
   WalkBackwards: 0
   Hit: 0
   AtkTaken:
-    AttackID: 0
-    AtkAnimName: 
     Damage: 0
     Hitstun: 0
     Blockstun: 0
@@ -988,7 +986,9 @@ MonoBehaviour:
   Anim: {fileID: 0}
   BehaviorStateMach: {fileID: 0}
   PlayerTransform: {fileID: 0}
-  CombatRange: 0
-  DetectionRange: 12
+  PlayerScript: {fileID: 0}
+  CombatRangeDistance: 0
   EngagementRange: 5
   AttackRange: 1.5
+  TargetOffset: 0
+  projectileOffset: {x: 0, y: 0}
