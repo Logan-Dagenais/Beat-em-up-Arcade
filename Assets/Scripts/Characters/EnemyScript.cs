@@ -61,6 +61,7 @@ public class EnemyScript : CharacterScript
         {
             GameObject proj = Instantiate(projectile, (Vector2)transform.position + projectileOffset, Quaternion.identity);
             proj.GetComponent<ProjectileScript>().Direction.x = Facingleft ? -1 : 1;
+            Destroy(proj, 10);
         }
     }
 

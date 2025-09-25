@@ -357,8 +357,8 @@ MonoBehaviour:
   Health: 0
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
-  JumpForce: 20
-  WalkSpeed: 5
+  JumpForce: 25
+  WalkSpeed: 7
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
