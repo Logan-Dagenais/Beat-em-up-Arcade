@@ -27,7 +27,7 @@ public class StateMachine : MonoBehaviour
         currentStateId = newStateId;
         StateList[currentStateId].StartState(previousStateId);
 
-        print(gameObject.name+": switching to " + StateList[currentStateId].ToString());
+        // print(gameObject.name+": switching to " + StateList[currentStateId].ToString());
     }
 
     private const int MAX_TIME = 99;
