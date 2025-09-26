@@ -16,6 +16,6 @@ public class DebugLabel : MonoBehaviour
 
     private void FixedUpdate()
     {
-        debugLabel.text = stateMach?.StateList[stateMach.CurrentState].ToString();
+        debugLabel.text = stateMach != null ? stateMach.StateList[stateMach.CurrentState].ToString() : "DeadState";
     }
 }

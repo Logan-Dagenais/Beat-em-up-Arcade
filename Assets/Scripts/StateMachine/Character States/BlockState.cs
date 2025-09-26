@@ -39,7 +39,7 @@ public class BlockState : State
                 return (int)GeneralStates.HITSTUN;
             }
 
-            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow)
+            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow || character.AtkTaken.Unblockable)
             {
                 return (int)GeneralStates.HITSTUN;
             }

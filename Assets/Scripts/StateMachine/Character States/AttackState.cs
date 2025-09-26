@@ -21,11 +21,15 @@ public struct AttackProperties
     //  might make knockback a vector2 instead?
     public float Knockback;
     public bool CanKnockdown;
+
     public bool Heavy;
     public bool Low;
+
+    public bool Unblockable;
+
     public float HitboxXOffset;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low, float offset)
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low, bool unblockable, float offset)
     {
         Damage = damage;
         Hitstun = hitstun;
@@ -34,6 +38,7 @@ public struct AttackProperties
         CanKnockdown = knockdown;
         Heavy = heavy;
         Low = low;
+        Unblockable = unblockable;
         HitboxXOffset = offset;
     }
 }

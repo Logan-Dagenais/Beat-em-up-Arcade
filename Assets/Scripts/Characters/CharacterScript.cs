@@ -71,7 +71,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public StateMachine StateMach;
     public Animator Anim;
-    private SpriteRenderer spriteRender;
+    public SpriteRenderer spriteRender;
 
     protected void Awake()
     {
@@ -199,6 +199,11 @@ abstract public class CharacterScript : MonoBehaviour
         HitFromLeft = hitFromLeft;
 
         Hit = true;
+    }
+
+    public virtual void DeadState()
+    {
+        Destroy(gameObject, 1.6f);
     }
 
     private void FixedUpdate()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 //  i don't know if this needs to be its own class, might combine it with hitstun state
@@ -20,13 +21,6 @@ public class KnockdownState : State
 
         character.Hurtboxes.SetActive(false);
 
-        /*  
-         *  possible bug: hit variable might be true after this state ends
-         *  but theoretically nothing should be activating it because the
-         *  hurtbox should be disabled during this state
-         */
-        character.Hit = false;
-
         //  replace this with an animation
         //character.GetComponent<SpriteRenderer>().color = Color.gray;
     }
@@ -45,12 +39,24 @@ public class KnockdownState : State
             character.Velocity.y = 0;
         }
 
+        if (character.Health <= 0)
+        {
+            character.DeadState();
+        }
+
         if (stateMach.StateTime >= downTime && character.Health > 0)
         {
             return (int)GeneralStates.IDLE;
         }
+        else if(stateMach.StateTime >= downTime)
+        {
+            int tempTime = (int)(stateMach.StateTime * 10);
+ 
+            character.spriteRender.enabled = tempTime % 2 == 0;
 
-        return nextStateId;
+        }
+
+            return nextStateId;
     }
 
     public override void EndState()

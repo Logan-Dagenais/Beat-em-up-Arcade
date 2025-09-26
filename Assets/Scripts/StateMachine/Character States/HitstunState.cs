@@ -34,6 +34,12 @@ public class HitstunState : StunState
         knockedDown = comboKnockdown || character.Health <= 0 ?
             true : character.AtkTaken.CanKnockdown;
 
+        if (knockedDown)
+        {
+            character.SwitchSpriteDirection(character.HitFromLeft);
+            character.Velocity.y = 15;
+        }
+
         //  turns character into a projectile when knocked down with a combo
         //  does not effect player because this is a one player game
         if (character.CompareTag("Enemy") && comboKnockdown)
@@ -76,14 +82,10 @@ public class HitstunState : StunState
         //  in mid air if we add this
         if (character.OnGround && knockedDown)
         {
-            character.SwitchSpriteDirection(character.HitFromLeft);
-            character.Velocity.y = 15;
-
             if (stunTime <= stateMach.StateTime)
             {
                 return (int)GeneralStates.KNOCKDOWN;
             }
-
         }
 
 

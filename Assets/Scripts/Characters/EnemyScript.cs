@@ -6,7 +6,7 @@ public class EnemyScript : CharacterScript
 
     public Transform PlayerTransform;
     public PlayerScript PlayerScript;
-    public int PlayerState => (int)PlayerScript.StateMach.CurrentState;
+    public int PlayerState => PlayerScript.StateMach.CurrentState;
 
     //  changes during combat depending on mode
     public float CombatRangeDistance;
@@ -79,4 +79,5 @@ public class EnemyScript : CharacterScript
     {
         SwitchSpriteDirection(PlayerToLeft);
     }
+
 }

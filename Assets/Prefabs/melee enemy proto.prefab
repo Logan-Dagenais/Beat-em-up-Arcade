@@ -177,6 +177,7 @@ MonoBehaviour:
     CanKnockdown: 1
     Heavy: 1
     Low: 0
+    Unblockable: 1
     HitboxXOffset: 0
   Direction: {x: 0, y: 0}
   BulletSpeed: 0
@@ -951,6 +952,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 0
+      Unblockable: 0
       HitboxXOffset: 0
   Friction: 1
   Gravity: 2
@@ -1004,6 +1006,7 @@ MonoBehaviour:
     CanKnockdown: 0
     Heavy: 0
     Low: 0
+    Unblockable: 0
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0

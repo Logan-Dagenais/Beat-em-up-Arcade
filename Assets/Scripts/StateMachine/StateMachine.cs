@@ -50,4 +50,9 @@ public class StateMachine : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        StateList.Clear();
+    }
+
 }
