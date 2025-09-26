@@ -114,6 +114,16 @@ public class ButtonManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void backToMenu()
+    {
+        SceneManager.LoadScene("MainMenu_Proto");
+    }
+
+    public void restartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 
     public IEnumerator WarningSceneSelect()
     {
