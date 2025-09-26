@@ -4,7 +4,7 @@ public class DefenseState : State
 {
     private float aggressionTimer;
     private float destinationSwitchTimer;
-    private float blockChance;
+    private float blockChanceRNG;
 
     //  chooses a spot to move to randomly within combat range
     private float randomTarget;
@@ -19,8 +19,8 @@ public class DefenseState : State
     {
         base.StartState(prevState);
 
-        aggressionTimer = Random.Range(1f, 6f);
-        blockChance = Random.Range(0, 10);
+        aggressionTimer = Random.Range(((EnemyScript)character).AggresionTimerMin, ((EnemyScript)character).AggresionTimerMax);
+        blockChanceRNG = Random.Range(0, 10);
 
         SwitchDestination();
 
@@ -78,7 +78,7 @@ public class DefenseState : State
         else
         {
             //  50% block chance (since 0 counts)
-            character.Blocking = blockChance <= 4;
+            character.Blocking = blockChanceRNG <= ((EnemyScript)character).BlockChance;
             character.Direction.x = 0;
 
             //  blocking the direction the player is in

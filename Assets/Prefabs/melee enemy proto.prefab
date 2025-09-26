@@ -1016,4 +1016,11 @@ MonoBehaviour:
   EngagementRange: 5
   AttackRange: 1.5
   TargetOffset: 0
+  AgressionTimer: 0
+  AggresionTimerMin: 1
+  AggresionTimerMax: 6
+  DefenseTimer: 0
+  DefenseTimerMin: 0.5
+  DefenseTimerMax: 1
+  BlockChance: 5
   projectileOffset: {x: 0, y: 0}

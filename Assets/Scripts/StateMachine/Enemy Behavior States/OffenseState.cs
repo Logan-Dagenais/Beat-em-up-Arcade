@@ -21,7 +21,7 @@ public class OffenseState : State
             character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
         }
 
-        defensiveTimer = Random.Range(.5f, 1f);
+        defensiveTimer = Random.Range(((EnemyScript)character).DefenseTimerMin, ((EnemyScript)character).DefenseTimerMax);
 
         ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).AttackRange;
 

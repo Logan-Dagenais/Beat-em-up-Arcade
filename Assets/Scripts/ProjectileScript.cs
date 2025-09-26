@@ -46,7 +46,8 @@ public class ProjectileScript : MonoBehaviour
             return;
         }
 
-        bool hitfromLeft = Direction.x > 0;
+        bool hitfromLeft = Direction.x != 0 ? Direction.x > 0 :
+                           transform.position.x < collision.transform.position.x;
 
         atk.Low = transform.position.y < collision.transform.position.y;
 

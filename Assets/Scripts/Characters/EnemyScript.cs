@@ -26,6 +26,16 @@ public class EnemyScript : CharacterScript
     public bool InCombatRange => transform.position.x <= CombatRangeMax &&
                                  transform.position.x >= CombatRangeMin;
 
+    public float AgressionTimer;
+    public float AggresionTimerMin;
+    public float AggresionTimerMax;
+
+    public float DefenseTimer;
+    public float DefenseTimerMin;
+    public float DefenseTimerMax;
+
+    [Range(0, 10)] public float BlockChance;
+
     protected void Awake()
     {
         base.Awake();
