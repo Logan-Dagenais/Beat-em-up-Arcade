@@ -932,7 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079e4d07852c9fa479cc5e9cbe1dcc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 30
   Health: 0
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
@@ -1015,6 +1015,7 @@ MonoBehaviour:
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}
+  spriteRender: {fileID: 0}
   BehaviorStateMach: {fileID: 0}
   PlayerTransform: {fileID: 0}
   PlayerScript: {fileID: 0}

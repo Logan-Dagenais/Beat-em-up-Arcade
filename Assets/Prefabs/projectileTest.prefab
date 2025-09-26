@@ -110,6 +110,8 @@ MonoBehaviour:
     CanKnockdown: 1
     Heavy: 0
     Low: 0
+    Unblockable: 0
+    HitboxXOffset: 0
   Direction: {x: 0, y: 0}
   BulletSpeed: 5
   pierce: 0

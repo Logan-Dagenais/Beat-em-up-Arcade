@@ -23,14 +23,18 @@ public class FallingObjectScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player under rock");
-            gameObject.AddComponent<Rigidbody2D>();
-            hitbox.enabled = false;
-            fell.enabled = true;
-            stagnantParticles.SetActive(false);
-            Instantiate(rockfallingparticle, (gameObject.transform.position), Quaternion.identity);
+            return;
         }
+
+        Debug.Log("player under rock");
+        gameObject.AddComponent<Rigidbody2D>();
+        hitbox.enabled = false;
+        fell.enabled = true;
+        stagnantParticles.SetActive(false);
+        Instantiate(rockfallingparticle, (gameObject.transform.position), Quaternion.identity);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
