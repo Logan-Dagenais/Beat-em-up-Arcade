@@ -96,16 +96,6 @@ abstract public class State
         
     }
 
-    //  write the rest of this later
-    //  i am losing focus on the enemy behaviors and stuff
-    protected void LoopAnimation()
-    {
-        if (!animPlaying)
-        {
-            character.Anim.Play(animName);
-        }
-    }
-
     //  this should only be ran in FixedUpdate()
     public virtual int StateAction()
     {

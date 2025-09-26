@@ -832,6 +832,7 @@ MonoBehaviour:
     CanKnockdown: 1
     Heavy: 1
     Low: 0
+    HitboxXOffset: 0
   Direction: {x: 0, y: 0}
   BulletSpeed: 0
   pierce: 1
@@ -8479,6 +8480,7 @@ MonoBehaviour:
     CanKnockdown: 0
     Heavy: 0
     Low: 0
+    HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntCooldown: 6

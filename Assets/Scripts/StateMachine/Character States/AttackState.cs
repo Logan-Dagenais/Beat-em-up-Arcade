@@ -23,8 +23,9 @@ public struct AttackProperties
     public bool CanKnockdown;
     public bool Heavy;
     public bool Low;
+    public float HitboxXOffset;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low, float offset)
     {
         Damage = damage;
         Hitstun = hitstun;
@@ -33,6 +34,7 @@ public struct AttackProperties
         CanKnockdown = knockdown;
         Heavy = heavy;
         Low = low;
+        HitboxXOffset = offset;
     }
 }
 
@@ -71,6 +73,9 @@ public class AttackState : State
 
         //  for testing purposes, we will probably let the animator handle this
         //character.Hitboxes.SetActive(true);
+
+        //  only changes the x offset depending on what direction character is facing
+        character.Hitboxes.offset += character.Facingleft ? Vector2.left * Properties.HitboxXOffset : Vector2.right * Properties.HitboxXOffset;
     }
 
     public override int StateAction()
@@ -89,7 +94,7 @@ public class AttackState : State
         //  attack interruption
         if (character.Hit)
         {
-            character.Hitboxes.SetActive(false);
+            character.Hitboxes.gameObject.SetActive(false);
             return (int)GeneralStates.HITSTUN;
         }
 
@@ -110,6 +115,9 @@ public class AttackState : State
 
         character.EnemiesHit.Clear();
 
-        character.Hitboxes.SetActive(false);
+        //  reset hitbox position
+        character.Hitboxes.offset = Vector2.zero;
+
+        character.Hitboxes.gameObject.SetActive(false);
     }
 }

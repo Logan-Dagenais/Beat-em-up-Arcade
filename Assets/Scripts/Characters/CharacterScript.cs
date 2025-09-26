@@ -38,7 +38,7 @@ abstract public class CharacterScript : MonoBehaviour
     //  collision detection
     [Header("collision detection")]
     public GameObject Hurtboxes;
-    public GameObject Hitboxes;
+    public BoxCollider2D Hitboxes;
 
     [SerializeField] private ContactFilter2D contactFilter;
     [SerializeField] private Rigidbody2D.SlideMovement slideMove;
@@ -93,11 +93,11 @@ abstract public class CharacterScript : MonoBehaviour
         if (child1.gameObject.layer == 6)
         {
             Hurtboxes = child1;
-            Hitboxes = child2;
+            Hitboxes = child2.GetComponent<BoxCollider2D>();
         }
         else
         {
-            Hitboxes = child1;
+            Hitboxes = child1.GetComponent<BoxCollider2D>();
             Hurtboxes = child2;
         }
 

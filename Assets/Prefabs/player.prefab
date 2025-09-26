@@ -222,7 +222,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2877283838961468542, guid: 8f278a54dd2dc6445922eb229d2c5675, type: 3}
+  m_Sprite: {fileID: -8668543014768416318, guid: 884861b41751d85489f3c3a2ef773574, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 0
+      HitboxXOffset: 0.75
   - Id: 0
     animName: HeavyATK
     AttackID: 6
@@ -384,6 +385,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 1
       Low: 0
+      HitboxXOffset: 0
   - Id: 0
     animName: CrouchLight
     AttackID: 7
@@ -395,6 +397,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 1
+      HitboxXOffset: 0
   - Id: 0
     animName: CrouchHeavy
     AttackID: 8
@@ -406,6 +409,7 @@ MonoBehaviour:
       CanKnockdown: 1
       Heavy: 1
       Low: 1
+      HitboxXOffset: 0
   - Id: 0
     animName: LightAerial
     AttackID: 9
@@ -417,6 +421,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 0
+      HitboxXOffset: 0
   - Id: 0
     animName: HeavyAerial
     AttackID: 10
@@ -428,6 +433,7 @@ MonoBehaviour:
       CanKnockdown: 1
       Heavy: 1
       Low: 0
+      HitboxXOffset: 0
   Friction: 1
   Gravity: 2
   TerminalVelocity: 60
@@ -480,6 +486,7 @@ MonoBehaviour:
     CanKnockdown: 0
     Heavy: 0
     Low: 0
+    HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntCooldown: 6
