@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -40,6 +41,21 @@ public class PlayerScript : CharacterScript
     void OnBlock()
     {
         Blocking = block.IsPressed();
+    }
+
+    public override void DeadState()
+    {
+        StartCoroutine(PlayerDeath());
+    }
+
+    IEnumerator PlayerDeath()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(StateMach);
+        Velocity.y = 0;
+        spriteRender.enabled = false;
+
+        StopCoroutine(PlayerDeath());
     }
 
 }

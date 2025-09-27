@@ -18,7 +18,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public bool Facingleft;
 
-    [SerializeField] private AttackState[] AttackList;
+    [SerializeField] protected AttackState[] AttackList;
 
     public float Friction;
 
@@ -26,8 +26,8 @@ abstract public class CharacterScript : MonoBehaviour
     //  i don't think by much though
     //  also note that these do not use unity's normal gravity scale, i am pretty sure
     //  the measurements are based on the unity unit though.
-    [SerializeField] private float Gravity;
-    [SerializeField] private float TerminalVelocity;
+    [SerializeField] protected float Gravity;
+    [SerializeField] protected float TerminalVelocity;
 
     public Vector2 Velocity;
 
@@ -40,8 +40,8 @@ abstract public class CharacterScript : MonoBehaviour
     public GameObject Hurtboxes;
     public BoxCollider2D Hitboxes;
 
-    [SerializeField] private ContactFilter2D contactFilter;
-    [SerializeField] private Rigidbody2D.SlideMovement slideMove;
+    [SerializeField] protected ContactFilter2D contactFilter;
+    [SerializeField] protected Rigidbody2D.SlideMovement slideMove;
 
     //  state machine inputs
     [Header("state machine inputs")]
@@ -62,7 +62,7 @@ abstract public class CharacterScript : MonoBehaviour
     public bool HitFromLeft;
     public bool GuardBreak;
 
-    [SerializeField] private float GuardIntCooldown;
+    [SerializeField] protected float GuardIntCooldown;
     public float GuardIntTimer;
 
     //  components
