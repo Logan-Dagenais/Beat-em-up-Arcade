@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.VersionControl.Asset;
+//using static UnityEditor.VersionControl.Asset;
 
 public class StateMachine : MonoBehaviour
 {
