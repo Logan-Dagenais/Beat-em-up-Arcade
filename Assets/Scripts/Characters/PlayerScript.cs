@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerScript : CharacterScript
 {
@@ -13,6 +14,9 @@ public class PlayerScript : CharacterScript
     private InputAction atkH;
     private InputAction block;
 
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider guardMeter;
+
     protected void Awake()
     {
         base.Awake();
@@ -21,6 +25,26 @@ public class PlayerScript : CharacterScript
         atkL = input.currentActionMap.FindAction("Light Attack");
         atkH = input.currentActionMap.FindAction("Heavy Attack");
         block = input.currentActionMap.FindAction("Block");
+    }
+
+    private void Start()
+    {
+        healthBar.maxValue = MaxHealth;
+        healthBar.value = MaxHealth;
+        guardMeter.maxValue = MaxGuardIntegrity;
+        guardMeter.value = MaxGuardIntegrity;
+    }
+
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        healthBar.value = Health;
+    }
+
+    public override void RecoverGuard()
+    {
+        base.RecoverGuard();
+        guardMeter.value = GuardIntegrity;
     }
 
     void OnMove()

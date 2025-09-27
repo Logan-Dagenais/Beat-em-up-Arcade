@@ -20,15 +20,13 @@ public class HitstunState : StunState
 
         comboCounter++;
 
-        //  take half damage on guardbreak
-        character.Health -= !character.GuardBreak ?
-            character.AtkTaken.Damage : character.AtkTaken.Damage / 2;
+        character.TakeDamage();
 
         //  extended hitstun on guardbreak
         stunTime = !character.GuardBreak ?
             character.AtkTaken.Hitstun : character.AtkTaken.Hitstun * 1.25f;
 
-        comboKnockdown = comboCounter >= 2 && character.AtkTaken.Heavy || character.Health <= 0;
+        comboKnockdown = comboCounter >= 2 && character.AtkTaken.Heavy;
 
         //  knocks down when hit with a heavy while still in hitstun
         knockedDown = comboKnockdown || character.Health <= 0 ?
