@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &208128485215336770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Color.g
+      value: 0.088558465
+      objectReference: {fileID: 0}
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: WalkSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: BlockChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: EngagementRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AggresionTimerMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: MaxGuardIntegrity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].AttackID
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].animName
+      value: HeavyATK
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Heavy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Hitstun
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Knockback
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.CanKnockdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Name
+      value: heavy melee enemy proto Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}

@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debug_Testing.unity
     guid: 76fc31585fcd9cc478dc1fe7c49830b1
+  - enabled: 1
+    path: Assets/Scenes/MapArt_Proto.unity
+    guid: e4b6eb2273eec6c48b3445b8551132be
+  - enabled: 1
+    path: Assets/Scenes/OnscreenUI.unity
+    guid: 68aa0934c26d41442a90ce0bd8904b3a
+  - enabled: 1
+    path: Assets/Scenes/Level1Prototype.unity
+    guid: 795b271134c91a94f8cc7f95a851e8fa
+  - enabled: 1
+    path: Assets/Scenes/Level2Prototype.unity
+    guid: 88ee068a7eb1f504bbadde6ebd11e45a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class CharacterScript : MonoBehaviour
+abstract public class CharacterScript : MonoBehaviour
 {
     //  character attributes
+    [Header("character attributes")]
     [SerializeField] private float MaxHealth;
     public float Health;
     [SerializeField] private float MaxGuardIntegrity;
@@ -13,10 +14,11 @@ public class CharacterScript : MonoBehaviour
 
     public float JumpForce;
     public float WalkSpeed;
+    public float AirMobilityAccel;
 
     public bool Facingleft;
 
-    public AttackProperties[] AttackList;
+    [SerializeField] protected AttackState[] AttackList;
 
     public float Friction;
 
@@ -24,29 +26,25 @@ public class CharacterScript : MonoBehaviour
     //  i don't think by much though
     //  also note that these do not use unity's normal gravity scale, i am pretty sure
     //  the measurements are based on the unity unit though.
-    [SerializeField] private float Gravity;
-    [SerializeField] private float TerminalVelocity;
+    [SerializeField] protected float Gravity;
+    [SerializeField] protected float TerminalVelocity;
+
+    public Vector2 Velocity;
 
     //  keeps track of what enemies have already been hit
     //  so that attacks can only hit once on activation
     public List<CharacterScript> EnemiesHit;
 
-    public Vector2 Velocity;
-
-    //  components
-    public Rigidbody2D RB2D;
-
-    public StateMachine StateMach;
-    public Animator Anim;
-
     //  collision detection
+    [Header("collision detection")]
     public GameObject Hurtboxes;
-    public GameObject Hitboxes;
+    public BoxCollider2D Hitboxes;
 
-    [SerializeField] private ContactFilter2D contactFilter;
-    [SerializeField] private Rigidbody2D.SlideMovement slideMove;
+    [SerializeField] protected ContactFilter2D contactFilter;
+    [SerializeField] protected Rigidbody2D.SlideMovement slideMove;
 
     //  state machine inputs
+    [Header("state machine inputs")]
     public Vector2 Direction;
 
     public bool OnGround => RB2D.IsTouching(contactFilter);
@@ -55,19 +53,32 @@ public class CharacterScript : MonoBehaviour
     [SerializeField] public bool AtkHeavy;
     [SerializeField] public bool Blocking;
 
+    //  mainly for enemies
+    public bool WalkBackwards;
+
     public bool Hit;
 
     public AttackProperties AtkTaken;
     public bool HitFromLeft;
     public bool GuardBreak;
 
-    [SerializeField] private float GuardIntCooldown;
+    [SerializeField] protected float GuardIntCooldown;
     public float GuardIntTimer;
+
+    //  components
+    [Header("components (they are assigned on awake)")]
+    public Rigidbody2D RB2D;
+
+    public StateMachine StateMach;
+    public Animator Anim;
+    public SpriteRenderer spriteRender;
 
     protected void Awake()
     {
         RB2D = GetComponent<Rigidbody2D>();
         StateMach = GetComponent<StateMachine>();
+        Anim = GetComponent<Animator>();
+        spriteRender = GetComponent<SpriteRenderer>();
 
         Health = MaxHealth;
         GuardIntegrity = MaxGuardIntegrity;
@@ -78,23 +89,71 @@ public class CharacterScript : MonoBehaviour
         GameObject child1 = transform.GetChild(0).gameObject;
         GameObject child2 = transform.GetChild(1).gameObject;
 
-        if (child1.CompareTag("Hurtbox"))
+        //  checking if child1 is hurtbox layer
+        if (child1.gameObject.layer == 6)
         {
             Hurtboxes = child1;
-            Hitboxes = child2;
+            Hitboxes = child2.GetComponent<BoxCollider2D>();
         }
         else
         {
-            Hitboxes = child1;
+            Hitboxes = child1.GetComponent<BoxCollider2D>();
             Hurtboxes = child2;
         }
+
+
+        //  unfortunately as of now we will need to manually add every state
+        //  with this long line
+        //  honestly could not figure out a better way for right now
+
+        //  basic states every character would probably have
+        StateMach.StateList = new()
+        {
+            {(int)GeneralStates.IDLE,
+            new IdleState(this)},
+
+            {(int)GeneralStates.WALK,
+            new WalkState(this)},
+
+            {(int)GeneralStates.AIR,
+            new AirState(this) },
+
+            {(int)GeneralStates.CROUCH,
+            new CrouchState(this) },
+
+            {(int)GeneralStates.JUMPSQUAT,
+            new JumpSquatState(this) },
+
+            {(int)GeneralStates.HITSTUN,
+            new HitstunState(this)},
+
+            {(int)GeneralStates.KNOCKDOWN,
+            new KnockdownState(this)},
+
+            {(int)GeneralStates.BLOCKSTUN,
+            new BlockstunState(this)},
+
+            {(int)GeneralStates.BLOCK,
+            new BlockState(this)}
+        };
+
+        for (int i=0; i<AttackList.Length; i++)
+        {
+            AttackList[i].SetCharacter(this);
+            AttackList[i].Id = (int)AttackList[i].AttackID;
+
+            StateMach.StateList.Add(AttackList[i].Id, AttackList[i]);
+        }
+
     }
 
     //  this function basically takes the attack state data and transfers it
     //  to the target that was hit so it reacts accordingly
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Hurtbox"))
+        //  ignore method if not hurtbox layer or if tag matches self (so enemies can't hit each other)
+        if (collision.gameObject.layer != 6 ||
+            collision.gameObject.CompareTag(gameObject.tag))
         {
             return;
         }
@@ -142,10 +201,13 @@ public class CharacterScript : MonoBehaviour
         Hit = true;
     }
 
+    public virtual void DeadState()
+    {
+        Destroy(gameObject, 1.6f);
+    }
+
     private void FixedUpdate()
     {
-        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
-
         if (OnGround)
         {
             Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
@@ -153,7 +215,17 @@ public class CharacterScript : MonoBehaviour
         else
         {
             Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
+
+            switch (StateMach.CurrentState)
+            {
+                case (int)GeneralStates.HITSTUN:
+                case (int)GeneralStates.KNOCKDOWN:
+                    Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction * .2f);
+                    break;
+            }
         }
+
+        RB2D.Slide(Velocity, Time.deltaTime, slideMove);
 
         if (GuardIntTimer >= GuardIntCooldown)
         {
@@ -179,40 +251,11 @@ public class CharacterScript : MonoBehaviour
 
     }
 
+    //  passing in true will face left
+    public void SwitchSpriteDirection(bool left)
+    {
+        Facingleft = left;
+        spriteRender.flipX = left;
+    }
+
 }
-
-//  list of states that every character in the game can have
-public enum GeneralStates
-{
-    //  movement states
-    IDLE,
-    WALK,
-    AIR,
-    CROUCH,
-
-    //  combat states (woo hoo violence)
-
-    //  list of every attack every character can have
-    //  standing
-    ATKLIGHT,
-    ATKHEAVY,
-
-    //  crouching
-    ATKLIGHTCR,
-    ATKHEAVYCR,
-
-    //  aerial
-    ATKLIGHTAIR,
-    ATKHEAVYAIR,
-
-    //  pain
-    HITSTUN,
-    KNOCKDOWN,
-    BLOCKSTUN,
-
-    //  pain avoidance
-    BLOCK,
-    DODGE
-}
-
-
