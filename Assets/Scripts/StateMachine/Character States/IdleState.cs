@@ -11,14 +11,23 @@ public class IdleState : State
     {
         base.StartState(prevState);
 
+        character.Anim.Play("Idle");
+
         character.Velocity.y = 0;
     }
 
     public override int StateAction()
     {
-        if (!character.OnGround || character.Direction.y > 0)
+        base.StateAction();
+
+        if (!character.OnGround)
         {
             return (int)GeneralStates.AIR;
+        }
+
+        if (character.Direction.y > 0)
+        {
+            return (int)GeneralStates.JUMPSQUAT;
         }
 
         if (character.Direction.y < 0)
@@ -33,11 +42,13 @@ public class IdleState : State
 
         if (character.AtkLight)
         {
+            character.AtkLight = false;
             return (int)GeneralStates.ATKLIGHT;
         }
 
         if (character.AtkHeavy)
         {
+            character.AtkHeavy = false;
             return (int)GeneralStates.ATKHEAVY;
         }
 

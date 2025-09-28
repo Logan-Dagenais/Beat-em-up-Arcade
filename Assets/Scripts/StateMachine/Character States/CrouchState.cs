@@ -7,8 +7,17 @@ public class CrouchState : State
         Id = (int)GeneralStates.CROUCH;
     }
 
+    public override void StartState(int prevState)
+    {
+        base.StartState(prevState);
+
+        character.Velocity.y = 0;
+    }
+
     public override int StateAction()
     {
+        base.StateAction();
+
         if (character.Blocking)
         {
             return (int)GeneralStates.BLOCK;
@@ -21,12 +30,23 @@ public class CrouchState : State
 
         if (character.AtkLight)
         {
+            character.AtkLight = false;
             return (int)GeneralStates.ATKLIGHTCR;
         }
 
         if (character.AtkHeavy)
         {
+            character.AtkHeavy = false;
             return (int)GeneralStates.ATKHEAVYCR;
+        }
+
+        if (character.Direction.x < 0)
+        {
+            character.SwitchSpriteDirection(true);
+        }
+        else if (character.Direction.x > 0)
+        {
+            character.SwitchSpriteDirection(false);
         }
 
         return nextStateId;

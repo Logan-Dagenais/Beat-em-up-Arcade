@@ -1,6 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerScript : CharacterScript
 {
@@ -11,6 +14,10 @@ public class PlayerScript : CharacterScript
     private InputAction atkH;
     private InputAction block;
 
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider guardMeter;
+    [SerializeField] private GameObject gameOverScreen;
+
     protected void Awake()
     {
         base.Awake();
@@ -19,68 +26,26 @@ public class PlayerScript : CharacterScript
         atkL = input.currentActionMap.FindAction("Light Attack");
         atkH = input.currentActionMap.FindAction("Heavy Attack");
         block = input.currentActionMap.FindAction("Block");
+    }
 
-        //  unfortunately as of now we will need to manually add every state
-        //  with this long line
-        //  honestly could not figure out a better way for right now
+    private void Start()
+    {
+        healthBar.maxValue = MaxHealth;
+        healthBar.value = MaxHealth;
+        guardMeter.maxValue = MaxGuardIntegrity;
+        guardMeter.value = MaxGuardIntegrity;
+    }
 
-        StateMach.StateList = new()
-        {
-            {(int)GeneralStates.IDLE, 
-            new IdleState(this)},
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        healthBar.value = Health;
+    }
 
-            {(int)GeneralStates.WALK,
-            new WalkState(this)},
-
-            {(int)GeneralStates.AIR,
-            new AirState(this) },
-
-            {(int)GeneralStates.CROUCH,
-            new CrouchState(this) },
-
-            {(int)GeneralStates.ATKLIGHT,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHT,
-                new AttackProperties(5, .5f, .25f, 5, false, false, false))},
-
-            {(int)GeneralStates.ATKHEAVY,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVY,
-                new AttackProperties(10, 1f, .5f, 10, false, true, false))},
-
-            {(int)GeneralStates.ATKLIGHTCR,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHTCR,
-                new AttackProperties(5, .5f, .25f, 5, false, false, true))},
-
-            {(int)GeneralStates.ATKHEAVYCR,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVYCR,
-                new AttackProperties(10, 1f, .5f, 10, true, true, true))},
-
-            {(int)GeneralStates.ATKLIGHTAIR,
-            new AttackState(this,
-                (int)GeneralStates.ATKLIGHTAIR,
-                new AttackProperties(5, .5f, .25f, 5, false, false, false))},
-
-            {(int)GeneralStates.ATKHEAVYAIR,
-            new AttackState(this,
-                (int)GeneralStates.ATKHEAVYAIR,
-                new AttackProperties(10, 1f, .5f, 10, true, true, false))},
-
-            {(int)GeneralStates.HITSTUN,
-            new HitstunState(this)},
-
-            {(int)GeneralStates.KNOCKDOWN,
-            new KnockdownState(this)},
-
-            {(int)GeneralStates.BLOCKSTUN,
-            new BlockstunState(this)},
-
-            {(int)GeneralStates.BLOCK,
-            new BlockState(this)}
-        };
-
+    public override void RecoverGuard()
+    {
+        base.RecoverGuard();
+        guardMeter.value = GuardIntegrity;
     }
 
     void OnMove()
@@ -101,6 +66,23 @@ public class PlayerScript : CharacterScript
     void OnBlock()
     {
         Blocking = block.IsPressed();
+    }
+
+    public override void DeadState()
+    {
+        StartCoroutine(PlayerDeath());
+    }
+
+    IEnumerator PlayerDeath()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(StateMach);
+        Velocity.y = 0;
+        spriteRender.enabled = false;
+        yield return new WaitForSeconds(1);
+        gameOverScreen.SetActive(true);
+
+        StopCoroutine(PlayerDeath());
     }
 
 }

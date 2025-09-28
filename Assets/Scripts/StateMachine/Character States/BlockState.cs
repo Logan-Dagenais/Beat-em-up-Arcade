@@ -13,22 +13,21 @@ public class BlockState : State
 
     public override void StartState(int prevState)
     {
+        animName = character.Direction.y < 0 ? "CrouchBlock" : "Block";
         base.StartState(prevState);
-
     }
 
     public override int StateAction()
     {
+        base.StateAction();
+
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
 
-        if (character.Direction.x < 0)
+        if ((blockLow && animName == "Block") ||
+            (!blockLow && animName == "CrouchBlock"))
         {
-            character.Facingleft = true;
-        }
-        else if (character.Direction.x > 0)
-        {
-            character.Facingleft = false;
+            StartState(prevStateId);
         }
 
         //  check for if character was blocking properly or if block broken
@@ -40,7 +39,7 @@ public class BlockState : State
                 return (int)GeneralStates.HITSTUN;
             }
 
-            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow)
+            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow || character.AtkTaken.Unblockable)
             {
                 return (int)GeneralStates.HITSTUN;
             }
@@ -59,6 +58,15 @@ public class BlockState : State
         if (!character.Blocking)
         {
             return blockLow ? (int)GeneralStates.CROUCH:(int)GeneralStates.IDLE;
+        }
+
+        if (character.Direction.x < 0)
+        {
+            character.SwitchSpriteDirection(true);
+        }
+        else if (character.Direction.x > 0)
+        {
+            character.SwitchSpriteDirection(false);
         }
 
         return nextStateId;

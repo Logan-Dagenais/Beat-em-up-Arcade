@@ -12,22 +12,32 @@ public class WalkState : State
         base.StartState(prevState);
 
         character.Velocity.y = 0;
-
-        if (character.Direction.x < 0)
-        {
-            character.Facingleft = true;
-        }
-        else if (character.Direction.x > 0)
-        {
-            character.Facingleft = false;
-        }
     }
 
     public override int StateAction()
     {
-        if (!character.OnGround || character.Direction.y > 0)
+        base.StateAction();
+
+        if (!character.WalkBackwards)
+        {
+            if (character.Direction.x < 0)
+            {
+                character.SwitchSpriteDirection(true);
+            }
+            else if (character.Direction.x > 0)
+            {
+                character.SwitchSpriteDirection(false);
+            }
+        }
+
+        if (!character.OnGround)
         {
             return (int)GeneralStates.AIR;
+        }
+
+        if (character.Direction.y > 0)
+        {
+            return (int)GeneralStates.JUMPSQUAT;
         }
 
         if (character.Direction.y < 0)
@@ -42,11 +52,13 @@ public class WalkState : State
 
         if (character.AtkLight)
         {
+            character.AtkLight = false;
             return (int)GeneralStates.ATKLIGHT;
         }
 
         if (character.AtkHeavy)
         {
+            character.AtkHeavy = false;
             return (int)GeneralStates.ATKHEAVY;
         }
 

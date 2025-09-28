@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -112,6 +112,16 @@ public class ButtonManager : MonoBehaviour
     public void DoQuit()
     {
         Application.Quit();
+    }
+
+    public void backToMenu()
+    {
+        SceneManager.LoadScene("MainMenu_Proto");
+    }
+
+    public void restartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

@@ -1,6 +1,9 @@
 using NUnit.Framework;
+using System;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[Serializable]
 public struct AttackProperties
 {
     /*  assuming we are using animator for these
@@ -8,9 +11,6 @@ public struct AttackProperties
     public int ActiveFrames;
     public int RecoverFrames;
     */
-
-    //  not sure if we need this but i am preemptively putting this here just in case
-    //  public string AtkAnimName;
 
     public float Damage;
 
@@ -21,10 +21,15 @@ public struct AttackProperties
     //  might make knockback a vector2 instead?
     public float Knockback;
     public bool CanKnockdown;
+
     public bool Heavy;
     public bool Low;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low)
+    public bool Unblockable;
+
+    public float HitboxXOffset;
+
+    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low, bool unblockable, float offset)
     {
         Damage = damage;
         Hitstun = hitstun;
@@ -33,15 +38,17 @@ public struct AttackProperties
         CanKnockdown = knockdown;
         Heavy = heavy;
         Low = low;
-
-
-        // AtkAnimName = 
+        Unblockable = unblockable;
+        HitboxXOffset = offset;
     }
 }
 
+[Serializable]
 public class AttackState : State
 {
-    private StateMachine attackStates;
+    //  putting this here to make it easier to add attacks in inspector
+    public GeneralStates AttackID;
+
     public AttackProperties Properties;
 
     public AttackState(CharacterScript c, int id, AttackProperties properties) : base(c)
@@ -54,32 +61,55 @@ public class AttackState : State
     {
         base.StartState(prevState);
 
-        character.EnemiesHit.Clear();
+        /*
+        if (Properties.Heavy)
+        {
+            character.Anim.SetTrigger("AtkHvy");
+        }
+        else
+        {
+            character.Anim.SetTrigger("AtkLight");
+        }
+        */
+
+        //tempTime = character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        //Debug.Log(character.Anim.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
         //  for testing purposes, we will probably let the animator handle this
-        character.Hitboxes.SetActive(true);
+        //character.Hitboxes.SetActive(true);
+
+        //  only changes the x offset depending on what direction character is facing
+        character.Hitboxes.offset += character.Facingleft ? Vector2.left * Properties.HitboxXOffset : Vector2.right * Properties.HitboxXOffset;
     }
 
     public override int StateAction()
     {
+        base.StateAction();
+
         //  cancels air attack when character touches ground
-        if ((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) && character.OnGround)
+        //  switches to idle after attack animation ends
+        if (((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) &&
+            character.OnGround) ||
+            (animTiming <= stateMach.StateTime && character.OnGround))
         {
-            return (int)GeneralStates.IDLE;
+            return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
         }
 
         //  attack interruption
         if (character.Hit)
         {
-            character.Hitboxes.SetActive(false);
+            character.Hitboxes.gameObject.SetActive(false);
             return (int)GeneralStates.HITSTUN;
         }
 
         //  test attack state, remove this later
+        /*
         if (character.OnGround && !(character.AtkHeavy || character.AtkLight))
         {
-            return (int)GeneralStates.IDLE;
+           // return (int)GeneralStates.IDLE;
         }
+        */
 
         return nextStateId;
     }
@@ -88,7 +118,11 @@ public class AttackState : State
     {
         base.EndState();
 
-        //  for testing purposes, we will probably let the animator handle this
-        character.Hitboxes.SetActive(false);
+        character.EnemiesHit.Clear();
+
+        //  reset hitbox position
+        character.Hitboxes.offset = Vector2.zero;
+
+        character.Hitboxes.gameObject.SetActive(false);
     }
 }

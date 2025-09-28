@@ -3,6 +3,7 @@ using UnityEngine;
 public class HitstunState : StunState
 {
     private bool knockedDown;
+    private bool comboKnockdown;
 
     private byte comboCounter;
 
@@ -19,17 +20,34 @@ public class HitstunState : StunState
 
         comboCounter++;
 
-        //  take half damage on guardbreak
-        character.Health -= !character.GuardBreak ?
-            character.AtkTaken.Damage : character.AtkTaken.Damage / 2;
+        character.TakeDamage();
 
         //  extended hitstun on guardbreak
         stunTime = !character.GuardBreak ?
             character.AtkTaken.Hitstun : character.AtkTaken.Hitstun * 1.25f;
 
+        comboKnockdown = comboCounter >= 2 && character.AtkTaken.Heavy;
+
         //  knocks down when hit with a heavy while still in hitstun
-        knockedDown = comboCounter >= 2 && character.AtkTaken.Heavy || character.Health <= 0 ?
+        knockedDown = comboKnockdown || character.Health <= 0 ?
             true : character.AtkTaken.CanKnockdown;
+
+        if (knockedDown)
+        {
+            character.SwitchSpriteDirection(character.HitFromLeft);
+            character.Velocity.y = 15;
+        }
+
+        //  turns character into a projectile when knocked down with a combo
+        //  does not effect player because this is a one player game
+        if (character.CompareTag("Enemy") && comboKnockdown)
+        {
+            character.Hurtboxes.layer = 7;
+            character.Hurtboxes.tag = "Player";
+            ProjectileScript crowdControl = character.Hurtboxes.GetComponent<ProjectileScript>();
+            crowdControl.Direction.x = character.Velocity.x > 0 ? 1 : -1;
+            crowdControl.enabled = true;
+        }
 
         //  knocked back upwards slightly when hit in midair
         if (!character.OnGround)
@@ -46,13 +64,14 @@ public class HitstunState : StunState
         }
 
         //  replace this with an animation
-        character.GetComponent<SpriteRenderer>().color = Color.red;
+        //character.GetComponent<SpriteRenderer>().color = Color.red;
 
         character.GuardBreak = false;
     }
 
     public override int StateAction()
     {
+        //  bug that enemy some how cancels knockdown?
         nextStateId = base.StateAction();
 
         //  when character is hit out of air, they should be
@@ -61,7 +80,10 @@ public class HitstunState : StunState
         //  in mid air if we add this
         if (character.OnGround && knockedDown)
         {
-            return (int)GeneralStates.KNOCKDOWN;
+            if (stunTime <= stateMach.StateTime)
+            {
+                return (int)GeneralStates.KNOCKDOWN;
+            }
         }
 
 
@@ -80,11 +102,20 @@ public class HitstunState : StunState
         base.EndState();
         //character.Friction = 1;
 
+        if (character.CompareTag("Enemy"))
+        {
+            character.Hurtboxes.layer = 6;
+            character.Hurtboxes.tag = "Enemy";
+            ProjectileScript crowdControl = character.Hurtboxes.GetComponent<ProjectileScript>();
+            crowdControl.HitList.Clear();
+            crowdControl.enabled = false;
+        }
+
         knockedDown = false;
         comboCounter = 0;
 
         //  replace this with animation
-        character.GetComponent<SpriteRenderer>().color = Color.white;
+        //character.GetComponent<SpriteRenderer>().color = Color.white;
 
 
         //Debug.Log("back to idle");

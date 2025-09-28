@@ -16,9 +16,14 @@ public class OffenseState : State
     {
         base.StartState(prevState);
 
-        defensiveTimer = Random.Range(.5f, 1f);
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).AttackRange;
+        defensiveTimer = Random.Range(((EnemyScript)character).DefenseTimerMin, ((EnemyScript)character).DefenseTimerMax);
+
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).AttackRange;
 
         character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
 
@@ -36,7 +41,13 @@ public class OffenseState : State
             character.AtkLight = true;
         }
 
+        if (character.EnemiesHit.Count > 0)
+        {
+            return (int)BehaviorStates.DEFENSIVE;
+        }
+
         //  temporary timer for attacks since haven't added animation timings yet
+        /*
         if (character.AtkLight)
         {
             if (tempTimer < .5f)
@@ -48,6 +59,7 @@ public class OffenseState : State
                 return (int)BehaviorStates.DEFENSIVE;
             }
         }
+        */
 
         if (defensiveTimer < stateMach.StateTime)
         {
@@ -60,7 +72,7 @@ public class OffenseState : State
     public override void EndState()
     {
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).EngagementRange;
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).EngagementRange;
 
         character.AtkLight = false;
 
