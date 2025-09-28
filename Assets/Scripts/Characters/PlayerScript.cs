@@ -79,7 +79,7 @@ public class PlayerScript : CharacterScript
         Destroy(StateMach);
         Velocity.y = 0;
         spriteRender.enabled = false;
-
+        yield return new WaitForSeconds(1);
         gameOverScreen.SetActive(true);
 
         StopCoroutine(PlayerDeath());
