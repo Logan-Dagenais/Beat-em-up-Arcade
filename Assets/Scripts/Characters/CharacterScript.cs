@@ -7,9 +7,9 @@ abstract public class CharacterScript : MonoBehaviour
 {
     //  character attributes
     [Header("character attributes")]
-    [SerializeField] private float MaxHealth;
+    [SerializeField] protected float MaxHealth;
     public float Health;
-    [SerializeField] private float MaxGuardIntegrity;
+    [SerializeField] protected float MaxGuardIntegrity;
     public float GuardIntegrity;
 
     public float JumpForce;
@@ -201,6 +201,13 @@ abstract public class CharacterScript : MonoBehaviour
         Hit = true;
     }
 
+    public virtual void TakeDamage()
+    {
+        //  take half damage on guardbreak
+        Health -= !GuardBreak ?
+            AtkTaken.Damage : AtkTaken.Damage / 2;
+    }
+
     public virtual void DeadState()
     {
         Destroy(gameObject, 1.6f);
@@ -227,6 +234,11 @@ abstract public class CharacterScript : MonoBehaviour
 
         RB2D.Slide(Velocity, Time.deltaTime, slideMove);
 
+        RecoverGuard();
+    }
+
+    public virtual void RecoverGuard()
+    {
         if (GuardIntTimer >= GuardIntCooldown)
         {
             GuardIntTimer = 0;
@@ -248,7 +260,6 @@ abstract public class CharacterScript : MonoBehaviour
             }
 
         }
-
     }
 
     //  passing in true will face left
