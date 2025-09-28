@@ -5,6 +5,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float remainingTime;
+    [SerializeField] private GameObject gameOverScreen;
 
     // Update is called once per frame
     /// <summary>
@@ -19,6 +20,7 @@ public class Timer : MonoBehaviour
         else if (remainingTime < 0)
         {
             remainingTime = 0;
+            gameOverScreen.SetActive(true);
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);

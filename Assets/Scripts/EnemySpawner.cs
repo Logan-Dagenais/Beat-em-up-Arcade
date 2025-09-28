@@ -27,7 +27,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void DebugSpawnMelee()
     {
-        SpawnEnemy(EnemyTypes[0], Vector2.zero);
+        StartCoroutine(SpawnTimer());
+        //SpawnEnemy(EnemyTypes[0], Vector2.zero);
     }
 
     public void DebugSpawnRange()
