@@ -4846,6 +4846,7 @@ GameObject:
   - component: {fileID: 2751857684703970879}
   - component: {fileID: 3465400574799198038}
   - component: {fileID: 8915478891039769062}
+  - component: {fileID: 1123295595116342230}
   m_Layer: 8
   m_Name: fallingRock
   m_TagString: Untagged
@@ -5033,3 +5034,29 @@ MonoBehaviour:
   stagnantParticles: {fileID: 0}
   explosionparticle: {fileID: 0}
   rockfallingparticle: {fileID: 0}
+--- !u!114 &1123295595116342230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220138897287959854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084aa5e887a5b1e4fb2c10083054aadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atk:
+    Damage: 15
+    Hitstun: 0.25
+    Blockstun: 0.25
+    Knockback: 15
+    CanKnockdown: 1
+    Heavy: 1
+    Low: 0
+    Unblockable: 1
+    HitboxXOffset: 0
+  Direction: {x: 0, y: 0}
+  BulletSpeed: 0
+  pierce: 1
+  HitList: []

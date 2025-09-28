@@ -16,6 +16,7 @@ public class PlayerScript : CharacterScript
 
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider guardMeter;
+    [SerializeField] private GameObject gameOverScreen;
 
     protected void Awake()
     {
@@ -78,6 +79,8 @@ public class PlayerScript : CharacterScript
         Destroy(StateMach);
         Velocity.y = 0;
         spriteRender.enabled = false;
+
+        gameOverScreen.SetActive(true);
 
         StopCoroutine(PlayerDeath());
     }
