@@ -13,7 +13,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject SceneSelectUI;
     public GameObject QuitCheckUI;
 
-    public PlayerInput MenuActions;
+    //public PlayerInput MenuActions;
     public InputAction SceneSelect;
     public InputAction PanicButton;
 
@@ -25,8 +25,8 @@ public class ButtonManager : MonoBehaviour
     private void Start()
     {
         //MenuActions.currentActionMap.Enable();
-        SceneSelect = MenuActions.currentActionMap.FindAction("OpenSceneSelect");
-        PanicButton = MenuActions.currentActionMap.FindAction("PanicButton");
+        SceneSelect = InputSystem.actions.FindAction("OpenSceneSelect");
+        PanicButton = InputSystem.actions.FindAction("PanicButton");
         SceneSelect.started += Handle_OpenSceneSelection;
         PanicButton.started += Handle_PanicButton;
     }
@@ -45,7 +45,11 @@ public class ButtonManager : MonoBehaviour
 
     }
 
-
+    private void OnDestroy()
+    {
+        SceneSelect.started -= Handle_OpenSceneSelection;
+        PanicButton.started -= Handle_PanicButton;
+    }
 
     /* This function is called through each of the SceneSelection buttons in our main menu.
      * This will automatically open one of our assigned scenes, depending on which button you select.
