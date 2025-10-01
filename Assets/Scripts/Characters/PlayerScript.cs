@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : CharacterScript
 {
-    private PlayerInput input;
+    // private PlayerInput input;
 
     private InputAction move;
     private InputAction atkL;
@@ -21,11 +21,18 @@ public class PlayerScript : CharacterScript
     protected void Awake()
     {
         base.Awake();
-        input = GetComponent<PlayerInput>();
-        move = input.currentActionMap.FindAction("Move");
-        atkL = input.currentActionMap.FindAction("Light Attack");
-        atkH = input.currentActionMap.FindAction("Heavy Attack");
-        block = input.currentActionMap.FindAction("Block");
+        //input = GetComponent<PlayerInput>();
+        move = InputSystem.actions.FindAction("Move");
+        atkL = InputSystem.actions.FindAction("Light Attack");
+        atkH = InputSystem.actions.FindAction("Heavy Attack");
+        block = InputSystem.actions.FindAction("Block");
+
+        move.performed += OnMove;
+        move.canceled += OnMove;
+
+        atkL.performed += OnLightAttack;
+        atkH.performed += OnHeavyAttack;
+        block.performed += OnBlock;
     }
 
     private void Start()
@@ -34,6 +41,16 @@ public class PlayerScript : CharacterScript
         healthBar.value = MaxHealth;
         guardMeter.maxValue = MaxGuardIntegrity;
         guardMeter.value = MaxGuardIntegrity;
+    }
+
+    private void OnDestroy()
+    {
+        move.performed -= OnMove;
+        move.canceled -= OnMove;
+
+        atkL.performed -= OnLightAttack;
+        atkH.performed -= OnHeavyAttack;
+        block.performed -= OnBlock;
     }
 
     public override void TakeDamage()
@@ -48,22 +65,22 @@ public class PlayerScript : CharacterScript
         guardMeter.value = GuardIntegrity;
     }
 
-    void OnMove()
+    void OnMove(InputAction.CallbackContext context)
     {
-        Direction = move.ReadValue<Vector2>();
+        Direction = context.ReadValue<Vector2>();
     }
 
-    void OnLightAttack()
+    void OnLightAttack(InputAction.CallbackContext context)
     {
         AtkLight = atkL.IsPressed();
     }
 
-    void OnHeavyAttack()
+    void OnHeavyAttack(InputAction.CallbackContext context)
     {
         AtkHeavy = atkH.IsPressed();
     }
 
-    void OnBlock()
+    void OnBlock(InputAction.CallbackContext context)
     {
         Blocking = block.IsPressed();
     }
