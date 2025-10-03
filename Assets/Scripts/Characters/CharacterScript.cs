@@ -19,6 +19,7 @@ abstract public class CharacterScript : MonoBehaviour
     public bool Facingleft;
 
     [SerializeField] protected AttackState[] AttackList;
+    [SerializeField] protected State[] test;
 
     public float Friction;
 

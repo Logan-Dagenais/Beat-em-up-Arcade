@@ -36,6 +36,8 @@ public class EnemyScript : CharacterScript
 
     [Range(0, 10)] public float BlockChance;
 
+    public bool PlayerContact;
+
     protected void Awake()
     {
         base.Awake();
@@ -56,10 +58,57 @@ public class EnemyScript : CharacterScript
             {(int)BehaviorStates.OFFENSIVE,
             new OffenseState(this)},
 
+            {(int)BehaviorStates.PUSH,
+            new PushState(this)},
+
             {(int)BehaviorStates.CHASE,
             new ChaseState(this)}
         };
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //  checks if trigger collided with main player collider instead of hurtbox or hitbox
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.layer == 0)
+        {
+            Debug.Log(collision.gameObject.name + " collided");
+            PlayerContact = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //  checks if trigger collided with main player collider instead of hurtbox or hitbox
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.layer == 0)
+        {
+            PlayerContact = false;
+        }
+    }
+
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+
+        //  checks if trigger collided with main player collider instead of hurtbox or hitbox
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.layer == 0)
+        {
+            Debug.Log(collision.gameObject.name+" collided");
+            PlayerContact = true;
+        }
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //  checks if trigger collided with main player collider instead of hurtbox or hitbox
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.layer == 0)
+        {
+            PlayerContact = false;
+        }
+    }
+    */
 
     //  probably would want to move this variable and method to a subclass.
     //  we need a way to customize offset based on animation or projectile enemy type.

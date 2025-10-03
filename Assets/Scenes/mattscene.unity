@@ -291,13 +291,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1665258409}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
-        m_Mode: 2
+        m_MethodName: DebugSpawnMelee
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1724593592}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -475,17 +475,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
---- !u!114 &233646753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8652413050804146114, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
-  m_PrefabInstance: {fileID: 7514403808341361984}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &241840989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1519,7 +1508,7 @@ PrefabInstance:
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: MenuActions
       value: 
-      objectReference: {fileID: 233646753}
+      objectReference: {fileID: 0}
     - target: {fileID: 2274845206269134349, guid: 6fd5d3ffd3e932447982c9b113c789a9, type: 3}
       propertyPath: SceneSelectUI
       value: 
@@ -6771,7 +6760,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1665258409}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
         m_MethodName: DebugSpawnHeavy
         m_Mode: 1
@@ -6904,7 +6893,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1665258409}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
         m_MethodName: DebugSpawnRange
         m_Mode: 1
@@ -9252,6 +9241,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.48880005, y: 9.945893}
   m_EdgeRadius: 0
+--- !u!114 &1665258409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8961787638900572756, guid: e1c8fdfd66de97349ad89a8faa7bc0d2, type: 3}
+  m_PrefabInstance: {fileID: 775387446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c198d095ae9b03f449ee111def5f92c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689765954
 GameObject:
   m_ObjectHideFlags: 0
@@ -9358,11 +9358,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1724593592 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-  m_PrefabInstance: {fileID: 4933110310199517174}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856158018
 GameObject:
   m_ObjectHideFlags: 0

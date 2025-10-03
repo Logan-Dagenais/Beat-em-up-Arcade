@@ -1030,4 +1030,5 @@ MonoBehaviour:
   DefenseTimerMin: 0.5
   DefenseTimerMax: 1
   BlockChance: 5
+  PlayerContact: 0
   projectileOffset: {x: 0, y: 0}
