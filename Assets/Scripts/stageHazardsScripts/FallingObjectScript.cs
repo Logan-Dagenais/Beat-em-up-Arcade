@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class FallingObjectScript : MonoBehaviour
 {
     [SerializeField] BoxCollider2D hitbox;
-    [SerializeField] BoxCollider2D fell;
+    [SerializeField] PolygonCollider2D fell;
     [SerializeField] GameObject stagnantParticles;
     [SerializeField] GameObject explosionparticle;
     [SerializeField] GameObject rockfallingparticle;
