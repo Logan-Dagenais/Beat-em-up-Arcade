@@ -37,12 +37,6 @@ public class BlockstunState : StunState
         //  execute the base StartState method instead of the one of this state
         if (character.Hit)
         {
-            if (character.GuardIntegrity <= 0)
-            {
-                character.GuardBreak = true;
-                return (int)GeneralStates.HITSTUN;
-            }
-
             if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow || character.AtkTaken.Unblockable)
             {
                 return (int)GeneralStates.HITSTUN;
