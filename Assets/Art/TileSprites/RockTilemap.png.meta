@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c29d927ad9a9fb0498421a35c062bc96
+guid: 3e893e9ea58895c4ca8b816f4c22d6bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1280098772673190366
-    second: Tile2Ground_0
+      213: 5872981015035218577
+    second: RockTilemap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile2Ground_0
+      name: RockTilemap_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed9599e2d03d3c110800000000000000
-      internalID: 1280098772673190366
+      spriteID: 19a89c5ed15018150800000000000000
+      internalID: 5872981015035218577
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tile2Ground_0: 1280098772673190366
+      RockTilemap_0: 5872981015035218577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

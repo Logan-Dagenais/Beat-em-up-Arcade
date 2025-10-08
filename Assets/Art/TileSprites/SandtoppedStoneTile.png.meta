@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dd024cad7124be642a2f89cb2a991534
+guid: 835583ec506122b428e8b84ddc050f01
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5502400600881308885
-    second: Tile3Ground_0
+      213: -3760112624131199695
+    second: SandtoppedStoneTile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile3Ground_0
+      name: SandtoppedStoneTile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2bd2947ecb83a3b0800000000000000
-      internalID: -5502400600881308885
+      spriteID: 13da2338d7561dbc0800000000000000
+      internalID: -3760112624131199695
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tile3Ground_0: -5502400600881308885
+      SandtoppedStoneTile_0: -3760112624131199695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

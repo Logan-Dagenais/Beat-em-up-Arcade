@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d738fc0c146917a4ba744c023ef17980
+guid: 82eefe13f7260454690e6ed37fe95445
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5071024718862572294
-    second: Tile1Ground_0
+      213: 4860193244777714843
+    second: CloudTile1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile1Ground_0
+      name: CloudTile1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 50
-        height: 50
+        y: 24
+        width: 75
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af4a8f8b2e910a9b0800000000000000
-      internalID: -5071024718862572294
+      spriteID: b949ab67100e27340800000000000000
+      internalID: 4860193244777714843
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tile1Ground_0: -5071024718862572294
+      CloudTile1_0: 4860193244777714843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
