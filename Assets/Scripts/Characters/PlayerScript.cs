@@ -99,6 +99,8 @@ public class PlayerScript : CharacterScript
 
     public override void DeadState()
     {
+        MenuSelection.menuState = MenuSelection.MenuState.Lose;
+
         StartCoroutine(PlayerDeath());
     }
 

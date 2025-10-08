@@ -26,6 +26,16 @@ public class MenuSelection : MonoBehaviour
         MainMenu
     }
 
+    public enum MenuState
+    {
+        MainMenu,
+        InGame,
+        Win,
+        Lose
+    }
+
+    public static MenuState menuState;
+
     [SerializeField] private int menuIndex = 0;
     [SerializeField] private List<Option> menuOptions;
     //[SerializeField] private List<Transform> menuTransforms;
@@ -41,6 +51,8 @@ public class MenuSelection : MonoBehaviour
 
     private void Awake()
     {
+        //menuState = SceneManager.GetActiveScene().buildIndex == 0 ? MenuState.MainMenu : MenuState.InGame;
+
         Navigate = InputSystem.actions.FindAction("Move");
         Select = InputSystem.actions.FindAction("Select");
 
@@ -50,16 +62,15 @@ public class MenuSelection : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("active");
+        // Debug.Log("active");
         menuIndex = 0;
         Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
     }
 
     private void OnDisable()
     {
-        Debug.Log("inactive");
+        // Debug.Log("inactive");
         Time.timeScale = 1;
-        Debug.Log(Time.timeScale);
     }
 
     private void OnDestroy()
@@ -112,6 +123,7 @@ public class MenuSelection : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Start Game");
+        menuState = MenuState.InGame;
         SceneManager.LoadScene(1);
     }
 
@@ -136,6 +148,7 @@ public class MenuSelection : MonoBehaviour
 
     private void ReturnMainMenu()
     {
+        menuState = MenuState.MainMenu;
         SceneManager.LoadScene(0);
     }
 

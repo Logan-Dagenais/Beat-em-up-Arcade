@@ -22,6 +22,11 @@ public class PauseInput : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext ctx)
     {
+        if (MenuSelection.menuState != MenuSelection.MenuState.InGame)
+        {
+            return;
+        }
+
         Time.timeScale = 0;
         PauseUI.SetActive(!PauseUI.activeSelf);
     }

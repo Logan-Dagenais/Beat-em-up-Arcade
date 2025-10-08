@@ -8,6 +8,7 @@ public class endGameWarp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            MenuSelection.menuState = MenuSelection.MenuState.Win;
             winUI.SetActive(true);
         }
     }
