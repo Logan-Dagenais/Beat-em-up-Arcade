@@ -2057,6 +2057,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuIndex: 0
+  menuOptions:
+  - OptionTrans: {fileID: 1888936734}
+    menuName: 0
+  - OptionTrans: {fileID: 1512398193}
+    menuName: 2
+  - OptionTrans: {fileID: 1123659554}
+    menuName: 3
   menuTransforms: []
   Cursor: {fileID: 578610663}
   CreditsUI: {fileID: 1217928138}
