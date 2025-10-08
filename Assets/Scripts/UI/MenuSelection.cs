@@ -26,15 +26,7 @@ public class MenuSelection : MonoBehaviour
         MainMenu
     }
 
-    public enum MenuState
-    {
-        MainMenu,
-        InGame,
-        Win,
-        Lose
-    }
-
-    public static MenuState menuState;
+    public static bool CanPause;
 
     [SerializeField] private int menuIndex = 0;
     [SerializeField] private List<Option> menuOptions;
@@ -123,7 +115,7 @@ public class MenuSelection : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Start Game");
-        menuState = MenuState.InGame;
+        CanPause = true;
         SceneManager.LoadScene(1);
     }
 
@@ -148,7 +140,7 @@ public class MenuSelection : MonoBehaviour
 
     private void ReturnMainMenu()
     {
-        menuState = MenuState.MainMenu;
+        CanPause = false;
         SceneManager.LoadScene(0);
     }
 

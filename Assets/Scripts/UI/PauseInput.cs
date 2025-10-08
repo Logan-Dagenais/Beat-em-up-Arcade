@@ -22,7 +22,7 @@ public class PauseInput : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext ctx)
     {
-        if (MenuSelection.menuState != MenuSelection.MenuState.InGame)
+        if (!MenuSelection.CanPause)
         {
             return;
         }
