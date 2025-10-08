@@ -67,26 +67,40 @@ public class PlayerScript : CharacterScript
 
     void OnMove(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         Direction = context.ReadValue<Vector2>();
     }
 
     void OnLightAttack(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         AtkLight = atkL.IsPressed();
     }
 
     void OnHeavyAttack(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         AtkHeavy = atkH.IsPressed();
     }
 
     void OnBlock(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         Blocking = block.IsPressed();
     }
 
     public override void DeadState()
     {
+        MenuSelection.CanPause = false;
+
         StartCoroutine(PlayerDeath());
     }
 
