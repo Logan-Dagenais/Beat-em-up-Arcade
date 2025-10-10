@@ -67,9 +67,6 @@ public class PlayerScript : CharacterScript
 
     void OnMove(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0)
-            return;
-
         Direction = context.ReadValue<Vector2>();
     }
 
