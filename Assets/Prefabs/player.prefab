@@ -266,8 +266,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.8, y: 1.6}
   m_Direction: 0
 --- !u!50 &8159847640181097755
 Rigidbody2D:
@@ -356,7 +356,7 @@ MonoBehaviour:
       Heavy: 1
       Low: 0
       Unblockable: 0
-      HitboxXOffset: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchLight
     AttackID: 7
@@ -369,7 +369,7 @@ MonoBehaviour:
       Heavy: 0
       Low: 1
       Unblockable: 0
-      HitboxXOffset: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchHeavy
     AttackID: 8
@@ -382,7 +382,7 @@ MonoBehaviour:
       Heavy: 1
       Low: 1
       Unblockable: 0
-      HitboxXOffset: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: LightAerial
     AttackID: 9
@@ -713,7 +713,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -723,7 +723,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.8, y: 1.6}
   m_EdgeRadius: 0
 --- !u!1 &5065655343554134847
 GameObject:
@@ -1031,7 +1031,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1041,5 +1041,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

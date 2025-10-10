@@ -166,9 +166,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 4254974239678746158}
     m_Position: {x: 420, y: 670, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -1300093734702501864}
-    m_Position: {x: 420, y: 760, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -211,7 +208,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cavemanPlaceholder
+  m_Name: caveman
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -286,7 +283,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HeavyATK
+  m_Name: Push
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -299,7 +296,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0a6bed8754027684cb99ef9ebb0d7922, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3b875304b8c83e24e9eccd530dfb08f8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
