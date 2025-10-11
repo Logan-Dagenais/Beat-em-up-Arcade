@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 561fab9d275373c498df823bad65d328
+guid: 0db7cb3f32f613a448c839911abeae5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1368628683178628468
-    second: JOC_lightattack_0
+      213: 855618396715461083
+    second: gladiator walk_0
   - first:
-      213: -7612629580025472965
-    second: JOC_lightattack_1
+      213: 9074560660315972370
+    second: gladiator walk_1
   - first:
-      213: 2205692691221035735
-    second: JOC_lightattack_2
+      213: -8005963544830244364
+    second: gladiator walk_2
   - first:
-      213: 3133298466008501488
-    second: JOC_lightattack_3
+      213: -2856632928338932197
+    second: gladiator walk_3
   - first:
-      213: -3547917773733408701
-    second: JOC_lightattack_4
+      213: 6808521003907407476
+    second: gladiator walk_4
   - first:
-      213: -2537788598439756294
-    second: JOC_lightattack_5
-  - first:
-      213: 5237378164190682526
-    second: JOC_lightattack_6
-  - first:
-      213: -279449417173180034
-    second: JOC_lightattack_7
+      213: -5876763410801211575
+    second: gladiator walk_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,7 +128,73 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JOC_lightattack_0
+      name: gladiator walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9a3870664cfdb00800000000000000
+      internalID: 855618396715461083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gladiator walk_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2132eda67d05fed70800000000000000
+      internalID: 9074560660315972370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gladiator walk_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f98aa9c29a15e090800000000000000
+      internalID: -8005963544830244364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gladiator walk_3
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 475d54a39885ef210800000000000000
-      internalID: 1368628683178628468
+      spriteID: b1e8cac9c733b58d0800000000000000
+      internalID: -2856632928338932197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JOC_lightattack_1
+      name: gladiator walk_4
       rect:
         serializedVersion: 2
         x: 50
@@ -164,21 +224,21 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.52, y: 0.54}
+      pivot: {x: 0.5, y: 0.54}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3853fbfab18a5690800000000000000
-      internalID: -7612629580025472965
+      spriteID: 47edfaba7c9bc7e50800000000000000
+      internalID: 6808521003907407476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JOC_lightattack_2
+      name: gladiator walk_5
       rect:
         serializedVersion: 2
         x: 100
@@ -186,125 +246,15 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.52, y: 0.54}
+      pivot: {x: 0.5, y: 0.54}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dab7eff0d13c9e10800000000000000
-      internalID: 2205692691221035735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JOC_lightattack_3
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.52, y: 0.54}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fc86b99a56bb7b20800000000000000
-      internalID: 3133298466008501488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JOC_lightattack_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.52, y: 0.54}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 340535c159343cec0800000000000000
-      internalID: -3547917773733408701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JOC_lightattack_5
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.52, y: 0.54}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afd36fa27b6f7ccd0800000000000000
-      internalID: -2537788598439756294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JOC_lightattack_6
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.44, y: 0.54}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e9d19f601b7eea840800000000000000
-      internalID: 5237378164190682526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JOC_lightattack_7
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.44, y: 0.54}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e71e3b45c323f1cf0800000000000000
-      internalID: -279449417173180034
+      spriteID: 9474e2670da817ea0800000000000000
+      internalID: -5876763410801211575
       vertices: []
       indices: 
       edges: []
@@ -313,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc0fec25ef84d144fb1762249166efd6
+    spriteID: 5e91323a1d92a624bbaeeb8bb8d969a7
     internalID: 0
     vertices: []
     indices: 
@@ -323,14 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      JOC_lightattack_0: 1368628683178628468
-      JOC_lightattack_1: -7612629580025472965
-      JOC_lightattack_2: 2205692691221035735
-      JOC_lightattack_3: 3133298466008501488
-      JOC_lightattack_4: -3547917773733408701
-      JOC_lightattack_5: -2537788598439756294
-      JOC_lightattack_6: 5237378164190682526
-      JOC_lightattack_7: -279449417173180034
+      gladiator walk_0: 855618396715461083
+      gladiator walk_1: 9074560660315972370
+      gladiator walk_2: -8005963544830244364
+      gladiator walk_3: -2856632928338932197
+      gladiator walk_4: 6808521003907407476
+      gladiator walk_5: -5876763410801211575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

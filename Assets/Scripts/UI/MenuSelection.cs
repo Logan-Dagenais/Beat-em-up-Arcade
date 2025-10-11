@@ -152,7 +152,7 @@ public class MenuSelection : MonoBehaviour
 
     private void OnNavigate(InputAction.CallbackContext ctx)
     {
-        if (CreditsUI && CreditsUI.activeSelf)
+        if ((CreditsUI && CreditsUI.activeSelf) || !transform.parent.gameObject.activeSelf)
         {
             return;
         }
@@ -165,6 +165,11 @@ public class MenuSelection : MonoBehaviour
 
     private void OnSelect(InputAction.CallbackContext ctx)
     {
+        if (!transform.parent.gameObject.activeSelf)
+        {
+            return;
+        }
+
         menuActions[menuIndex].Invoke();
     }
 }
