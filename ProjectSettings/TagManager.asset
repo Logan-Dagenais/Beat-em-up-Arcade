@@ -18,8 +18,8 @@ TagManager:
   - Hitbox
   - Stagehazards
   - EventTrigger
-  - 
-  - 
+  - MapWalls
+  - Player
   - 
   - 
   - 
@@ -41,8 +41,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundBackground
+    uniqueID: 2165599523
+    locked: 0
+  - name: Background
+    uniqueID: 2943677567
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Inground
+    uniqueID: 2459326025
+    locked: 0
+  - name: Foreground
+    uniqueID: 2185589409
     locked: 0
   m_RenderingLayers:
   - Default
