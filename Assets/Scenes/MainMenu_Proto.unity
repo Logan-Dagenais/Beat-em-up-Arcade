@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.74213827, g: 0.74213827, b: 0.74213827, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2064,10 +2064,9 @@ MonoBehaviour:
     menuName: 2
   - OptionTrans: {fileID: 1123659554}
     menuName: 3
-  menuTransforms: []
   Cursor: {fileID: 578610663}
-  CreditsUI: {fileID: 1217928138}
   cursorOffset: {x: -150, y: 0}
+  CreditsUI: {fileID: 1217928138}
 --- !u!1 &1842506482
 GameObject:
   m_ObjectHideFlags: 0
