@@ -85,9 +85,7 @@ public class HitstunState : StunState
         //  in mid air if we add this
         if (character.OnGround && knockedDown)
         {
-            //  gives time for character to fly into air when knocked over
-            //  rather than transitioning immediately
-            if (0.1f <= stateMach.StateTime)
+            if (stunTime <= stateMach.StateTime)
             {
                 return (int)GeneralStates.KNOCKDOWN;
             }
