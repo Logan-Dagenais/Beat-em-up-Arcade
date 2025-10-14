@@ -19,7 +19,6 @@ abstract public class CharacterScript : MonoBehaviour
     public bool Facingleft;
 
     [SerializeField] protected AttackState[] AttackList;
-    [SerializeField] protected State[] test;
 
     public float Friction;
 
@@ -148,15 +147,6 @@ abstract public class CharacterScript : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (StateMach.CurrentState == (int)GeneralStates.AIR)
-        {
-            Velocity.y = 0;
-        }
-
-    }
-
     //  this function basically takes the attack state data and transfers it
     //  to the target that was hit so it reacts accordingly
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -228,11 +218,6 @@ abstract public class CharacterScript : MonoBehaviour
         if (OnGround)
         {
             Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
-
-            if (StateMach.CurrentState == (int)GeneralStates.AIR)
-            {
-                Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
-            }
         }
         else
         {

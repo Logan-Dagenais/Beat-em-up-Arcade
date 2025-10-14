@@ -40,11 +40,6 @@ public class CrouchState : State
             return (int)GeneralStates.ATKHEAVYCR;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
-
         if (character.Direction.x < 0)
         {
             character.SwitchSpriteDirection(true);

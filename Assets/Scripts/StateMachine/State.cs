@@ -45,11 +45,9 @@ public enum BehaviorStates
     DEFENSIVE,
     OFFENSIVE,
 
-    //  When player attempts to walk past a melee enemy
-    PUSH,
-
     //  movement for traversing to target range
-    CHASE
+    CHASE,
+    FLEE
 }
 
 abstract public class State

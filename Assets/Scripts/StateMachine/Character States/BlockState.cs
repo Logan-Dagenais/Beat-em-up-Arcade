@@ -15,8 +15,6 @@ public class BlockState : State
     {
         animName = character.Direction.y < 0 ? "CrouchBlock" : "Block";
         base.StartState(prevState);
-
-        character.Velocity.y = 0;
     }
 
     public override int StateAction()

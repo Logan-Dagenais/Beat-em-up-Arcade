@@ -6,16 +6,13 @@ public class DefenseState : State
     private float destinationSwitchTimer;
     private float blockChanceRNG;
 
-    private bool playerSideSwitch;
-    private bool playerToLeft;
-
     //  chooses a spot to move to randomly within combat range
     private float randomTarget;
 
     public DefenseState(EnemyScript c) : base(c)
     {
         Id = (int)BehaviorStates.DEFENSIVE;
-        stateMach = c.BehaviorStateMach;
+        stateMach = ((EnemyScript)c).BehaviorStateMach;
     }
 
     public override void StartState(int prevState)
@@ -35,9 +32,6 @@ public class DefenseState : State
         }
 
         character.Direction.x = 0;
-
-        playerSideSwitch = false;
-        playerToLeft = ((EnemyScript)character).PlayerToLeft;
     }
 
     private void SwitchDestination()
@@ -59,7 +53,7 @@ public class DefenseState : State
 
         randomTarget = Mathf.RoundToInt(randomTarget);
 
-        destinationSwitchTimer = stateMach.StateTime + Random.Range(0, 1f);
+        destinationSwitchTimer = stateMach.StateTime + Random.Range(0, 1f); ;
     }
 
     public override int StateAction()
@@ -83,6 +77,7 @@ public class DefenseState : State
         }
         else
         {
+            //  50% block chance (since 0 counts)
             character.Blocking = blockChanceRNG <= ((EnemyScript)character).BlockChance;
             character.Direction.x = 0;
 
@@ -98,16 +93,9 @@ public class DefenseState : State
             SwitchDestination();
         }
 
-        if (aggressionTimer <= stateMach.StateTime)
+        if (aggressionTimer < stateMach.StateTime)
         {
             return (int)BehaviorStates.OFFENSIVE;
-        }
-
-        if (((EnemyScript)character).PlayerContact &&
-            aggressionTimer > stateMach.StateTime &&
-            character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
-        {
-            return (int)BehaviorStates.PUSH;
         }
 
         return nextStateId;
@@ -116,7 +104,6 @@ public class DefenseState : State
     public override void EndState()
     {
         base.EndState();
-        ((EnemyScript)character).PlayerContact = false;
         character.Blocking = false;
     }
 }
