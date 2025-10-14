@@ -18,8 +18,8 @@ TagManager:
   - Hitbox
   - Stagehazards
   - EventTrigger
-  - 
-  - 
+  - MapWalls
+  - Player
   - 
   - 
   - 
