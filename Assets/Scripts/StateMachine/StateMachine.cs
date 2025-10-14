@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.VersionControl.Asset;
+//using static UnityEditor.VersionControl.Asset;
 
 public class StateMachine : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class StateMachine : MonoBehaviour
         currentStateId = newStateId;
         StateList[currentStateId].StartState(previousStateId);
 
-        print(gameObject.name+": switching to " + StateList[currentStateId].ToString());
+        // print(gameObject.name+": switching to " + StateList[currentStateId].ToString());
     }
 
     private const int MAX_TIME = 99;
@@ -48,6 +48,11 @@ public class StateMachine : MonoBehaviour
             StateTime += Time.deltaTime;
             StateTime = Mathf.Clamp(StateTime, 0, MAX_TIME);
         }
+    }
+
+    private void OnDestroy()
+    {
+        StateList.Clear();
     }
 
 }

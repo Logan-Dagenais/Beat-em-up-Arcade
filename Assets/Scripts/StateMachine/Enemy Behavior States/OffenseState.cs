@@ -5,10 +5,10 @@ public class OffenseState : State
     //  for if enemy can not reach the player for too long
     private float defensiveTimer;
 
-    public OffenseState(CharacterScript c) : base(c)
+    public OffenseState(EnemyScript c) : base(c)
     {
         Id = (int)BehaviorStates.OFFENSIVE;
-        stateMach = ((EnemyScript)c).BehaviorStateMach;
+        stateMach = c.BehaviorStateMach;
     }
 
 
@@ -16,40 +16,23 @@ public class OffenseState : State
     {
         base.StartState(prevState);
 
-        defensiveTimer = Random.Range(.5f, 1f);
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).AttackRange;
+        defensiveTimer = Random.Range(((EnemyScript)character).DefenseTimerMin, ((EnemyScript)character).DefenseTimerMax);
+
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).AttackRange;
 
         character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
-
-        tempTimer = 0;
     }
-
-    //  haven't added animations yet, so will need to use this to time attacks
-    private float tempTimer;
 
     public override int StateAction()
     {
 
-        if (((EnemyScript)character).InCombatRange)
-        {
-            character.AtkLight = true;
-        }
-
-        //  temporary timer for attacks since haven't added animation timings yet
-        if (character.AtkLight)
-        {
-            if (tempTimer < .5f)
-            {
-                tempTimer += Time.deltaTime;
-            }
-            else
-            {
-                return (int)BehaviorStates.DEFENSIVE;
-            }
-        }
-
-        if (defensiveTimer < stateMach.StateTime)
+        if (((EnemyScript)character).InCombatRange ||
+            defensiveTimer < stateMach.StateTime)
         {
             return (int)BehaviorStates.DEFENSIVE;
         }
@@ -60,9 +43,9 @@ public class OffenseState : State
     public override void EndState()
     {
 
-        ((EnemyScript)character).CombatRange = ((EnemyScript)character).EngagementRange;
+        ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).EngagementRange;
 
-        character.AtkLight = false;
+        character.AtkLight = true;
 
         base.EndState();
     }

@@ -14,7 +14,7 @@ public class BlockstunState : StunState
         stunTime = character.AtkTaken.Blockstun;
 
         character.GuardIntegrity -= character.AtkTaken.Damage;
-        character.GetComponent<SpriteRenderer>().color = Color.blue;
+        //character.GetComponent<SpriteRenderer>().color = Color.blue;
 
         //character.Friction = .25f;
     }
@@ -22,6 +22,9 @@ public class BlockstunState : StunState
     public override int StateAction()
     {
         nextStateId = base.StateAction();
+
+        //  if holding crouch, character is blocking low
+        bool blockLow = character.Direction.y < 0;
 
         if (character.GuardIntegrity <= 0)
         {
@@ -34,6 +37,11 @@ public class BlockstunState : StunState
         //  execute the base StartState method instead of the one of this state
         if (character.Hit)
         {
+            if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow || character.AtkTaken.Unblockable)
+            {
+                return (int)GeneralStates.HITSTUN;
+            }
+
             StartState(prevStateId);
         }
 
@@ -45,7 +53,7 @@ public class BlockstunState : StunState
     {
         base.EndState();
 
-        character.GetComponent<SpriteRenderer>().color = Color.white;
+        //character.GetComponent<SpriteRenderer>().color = Color.white;
         //character.Friction = 1;
     }
 

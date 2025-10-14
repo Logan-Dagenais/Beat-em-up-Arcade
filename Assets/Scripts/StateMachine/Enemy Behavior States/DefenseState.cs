@@ -4,6 +4,10 @@ public class DefenseState : State
 {
     private float aggressionTimer;
     private float destinationSwitchTimer;
+    private float blockChanceRNG;
+
+    private bool playerSideSwitch;
+    private bool playerToLeft;
 
     //  chooses a spot to move to randomly within combat range
     private float randomTarget;
@@ -11,46 +15,62 @@ public class DefenseState : State
     public DefenseState(EnemyScript c) : base(c)
     {
         Id = (int)BehaviorStates.DEFENSIVE;
-        stateMach = ((EnemyScript)c).BehaviorStateMach;
+        stateMach = c.BehaviorStateMach;
     }
 
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
 
-        aggressionTimer = Random.Range(1f, 6f);
+        aggressionTimer = Random.Range(((EnemyScript)character).AggresionTimerMin, ((EnemyScript)character).AggresionTimerMax);
+        blockChanceRNG = Random.Range(0, 10);
 
         SwitchDestination();
 
+        //  maybe instead of this, have enemy go into a separate state
+        //  reuse knockdownstate? have some kind of reaction getting up?
+        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+        }
+
         character.Direction.x = 0;
+
+        playerSideSwitch = false;
+        playerToLeft = ((EnemyScript)character).PlayerToLeft;
     }
 
     private void SwitchDestination()
     {
-        Debug.Log("switched");
+        // Debug.Log("switched");
 
         //  this looks awful, i should probably do this better later
         //  if this is too unreadable for you, basically it just chooses a random spot within the engagement range
         //  on either to the left or right of the player
         randomTarget = ((EnemyScript)character).PlayerToLeft ? 
-                        Random.Range(((EnemyScript)character).PlayerTransform.transform.position.x,
-                        ((EnemyScript)character).PlayerTransform.transform.position.x + ((EnemyScript)character).CombatRange)
+                        Random.Range(((EnemyScript)character).Target,
+                        ((EnemyScript)character).CombatRangeMax)
                         :
-                        Random.Range(((EnemyScript)character).PlayerTransform.transform.position.x - ((EnemyScript)character).CombatRange,
-                        ((EnemyScript)character).PlayerTransform.transform.position.x);
+                        Random.Range(((EnemyScript)character).CombatRangeMin,
+                        ((EnemyScript)character).Target);
+
+
+        // randomTarget = Random.Range(((EnemyScript)character).CombatRangeMin, ((EnemyScript)character).CombatRangeMax);
 
         randomTarget = Mathf.RoundToInt(randomTarget);
 
-        destinationSwitchTimer = stateMach.StateTime + Random.Range(0, 1f); ;
+        destinationSwitchTimer = stateMach.StateTime + Random.Range(0, 1f);
     }
 
     public override int StateAction()
     {
+
         if (!((EnemyScript)character).InCombatRange)
         {
             return (int)BehaviorStates.CHASE;
         }
 
+        //  movement
         if (Mathf.RoundToInt(character.transform.position.x) < randomTarget)
         {
             character.Blocking = false;
@@ -63,9 +83,14 @@ public class DefenseState : State
         }
         else
         {
-            character.Blocking = true;
+            character.Blocking = blockChanceRNG <= ((EnemyScript)character).BlockChance;
+            character.Direction.x = 0;
+
             //  blocking the direction the player is in
-            character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
+            if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+            {
+                character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
+            }
         }
 
         if (destinationSwitchTimer < stateMach.StateTime)
@@ -73,9 +98,16 @@ public class DefenseState : State
             SwitchDestination();
         }
 
-        if (aggressionTimer < stateMach.StateTime)
+        if (aggressionTimer <= stateMach.StateTime)
         {
             return (int)BehaviorStates.OFFENSIVE;
+        }
+
+        if (((EnemyScript)character).PlayerContact &&
+            aggressionTimer > stateMach.StateTime &&
+            character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+        {
+            return (int)BehaviorStates.PUSH;
         }
 
         return nextStateId;
@@ -84,6 +116,7 @@ public class DefenseState : State
     public override void EndState()
     {
         base.EndState();
+        ((EnemyScript)character).PlayerContact = false;
         character.Blocking = false;
     }
 }
