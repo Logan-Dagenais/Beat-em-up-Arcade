@@ -19,6 +19,7 @@ abstract public class CharacterScript : MonoBehaviour
     public bool Facingleft;
 
     [SerializeField] protected AttackState[] AttackList;
+    [SerializeField] protected State[] test;
 
     public float Friction;
 
@@ -218,6 +219,11 @@ abstract public class CharacterScript : MonoBehaviour
         if (OnGround)
         {
             Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
+
+            if (StateMach.CurrentState == (int)GeneralStates.AIR)
+            {
+                Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
+            }
         }
         else
         {
