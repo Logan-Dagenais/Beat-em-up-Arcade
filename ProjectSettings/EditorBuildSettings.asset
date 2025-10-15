@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu_Proto.unity
     guid: 7c1c265359327b54fa99ad6fa96372e8
   - enabled: 0
@@ -23,12 +23,27 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OnscreenUI.unity
     guid: 68aa0934c26d41442a90ce0bd8904b3a
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/ScrollTest.unity
+    guid: 121076378fb55e64aab92eb1b5f3ac71
+  - enabled: 0
     path: Assets/Scenes/Level1Prototype.unity
     guid: 795b271134c91a94f8cc7f95a851e8fa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level2Prototype.unity
     guid: 1aeec6e67d55d0a4fbd1a3b9231013ad
+  - enabled: 1
+    path: Assets/Scenes/VSMainMenu.unity
+    guid: 94c53ff6eefa86c4bbf1476eb668baa8
+  - enabled: 1
+    path: Assets/Scenes/VSTextScroll.unity
+    guid: e05746f97d34ec04287ce7ec9fb5212f
+  - enabled: 1
+    path: Assets/Scenes/VSLevel1.unity
+    guid: d0e9083461a8851429ee49a7e9ab0ad9
+  - enabled: 1
+    path: Assets/Scenes/VSLevel2.unity
+    guid: 9ad819d66b383b54bb65baed2afa91a9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

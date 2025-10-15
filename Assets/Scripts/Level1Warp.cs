@@ -8,7 +8,7 @@ public class Level1Warp : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("level1beat");
-            SceneManager.LoadScene("Level2Prototype");
+            SceneManager.LoadScene("VSLevel2");
         }
     }
 }
