@@ -15,10 +15,17 @@ public class HitstunState : StunState
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
+        if (character.AtkTaken.Heavy)
+        {
+            character.PlayHeavySound();
+        }
+        else
+        {
+            character.PlayLightSound();
+        }
+            //character.Friction = .25f;
 
-        //character.Friction = .25f;
-
-        comboCounter++;
+            comboCounter++;
 
         character.TakeDamage();
 

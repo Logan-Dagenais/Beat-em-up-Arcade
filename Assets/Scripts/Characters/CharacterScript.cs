@@ -20,6 +20,8 @@ abstract public class CharacterScript : MonoBehaviour
 
     [SerializeField] protected AttackState[] AttackList;
     [SerializeField] protected State[] test;
+    [SerializeField] AudioSource heavyHit;
+    [SerializeField] AudioSource lightHit;
 
     public float Friction;
 
@@ -273,6 +275,15 @@ abstract public class CharacterScript : MonoBehaviour
     {
         Facingleft = left;
         spriteRender.flipX = left;
+    }
+
+    public void PlayLightSound()
+    {
+        lightHit.Play();
+    }
+    public void PlayHeavySound()
+    {
+        heavyHit.Play();
     }
 
 }
