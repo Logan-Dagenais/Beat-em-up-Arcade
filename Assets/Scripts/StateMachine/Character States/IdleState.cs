@@ -11,8 +11,6 @@ public class IdleState : State
     {
         base.StartState(prevState);
 
-        character.Anim.Play("Idle");
-
         character.Velocity.y = 0;
     }
 
