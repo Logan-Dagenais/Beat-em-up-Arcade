@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/OnscreenUI.unity
     guid: 68aa0934c26d41442a90ce0bd8904b3a
   - enabled: 1
+    path: Assets/Scenes/ScrollTest.unity
+    guid: 82b76f1e8aa579b4f88906adee0cc974
+  - enabled: 1
     path: Assets/Scenes/Level1Prototype.unity
     guid: 795b271134c91a94f8cc7f95a851e8fa
   - enabled: 1
