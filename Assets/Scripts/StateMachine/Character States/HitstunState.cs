@@ -28,9 +28,14 @@ public class HitstunState : StunState
 
         comboKnockdown = comboCounter >= 2 && character.AtkTaken.Heavy;
 
-        //  knocks down when hit with a heavy while still in hitstun
+        /*  knockdown conditions:
+         *      - hit with heavy while still in hitstun
+         *      - knockdown property
+         *      - hit in midair
+         *      - not guard broken
+         */
         knockedDown = comboKnockdown || character.Health <= 0 ?
-            true : character.AtkTaken.CanKnockdown;
+            true : character.AtkTaken.CanKnockdown && !character.GuardBreak;
 
         if (knockedDown)
         {
@@ -80,7 +85,9 @@ public class HitstunState : StunState
         //  in mid air if we add this
         if (character.OnGround && knockedDown)
         {
-            if (stunTime <= stateMach.StateTime)
+            //  gives time for character to fly into air when knocked over
+            //  rather than transitioning immediately
+            if (0.1f <= stateMach.StateTime)
             {
                 return (int)GeneralStates.KNOCKDOWN;
             }

@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 8624686487068798688}
   - component: {fileID: 6923954307543213318}
   - component: {fileID: 8159847640181097755}
-  - component: {fileID: 8652413050804146114}
   - component: {fileID: 6544699059762238018}
   - component: {fileID: 9142131167843091290}
   - component: {fileID: 7803150937358612390}
@@ -219,8 +218,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1835641271
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -8668543014768416318, guid: 884861b41751d85489f3c3a2ef773574, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -267,8 +266,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.8, y: 1.6}
   m_Direction: 0
 --- !u!50 &8159847640181097755
 Rigidbody2D:
@@ -297,36 +296,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8652413050804146114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039319884388920400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &6544699059762238018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,19 +342,21 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 0
-      HitboxXOffset: 0.75
+      Unblockable: 0
+      HitboxXOffset: 0.9
   - Id: 0
     animName: HeavyATK
     AttackID: 6
     Properties:
       Damage: 10
-      Hitstun: 0.25
+      Hitstun: 0.4
       Blockstun: 0.25
-      Knockback: 10
+      Knockback: 12
       CanKnockdown: 0
       Heavy: 1
       Low: 0
-      HitboxXOffset: 0
+      Unblockable: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchLight
     AttackID: 7
@@ -397,7 +368,8 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 1
-      HitboxXOffset: 0
+      Unblockable: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchHeavy
     AttackID: 8
@@ -409,7 +381,8 @@ MonoBehaviour:
       CanKnockdown: 1
       Heavy: 1
       Low: 1
-      HitboxXOffset: 0
+      Unblockable: 0
+      HitboxXOffset: 0.5
   - Id: 0
     animName: LightAerial
     AttackID: 9
@@ -421,6 +394,7 @@ MonoBehaviour:
       CanKnockdown: 0
       Heavy: 0
       Low: 0
+      Unblockable: 0
       HitboxXOffset: 0
   - Id: 0
     animName: HeavyAerial
@@ -433,6 +407,7 @@ MonoBehaviour:
       CanKnockdown: 1
       Heavy: 1
       Low: 0
+      Unblockable: 0
       HitboxXOffset: 0
   Friction: 1
   Gravity: 2
@@ -466,7 +441,7 @@ MonoBehaviour:
     <selectedCollider>k__BackingField: {fileID: 0}
     <layerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 8
+      m_Bits: 520
     <useLayerMask>k__BackingField: 1
     <useStartPosition>k__BackingField: 0
     <useNoMove>k__BackingField: 0
@@ -486,6 +461,7 @@ MonoBehaviour:
     CanKnockdown: 0
     Heavy: 0
     Low: 0
+    Unblockable: 0
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
@@ -494,6 +470,10 @@ MonoBehaviour:
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}
+  spriteRender: {fileID: 0}
+  healthBar: {fileID: 0}
+  guardMeter: {fileID: 0}
+  gameOverScreen: {fileID: 0}
 --- !u!95 &7803150937358612390
 Animator:
   serializedVersion: 7
@@ -733,7 +713,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -743,7 +723,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.8, y: 1.6}
   m_EdgeRadius: 0
 --- !u!1 &5065655343554134847
 GameObject:
@@ -1051,7 +1031,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1061,5 +1041,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

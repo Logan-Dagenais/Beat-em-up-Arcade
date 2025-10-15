@@ -29,11 +29,13 @@ public class AirState : State
 
             if (character.AtkLight)
             {
+                character.AtkLight = false;
                 return (int)GeneralStates.ATKLIGHTAIR;
             }
 
             if (character.AtkHeavy)
             {
+                character.AtkHeavy = false;
                 return (int)GeneralStates.ATKHEAVYAIR;
             }
         }
