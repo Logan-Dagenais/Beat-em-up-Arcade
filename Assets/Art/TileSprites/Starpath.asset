@@ -24,8 +24,6 @@ MonoBehaviour:
     - {fileID: -1427434568, guid: f266d480f2cf9354fa8d2d256390b3ac, type: 3}
     - {fileID: 220649557, guid: f266d480f2cf9354fa8d2d256390b3ac, type: 3}
     - {fileID: -2142800696, guid: f266d480f2cf9354fa8d2d256390b3ac, type: 3}
-    - {fileID: -2142800696, guid: f266d480f2cf9354fa8d2d256390b3ac, type: 3}
-    - {fileID: -2142800696, guid: f266d480f2cf9354fa8d2d256390b3ac, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
