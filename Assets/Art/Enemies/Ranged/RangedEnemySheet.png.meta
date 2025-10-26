@@ -138,7 +138,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 9
@@ -160,7 +160,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 57
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 9
@@ -182,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 114
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 9
@@ -204,7 +204,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 171
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 9
@@ -226,7 +226,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 100
         width: 51
         height: 50
       alignment: 9
@@ -248,7 +248,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 57
-        y: 50
+        y: 100
         width: 50
         height: 50
       alignment: 9
@@ -270,7 +270,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 114
-        y: 50
+        y: 100
         width: 50
         height: 50
       alignment: 9
@@ -292,7 +292,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 178
-        y: 50
+        y: 100
         width: 50
         height: 50
       alignment: 9
@@ -314,7 +314,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 9
@@ -336,7 +336,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 57
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 9
@@ -358,7 +358,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 114
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 9
@@ -380,7 +380,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 175
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 9
@@ -393,6 +393,50 @@ TextureImporter:
       bones: []
       spriteID: d3bb1923fdeb8df46bc8fdc97b214fd9
       internalID: 759946095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RangedEnemySheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.54, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d13c77e1d73e974fb4f673ac1252e91
+      internalID: 895852362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RangedEnemySheet_13
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.32, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e8ef9ad71480949badb7b0d33f2a1c
+      internalID: -806205649
       vertices: []
       indices: 
       edges: []
@@ -415,6 +459,8 @@ TextureImporter:
       RangedEnemySheet_1: 5782815154640903712
       RangedEnemySheet_10: -1219121736
       RangedEnemySheet_11: 759946095
+      RangedEnemySheet_12: 895852362
+      RangedEnemySheet_13: -806205649
       RangedEnemySheet_2: -8197829367657959720
       RangedEnemySheet_3: -3486683442705688201
       RangedEnemySheet_4: 8372143434733558655

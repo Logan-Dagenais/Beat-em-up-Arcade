@@ -36,6 +36,8 @@ public class EnemyScript : CharacterScript
 
     [Range(0, 10)] public float BlockChance;
 
+    [Range(0, 10)] public float CrouchChance;
+
     public bool PlayerContact;
 
     protected void Awake()

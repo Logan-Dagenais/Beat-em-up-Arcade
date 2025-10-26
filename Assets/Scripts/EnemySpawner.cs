@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         if(EnemiesToSpawn.Length > 0)
             SpawnEnemy(EnemiesToSpawn[index]);
 
-        Debug.Log("enemy spawned");
+        //Debug.Log("enemy spawned");
         yield return new WaitForSeconds(spawnCooldown);
         if (index < EnemiesToSpawn.Length - 1)
         {
