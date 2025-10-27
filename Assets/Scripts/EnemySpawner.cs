@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] EnemiesToSpawn;
     [SerializeField] private float spawnCooldown = 1;
     [SerializeField] private Vector2 spawnLocationOffset;
+    [SerializeField] private Collider2D fightCamCollider;
+    [SerializeField] private Collider2D normalCamCollider;
+    [SerializeField] private GameObject cinemachineCam;
 
     private Transform cam;
 
@@ -56,10 +60,13 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnTimer());
 
         GetComponent<BoxCollider2D>().enabled = false;
+
+        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
     }
 
     private void DestroySpawner()
     {
+        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = normalCamCollider; //changes the cam confiner to the normal one
         Encounter = false;
         Destroy(gameObject);
     }
@@ -84,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
         {
             StartCoroutine(SpawnTimer());
         }
-        else
+        else if (TotalEnemyCount <= 0)
         {
             StopCoroutine(SpawnTimer());
             DestroySpawner();
