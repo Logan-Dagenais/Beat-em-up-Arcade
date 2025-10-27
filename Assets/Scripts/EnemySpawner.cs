@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 public class EnemySpawner : MonoBehaviour
 {
     static public int TotalEnemyCount;
-    static public int MaxEnemies = 10;
+    static public bool Encounter;
+    public const int MaxEnemies = 10;
+
     [SerializeField] private GameObject[] EnemyTypes;
     [SerializeField] private GameObject[] EnemiesToSpawn;
     [SerializeField] private float spawnCooldown = 1;
@@ -56,6 +58,12 @@ public class EnemySpawner : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
+    private void DestroySpawner()
+    {
+        Encounter = false;
+        Destroy(gameObject);
+    }
+
     private int index;
     IEnumerator SpawnTimer()
     {
@@ -79,6 +87,7 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             StopCoroutine(SpawnTimer());
+            DestroySpawner();
         }
     }
 

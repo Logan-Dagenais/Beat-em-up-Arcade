@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpSquatState : State
 {
-    private float jumpSquatTime = .1f;
+    private float jumpSquatTime = .05f;
 
     public JumpSquatState(CharacterScript c) : base(c)
     {
