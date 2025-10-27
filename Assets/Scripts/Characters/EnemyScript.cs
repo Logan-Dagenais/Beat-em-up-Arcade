@@ -126,6 +126,11 @@ public class EnemyScript : CharacterScript
         }
     }
 
+    private void OnDestroy()
+    {
+        EnemySpawner.TotalEnemyCount--;
+    }
+
     private void Start()
     {
         SwitchSpriteDirection(PlayerToLeft);
