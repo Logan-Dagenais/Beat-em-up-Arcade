@@ -23,7 +23,7 @@ public class DefenseState : State
         base.StartState(prevState);
 
         aggressionTimer = Random.Range(((EnemyScript)character).AggresionTimerMin, ((EnemyScript)character).AggresionTimerMax);
-        blockChanceRNG = Random.Range(0, 10);
+        blockChanceRNG = Random.Range(0f, 10f);
 
         SwitchDestination();
 
@@ -34,7 +34,7 @@ public class DefenseState : State
             character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
         }
 
-        character.Direction.x = 0;
+        character.Direction = Vector2.zero;
 
         playerSideSwitch = false;
         playerToLeft = ((EnemyScript)character).PlayerToLeft;

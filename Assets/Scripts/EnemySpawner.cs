@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EnemySpawner : MonoBehaviour
 {
+    static public int TotalEnemyCount;
+    static public int MaxEnemies = 10;
     [SerializeField] private GameObject[] EnemyTypes;
     [SerializeField] private GameObject[] EnemiesToSpawn;
     [SerializeField] private float spawnCooldown = 1;
@@ -56,15 +59,21 @@ public class EnemySpawner : MonoBehaviour
     private int index;
     IEnumerator SpawnTimer()
     {
-        if(EnemiesToSpawn.Length > 0)
+        //Debug.Log("enemy spawned");
+        yield return new WaitForSeconds(spawnCooldown);
+
+        if (TotalEnemyCount < MaxEnemies)
+        {
             SpawnEnemy(EnemiesToSpawn[index]);
 
-        Debug.Log("enemy spawned");
-        yield return new WaitForSeconds(spawnCooldown);
-        if (index < EnemiesToSpawn.Length - 1)
-        {
-            index++;
             spawnLocationOffset.x *= -1;
+
+            index++;
+            TotalEnemyCount++;
+        }
+
+        if(index < EnemiesToSpawn.Length)
+        {
             StartCoroutine(SpawnTimer());
         }
         else

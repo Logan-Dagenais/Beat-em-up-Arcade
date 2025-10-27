@@ -41,13 +41,13 @@ public class IdleState : State
         if (character.AtkLight)
         {
             character.AtkLight = false;
-            return (int)GeneralStates.ATKLIGHT;
+            return character.Direction.y >= 0 ? (int)GeneralStates.ATKLIGHT : (int)GeneralStates.ATKLIGHTCR;
         }
 
         if (character.AtkHeavy)
         {
             character.AtkHeavy = false;
-            return (int)GeneralStates.ATKHEAVY;
+            return character.Direction.y >= 0 ? (int)GeneralStates.ATKHEAVY : (int)GeneralStates.ATKHEAVYCR;
         }
 
         if (character.Blocking)

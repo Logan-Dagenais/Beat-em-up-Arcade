@@ -36,6 +36,8 @@ public class EnemyScript : CharacterScript
 
     [Range(0, 10)] public float BlockChance;
 
+    [Range(0, 10)] public float CrouchChance;
+
     public bool PlayerContact;
 
     protected void Awake()
@@ -122,6 +124,11 @@ public class EnemyScript : CharacterScript
             proj.GetComponent<ProjectileScript>().Direction.x = Facingleft ? -1 : 1;
             Destroy(proj, 10);
         }
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawner.TotalEnemyCount--;
     }
 
     private void Start()
