@@ -113,4 +113,24 @@ public class PlayerScript : CharacterScript
         StopCoroutine(PlayerDeath());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int healing = 30;
+        if(collision.CompareTag("healthPickup") && Health != MaxHealth)
+        {
+            if (Health + healing >= MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+            else
+            {
+                Health += healing;
+            }
+            healthBar.value = Health;
+            collision.gameObject.SetActive(false);
+            return;
+        }
+        base.OnTriggerEnter2D(collision);
+    }
+
 }
