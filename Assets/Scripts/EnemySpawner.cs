@@ -68,7 +68,10 @@ public class EnemySpawner : MonoBehaviour
 
         GetComponent<BoxCollider2D>().enabled = false;
 
-        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
+        if (fightCamCollider)
+        {
+            cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
+        }
     }
 
     private void DestroySpawner()
