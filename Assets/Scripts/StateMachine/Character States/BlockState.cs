@@ -23,8 +23,18 @@ public class BlockState : State
     {
         base.StateAction();
 
+        if (character.Direction.y > 0)
+        {
+            return (int)GeneralStates.JUMPSQUAT;
+        }
+
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
+
+        if (!blockLow)
+        {
+            character.Velocity.x = character.Direction.x * character.WalkSpeed / 2;
+        }
 
         if ((blockLow && animName == "Block") ||
             (!blockLow && animName == "CrouchBlock"))

@@ -75,7 +75,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void DestroySpawner()
     {
-        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = normalCamCollider; //changes the cam confiner to the normal one
+        if (cinemachineCam)
+        {
+            cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = normalCamCollider; //changes the cam confiner to the normal one
+        }
+
         Encounter = false;
         Destroy(gameObject);
     }
