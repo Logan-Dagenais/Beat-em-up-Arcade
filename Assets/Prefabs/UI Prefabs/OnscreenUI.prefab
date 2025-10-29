@@ -950,6 +950,10 @@ PrefabInstance:
       value: 0.38100052
       objectReference: {fileID: 0}
     - target: {fileID: 8660920253197605191, guid: 007e0b52981b5c34e9723a2913ca5c03, type: 3}
+      propertyPath: m_text
+      value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660920253197605191, guid: 007e0b52981b5c34e9723a2913ca5c03, type: 3}
       propertyPath: m_fontColor.a
       value: 0.69411767
       objectReference: {fileID: 0}
