@@ -78,6 +78,12 @@ public class EnemyScript : CharacterScript
         }
     }
 
+    public override void DeadState()
+    {
+        /* put the enemy pick up stuff here */
+        base.DeadState();
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         //  checks if trigger collided with main player collider instead of hurtbox or hitbox

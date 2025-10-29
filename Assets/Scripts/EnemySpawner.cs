@@ -22,6 +22,11 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         cam = Camera.main.transform;
+
+        if (transform.childCount != 0)
+        {
+            fightCamCollider = transform.GetChild(0).GetComponent<Collider2D>();
+        }
     }
 
     public void SpawnEnemy(GameObject enemyType)
@@ -57,11 +62,16 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
+        fightCamCollider.gameObject.SetActive(true);
+
         StartCoroutine(SpawnTimer());
 
         GetComponent<BoxCollider2D>().enabled = false;
 
-        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
+        if (fightCamCollider)
+        {
+            cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
+        }
     }
 
     private void DestroySpawner()
@@ -77,21 +87,21 @@ public class EnemySpawner : MonoBehaviour
         //Debug.Log("enemy spawned");
         yield return new WaitForSeconds(spawnCooldown);
 
-        if (TotalEnemyCount < MaxEnemies)
+        if (TotalEnemyCount < MaxEnemies &&
+            index < EnemiesToSpawn.Length)
         {
             SpawnEnemy(EnemiesToSpawn[index]);
 
             spawnLocationOffset.x *= -1;
 
             index++;
+
             TotalEnemyCount++;
         }
 
-        if(index < EnemiesToSpawn.Length)
-        {
-            StartCoroutine(SpawnTimer());
-        }
-        else if (TotalEnemyCount <= 0)
+        StartCoroutine(SpawnTimer());
+        
+        if (TotalEnemyCount <= 0)
         {
             StopCoroutine(SpawnTimer());
             DestroySpawner();
