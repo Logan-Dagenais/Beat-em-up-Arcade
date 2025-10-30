@@ -4905,6 +4905,14 @@ PrefabInstance:
       propertyPath: WalkSpeed
       value: 2.75
       objectReference: {fileID: 0}
+    - target: {fileID: 8615219742021379495, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
+      propertyPath: coffeeCup
+      value: 
+      objectReference: {fileID: 1122073533190862044, guid: 6a904c1006e140f4d8a0a98623935161, type: 3}
+    - target: {fileID: 8615219742021379495, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
+      propertyPath: dropsItem
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8834794254588235158, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
       propertyPath: m_Name
       value: eliteEnemyPrefab
