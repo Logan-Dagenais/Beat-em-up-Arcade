@@ -17,6 +17,7 @@ public class PlayerScript : CharacterScript
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider guardMeter;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject runFX;
 
     protected void Awake()
     {
@@ -63,6 +64,14 @@ public class PlayerScript : CharacterScript
     {
         base.RecoverGuard();
         guardMeter.value = GuardIntegrity;
+    }
+
+    public void SwitchSpriteDirection(bool left)
+    {
+        base.SwitchSpriteDirection(left);
+        Debug.Log("hjklasfd;fjkl;");
+
+        runFX.transform.rotation = Quaternion.Euler(-30f, 90f, 0f);
     }
 
     void OnMove(InputAction.CallbackContext context)
