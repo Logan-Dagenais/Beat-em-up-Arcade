@@ -343,6 +343,7 @@ MonoBehaviour:
     AttackID: 5
     Properties:
       Damage: 5
+      GuardDamage: 5
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 5
@@ -356,6 +357,7 @@ MonoBehaviour:
     AttackID: 6
     Properties:
       Damage: 10
+      GuardDamage: 10
       Hitstun: 0.4
       Blockstun: 0.25
       Knockback: 12
@@ -369,6 +371,7 @@ MonoBehaviour:
     AttackID: 7
     Properties:
       Damage: 5
+      GuardDamage: 5
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 5
@@ -382,6 +385,7 @@ MonoBehaviour:
     AttackID: 8
     Properties:
       Damage: 10
+      GuardDamage: 10
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 10
@@ -395,6 +399,7 @@ MonoBehaviour:
     AttackID: 9
     Properties:
       Damage: 5
+      GuardDamage: 5
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 5
@@ -408,6 +413,7 @@ MonoBehaviour:
     AttackID: 10
     Properties:
       Damage: 10
+      GuardDamage: 10
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 10
@@ -464,6 +470,7 @@ MonoBehaviour:
   Hit: 0
   AtkTaken:
     Damage: 0
+    GuardDamage: 0
     Hitstun: 0
     Blockstun: 0
     Knockback: 0

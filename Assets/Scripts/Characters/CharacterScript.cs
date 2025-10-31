@@ -60,6 +60,7 @@ abstract public class CharacterScript : MonoBehaviour
     public bool WalkBackwards;
 
     public bool Hit;
+    public bool SuperArmor;
 
     public AttackProperties AtkTaken;
     public bool HitFromLeft;

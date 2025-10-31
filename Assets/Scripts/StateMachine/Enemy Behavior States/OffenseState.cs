@@ -34,7 +34,7 @@ public class OffenseState : State
         //  right now enemy ends offense state crouching. not sure how to reset direction variable
         //  without negating the crouch attack. for some reason behavior states executes faster
         //  than action states or something
-        character.AtkLight = true;
+        character.AtkLight = character.Direction.y < 0;
     }
 
     public override int StateAction()
@@ -52,6 +52,8 @@ public class OffenseState : State
     public override void EndState()
     {
         ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).EngagementRange;
+
+        character.AtkLight = !(crouchChanceRng <= ((EnemyScript)character).CrouchChance);
 
         base.EndState();
     }

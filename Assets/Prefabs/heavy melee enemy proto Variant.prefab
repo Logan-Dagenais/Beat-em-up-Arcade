@@ -218,6 +218,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.GuardDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[1].Properties.GuardDamage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: AttackList.Array.data[0].Properties.CanKnockdown
       value: 1
       objectReference: {fileID: 0}

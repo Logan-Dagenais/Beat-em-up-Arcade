@@ -13,6 +13,7 @@ public struct AttackProperties
     */
 
     public float Damage;
+    public float GuardDamage;
 
     // hitstun and blockstun are counted in seconds
     public float Hitstun;
@@ -29,9 +30,19 @@ public struct AttackProperties
 
     public float HitboxXOffset;
 
-    public AttackProperties(float damage, float hitstun, float blockstun, float knockback, bool knockdown, bool heavy, bool low, bool unblockable, float offset)
+    public AttackProperties(float damage,
+                            float guardDamage,
+                            float hitstun,
+                            float blockstun,
+                            float knockback,
+                            bool knockdown,
+                            bool heavy,
+                            bool low,
+                            bool unblockable,
+                            float offset)
     {
         Damage = damage;
+        GuardDamage = guardDamage;
         Hitstun = hitstun;
         Blockstun = blockstun;
         Knockback = knockback;
@@ -99,8 +110,24 @@ public class AttackState : State
         //  attack interruption
         if (character.Hit)
         {
-            character.Hitboxes.gameObject.SetActive(false);
-            return (int)GeneralStates.HITSTUN;
+            if (!character.SuperArmor)
+            {
+                character.Hitboxes.gameObject.SetActive(false);
+                return (int)GeneralStates.HITSTUN;
+            }
+
+            character.TakeDamage();
+
+            if (character.AtkTaken.Heavy)
+            {
+                character.PlayHeavySound();
+            }
+            else
+            {
+                character.PlayLightSound();
+            }
+
+            character.Hit = false;
         }
 
         //  test attack state, remove this later

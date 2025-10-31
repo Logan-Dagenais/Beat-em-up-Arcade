@@ -248,6 +248,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: CrouchChance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: TargetOffset
       value: 6
       objectReference: {fileID: 0}

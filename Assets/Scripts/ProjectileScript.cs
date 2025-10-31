@@ -15,6 +15,8 @@ public class ProjectileScript : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
+    public float lifeTime;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();

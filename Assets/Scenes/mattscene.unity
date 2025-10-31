@@ -1056,75 +1056,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592710381}
   m_CullTransparentMesh: 1
---- !u!1001 &640186957
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_Name
-      value: Boss Placeholder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
 --- !u!1 &642407688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atk:
     Damage: 15
+    GuardDamage: 0
     Hitstun: 0.5
     Blockstun: 0.5
     Knockback: 15
@@ -7027,6 +6959,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004559302}
   m_CullTransparentMesh: 1
+--- !u!1001 &1076466755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295077816615650046, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705471089223956548, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
+      propertyPath: m_Name
+      value: Boss Placeholder Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce70d3a24d52e184caa9f7988568ffa7, type: 3}
 --- !u!1 &1183236649
 GameObject:
   m_ObjectHideFlags: 0
@@ -9110,8 +9099,10 @@ MonoBehaviour:
   Blocking: 0
   WalkBackwards: 0
   Hit: 0
+  SuperArmor: 0
   AtkTaken:
     Damage: 0
+    GuardDamage: 0
     Hitstun: 0
     Blockstun: 0
     Knockback: 0
@@ -10281,4 +10272,4 @@ SceneRoots:
   - {fileID: 449166883}
   - {fileID: 1689765958}
   - {fileID: 2134099608}
-  - {fileID: 640186957}
+  - {fileID: 1076466755}
