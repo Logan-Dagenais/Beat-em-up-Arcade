@@ -10,7 +10,7 @@ public class BlockstunState : StunState
     public override void StartState(int prevState)
     {
         base.StartState(prevState);
-
+        character.BlockHit.Play();
         stunTime = character.AtkTaken.Blockstun;
 
         character.GuardIntegrity -= character.AtkTaken.GuardDamage;

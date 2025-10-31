@@ -22,7 +22,9 @@ abstract public class CharacterScript : MonoBehaviour
     [SerializeField] protected State[] test;
     [SerializeField] AudioSource heavyHit;
     [SerializeField] AudioSource lightHit;
-
+    public AudioSource BlockHit;
+    public AudioSource KnockdownHit;
+    public AudioSource HealingSound;
     public float Friction;
 
     //  note: gravity and terminal velocity are kinda affected by slideMove.gravity
