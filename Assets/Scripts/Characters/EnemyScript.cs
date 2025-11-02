@@ -41,6 +41,9 @@ public class EnemyScript : CharacterScript
 
     public bool PlayerContact;
 
+    [SerializeField] private bool dropsItem;
+    [SerializeField] private GameObject coffeeCup;
+
     protected void Awake()
     {
         base.Awake();
@@ -79,8 +82,14 @@ public class EnemyScript : CharacterScript
         }
     }
 
+    bool hasSpawned = false;
     public override void DeadState()
     {
+        if (dropsItem == true && hasSpawned == false)
+        {
+            Instantiate(coffeeCup, transform.position, Quaternion.identity);
+            hasSpawned = true;
+        }
         /* put the enemy pick up stuff here */
         base.DeadState();
     }
