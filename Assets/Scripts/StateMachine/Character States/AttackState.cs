@@ -72,6 +72,11 @@ public class AttackState : State
     {
         base.StartState(prevState);
 
+        if(character.OnGround && character.Direction.x != 0)
+        {
+            character.Velocity.x = character.Direction.x * character.WalkSpeed;
+        }
+
         /*
         if (Properties.Heavy)
         {

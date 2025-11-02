@@ -232,14 +232,26 @@ abstract public class CharacterScript : MonoBehaviour
     {
         if (OnGround)
         {
-            Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
+            switch (StateMach.CurrentState)
+            {
+                default:
+                    Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction);
+                    break;
+                case (int)GeneralStates.ATKLIGHT:
+                case (int)GeneralStates.ATKHEAVY:
+                case (int)GeneralStates.ATKLIGHTCR:
+                case (int)GeneralStates.ATKHEAVYCR:
+                    Velocity.x = Mathf.MoveTowards(Velocity.x, 0, Friction * .4f);
+                    break;
+            }
 
+            //  just in case player is stuck in air state even though touching ground
             if (StateMach.CurrentState == (int)GeneralStates.AIR)
             {
                 Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
             }
         }
-        else
+        else if(StateMach.StateTime > 0.02f)
         {
             Velocity.y = Mathf.MoveTowards(Velocity.y, -TerminalVelocity, Gravity);
 
