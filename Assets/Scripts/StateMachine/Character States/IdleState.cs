@@ -18,7 +18,7 @@ public class IdleState : State
     {
         base.StateAction();
 
-        if (!character.OnGround)
+        if (!character.OnGround && stateMach.StateTime > 0.02f)
         {
             return (int)GeneralStates.AIR;
         }

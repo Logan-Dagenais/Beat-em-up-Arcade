@@ -62,21 +62,24 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        fightCamCollider.gameObject.SetActive(true);
-
         StartCoroutine(SpawnTimer());
 
         GetComponent<BoxCollider2D>().enabled = false;
 
         if (fightCamCollider)
         {
+            fightCamCollider.gameObject.SetActive(true);
             cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = fightCamCollider; //changes cam to one spot
         }
     }
 
     private void DestroySpawner()
     {
-        cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = normalCamCollider; //changes the cam confiner to the normal one
+        if (cinemachineCam)
+        {
+            cinemachineCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = normalCamCollider; //changes the cam confiner to the normal one
+        }
+
         Encounter = false;
         Destroy(gameObject);
     }

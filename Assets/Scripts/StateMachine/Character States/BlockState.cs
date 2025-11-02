@@ -13,7 +13,15 @@ public class BlockState : State
 
     public override void StartState(int prevState)
     {
-        animName = character.Direction.y < 0 ? "CrouchBlock" : "Block";
+        if (character.Direction.y < 0)
+        {
+            animName = "CrouchBlock";
+        }
+        else
+        {
+            animName = character.Direction.x == 0 ? "Block" : "BlockWalk";
+        }
+
         base.StartState(prevState);
 
         character.Velocity.y = 0;
@@ -23,11 +31,30 @@ public class BlockState : State
     {
         base.StateAction();
 
+        if (!character.OnGround && stateMach.StateTime > 0.02f)
+        {
+            return (int)GeneralStates.AIR;
+        }
+
+        if (character.Direction.y > 0)
+        {
+            return (int)GeneralStates.JUMPSQUAT;
+        }
+
         //  if holding crouch, character is blocking low
         bool blockLow = character.Direction.y < 0;
 
-        if ((blockLow && animName == "Block") ||
-            (!blockLow && animName == "CrouchBlock"))
+        if (!blockLow)
+        {
+            character.Velocity.x = character.Direction.x * character.WalkSpeed / 2;
+
+            if ((character.Direction.x == 0 && animName != "Block") ||
+                (character.Direction.x != 0 && animName != "BlockWalk"))
+            {
+                StartState(prevStateId);
+            }
+        }
+        else if (blockLow)
         {
             StartState(prevStateId);
         }

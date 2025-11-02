@@ -55,6 +55,7 @@ public class MenuSelection : MonoBehaviour
     private void OnEnable()
     {
         // Debug.Log("active");
+        Time.timeScale = 0;
         menuIndex = 0;
         Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
     }

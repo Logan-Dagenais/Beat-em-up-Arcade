@@ -7,7 +7,6 @@ public class KnockdownState : State
     //  adjust later
     private float downTime = 1;
     private int bounce;
-
     public KnockdownState(CharacterScript c) : base(c) {
         Id = (int)GeneralStates.KNOCKDOWN;
     }
@@ -33,6 +32,8 @@ public class KnockdownState : State
         {
             character.Velocity.y = 12;
             bounce--;
+            if(character.KnockdownHit)
+                character.KnockdownHit.Play();
         }
         else if (character.OnGround)
         {
