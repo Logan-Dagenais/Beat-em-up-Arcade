@@ -28,6 +28,8 @@ public abstract class StunState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         if (stateMach.StateTime >= stunTime && character.OnGround)
         {
             if (character.Blocking)

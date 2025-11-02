@@ -396,7 +396,7 @@ MonoBehaviour:
       Heavy: 1
       Low: 1
       Unblockable: 0
-      HitboxXOffset: 0.5
+      HitboxXOffset: 0.58
   - Id: 0
     animName: LightAerial
     AttackID: 9
