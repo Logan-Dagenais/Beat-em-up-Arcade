@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyScript : CharacterScript
 {
@@ -124,15 +125,30 @@ public class EnemyScript : CharacterScript
     [SerializeField] private Vector2 projectileOffset;
     public void SpawnProjectile(GameObject projectile)
     {
-        if (projectile != null)
+        if (!projectile)
         {
-            ProjectileScript proj = Instantiate(projectile,
-                                                (Vector2)transform.position + projectileOffset,
-                                                Quaternion.identity)
-                                                .GetComponent<ProjectileScript>();
-            proj.Direction.x = Facingleft ? -1 : 1;
-            Destroy(proj.gameObject, proj.lifeTime);
+            return;
         }
+
+        ShootSound();
+        ProjectileScript proj = Instantiate(projectile,
+                                            (Vector2)transform.position + projectileOffset,
+                                            Quaternion.identity)
+                                            .GetComponent<ProjectileScript>();
+        proj.Direction.x = Facingleft ? -1 : 1;
+        Destroy(proj.gameObject, proj.lifeTime);
+    }
+
+    //  probably not good structurally but will work for now
+    public AudioSource shotSound;
+    public void ShootSound()
+    {
+        if (!shotSound)
+        {
+            return;
+        }
+
+        shotSound.Play();
     }
 
     private void OnDestroy()

@@ -32,7 +32,8 @@ public class KnockdownState : State
         {
             character.Velocity.y = 12;
             bounce--;
-            character.KnockdownHit.Play();
+            if(character.KnockdownHit)
+                character.KnockdownHit.Play();
         }
         else if (character.OnGround)
         {

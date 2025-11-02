@@ -7,5 +7,24 @@ public class JumpSmashState : State
         stateMach = c.BehaviorStateMach;
     }
 
+    public override void StartState(int prevState)
+    {
+        base.StartState(prevState);
 
+        character.Direction.y = 1;
+    }
+
+    public override int StateAction()
+    {
+
+
+        return nextStateId;
+    }
+
+    public override void EndState()
+    {
+        
+        
+        base.EndState();
+    }
 }
