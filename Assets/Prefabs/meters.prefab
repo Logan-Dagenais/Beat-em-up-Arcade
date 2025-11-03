@@ -830,7 +830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Guard
+  m_text: 'Shield
 
 '
   m_isRightToLeft: 0
