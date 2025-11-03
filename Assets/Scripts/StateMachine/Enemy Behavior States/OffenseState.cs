@@ -4,6 +4,7 @@ public class OffenseState : State
 {
     //  for if enemy can not reach the player for too long
     private float defensiveTimer;
+    private float crouchChanceRng;
 
     public OffenseState(EnemyScript c) : base(c)
     {
@@ -16,6 +17,8 @@ public class OffenseState : State
     {
         base.StartState(prevState);
 
+        crouchChanceRng = Random.Range(0f, 10f);
+
         if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
         {
             character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
@@ -26,6 +29,12 @@ public class OffenseState : State
         ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).AttackRange;
 
         character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
+
+        character.Direction.y = crouchChanceRng <= ((EnemyScript)character).CrouchChance ? -1 : 0;
+        //  right now enemy ends offense state crouching. not sure how to reset direction variable
+        //  without negating the crouch attack. for some reason behavior states executes faster
+        //  than action states or something
+        character.AtkLight = character.Direction.y < 0;
     }
 
     public override int StateAction()
@@ -42,10 +51,9 @@ public class OffenseState : State
 
     public override void EndState()
     {
-
         ((EnemyScript)character).CombatRangeDistance = ((EnemyScript)character).EngagementRange;
 
-        character.AtkLight = true;
+        character.AtkLight = !(crouchChanceRng <= ((EnemyScript)character).CrouchChance);
 
         base.EndState();
     }

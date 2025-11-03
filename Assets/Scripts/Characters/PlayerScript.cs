@@ -17,6 +17,7 @@ public class PlayerScript : CharacterScript
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider guardMeter;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject runFX;
 
     protected void Awake()
     {
@@ -65,6 +66,14 @@ public class PlayerScript : CharacterScript
         guardMeter.value = GuardIntegrity;
     }
 
+    public void SwitchSpriteDirection(bool left)
+    {
+        base.SwitchSpriteDirection(left);
+        Debug.Log("hjklasfd;fjkl;");
+
+        runFX.transform.rotation = Quaternion.Euler(-30f, 90f, 0f);
+    }
+
     void OnMove(InputAction.CallbackContext context)
     {
         Direction = context.ReadValue<Vector2>();
@@ -109,8 +118,30 @@ public class PlayerScript : CharacterScript
         spriteRender.enabled = false;
         yield return new WaitForSeconds(1);
         gameOverScreen.SetActive(true);
+        AudioListener.volume = 0f;
 
         StopCoroutine(PlayerDeath());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int healing = 30;
+        if(collision.CompareTag("healthPickup") && Health != MaxHealth)
+        {
+            if (Health + healing >= MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+            else
+            {
+                Health += healing;
+            }
+            HealingSound.Play();
+            healthBar.value = Health;
+            collision.gameObject.SetActive(false);
+            return;
+        }
+        base.OnTriggerEnter2D(collision);
     }
 
 }

@@ -45,14 +45,18 @@ public class CrouchState : State
             return (int)GeneralStates.HITSTUN;
         }
 
-        if (character.Direction.x < 0)
+        if (!character.WalkBackwards)
         {
-            character.SwitchSpriteDirection(true);
+            if (character.Direction.x < 0)
+            {
+                character.SwitchSpriteDirection(true);
+            }
+            else if (character.Direction.x > 0)
+            {
+                character.SwitchSpriteDirection(false);
+            }
         }
-        else if (character.Direction.x > 0)
-        {
-            character.SwitchSpriteDirection(false);
-        }
+
 
         return nextStateId;
     }

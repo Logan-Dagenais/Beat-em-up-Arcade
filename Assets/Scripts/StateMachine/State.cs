@@ -49,7 +49,11 @@ public enum BehaviorStates
     PUSH,
 
     //  movement for traversing to target range
-    CHASE
+    CHASE,
+
+    //  unique boss behaviors
+    JUMPSMASH,
+
 }
 
 abstract public class State

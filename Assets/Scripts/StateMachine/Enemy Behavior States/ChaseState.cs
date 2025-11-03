@@ -17,6 +17,8 @@ public class ChaseState : State
             character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
         }
 
+        character.Direction = Vector2.zero;
+
     }
 
     public override int StateAction()
