@@ -1,4 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class endGameWarp : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class endGameWarp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioListener.volume = 0f;
             MenuSelection.CanPause = false;
             winUI.SetActive(true);
         }

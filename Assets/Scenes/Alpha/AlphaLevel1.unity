@@ -87280,6 +87280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923037ac14435f84aa92ecb9120bcee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhichLevel: 
 --- !u!58 &1570683348
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -87884,6 +87885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923037ac14435f84aa92ecb9120bcee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhichLevel: 
 --- !u!61 &1670647974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89197,7 +89199,7 @@ Transform:
   m_GameObject: {fileID: 1793310890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8207169, y: -0.9100022, z: -10}
+  m_LocalPosition: {x: 1.8182449, y: -0.9100022, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89418,7 +89420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2910181236003689724, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3551146261004660092, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
       propertyPath: m_PointLightOuterRadius
@@ -89573,6 +89575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923037ac14435f84aa92ecb9120bcee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhichLevel: AlphaLevel2
 --- !u!4 &1868074645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8903861476128730575, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}

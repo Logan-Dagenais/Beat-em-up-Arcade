@@ -44,7 +44,7 @@ public class MenuSelection : MonoBehaviour
     private void Awake()
     {
         //menuState = SceneManager.GetActiveScene().buildIndex == 0 ? MenuState.MainMenu : MenuState.InGame;
-
+        AudioListener.volume = 1f;
         Navigate = InputSystem.actions.FindAction("Move");
         Select = InputSystem.actions.FindAction("Select");
 
@@ -137,6 +137,7 @@ public class MenuSelection : MonoBehaviour
     private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
     private void ReturnMainMenu()
@@ -170,7 +171,7 @@ public class MenuSelection : MonoBehaviour
         {
             return;
         }
-
+        //AudioListener.volume = 1f;
         menuActions[menuIndex].Invoke();
     }
 }

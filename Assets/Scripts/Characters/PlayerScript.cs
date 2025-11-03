@@ -118,6 +118,7 @@ public class PlayerScript : CharacterScript
         spriteRender.enabled = false;
         yield return new WaitForSeconds(1);
         gameOverScreen.SetActive(true);
+        AudioListener.volume = 0f;
 
         StopCoroutine(PlayerDeath());
     }
@@ -135,6 +136,7 @@ public class PlayerScript : CharacterScript
             {
                 Health += healing;
             }
+            HealingSound.Play();
             healthBar.value = Health;
             collision.gameObject.SetActive(false);
             return;
