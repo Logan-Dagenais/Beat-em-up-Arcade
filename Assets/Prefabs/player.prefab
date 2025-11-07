@@ -337,6 +337,7 @@ MonoBehaviour:
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
   JumpForce: 25
+  JumpSquatTime: 0.05
   WalkSpeed: 7
   AirMobilityAccel: 1
   Facingleft: 0
@@ -497,6 +498,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   guardMeter: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  runFX: {fileID: 0}
 --- !u!95 &7803150937358612390
 Animator:
   serializedVersion: 7
