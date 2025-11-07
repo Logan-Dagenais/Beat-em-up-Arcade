@@ -24,6 +24,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
+        
         //MenuActions.currentActionMap.Enable();
         SceneSelect = InputSystem.actions.FindAction("OpenSceneSelect");
         PanicButton = InputSystem.actions.FindAction("PanicButton");
