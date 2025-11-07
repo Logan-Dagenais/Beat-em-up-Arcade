@@ -1287,6 +1287,7 @@ MonoBehaviour:
   BulletSpeed: 0
   pierce: 1
   HitList: []
+  lifeTime: 0
 --- !u!1 &647698093
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,6 +9056,9 @@ MonoBehaviour:
   AttackList: []
   heavyHit: {fileID: 0}
   lightHit: {fileID: 0}
+  BlockHit: {fileID: 0}
+  KnockdownHit: {fileID: 0}
+  HealingSound: {fileID: 0}
   Friction: 1
   Gravity: 2
   TerminalVelocity: 60
