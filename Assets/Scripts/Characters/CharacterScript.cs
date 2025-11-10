@@ -13,6 +13,7 @@ abstract public class CharacterScript : MonoBehaviour
     public float GuardIntegrity;
 
     public float JumpForce;
+    public float JumpSquatTime;
     public float WalkSpeed;
     public float AirMobilityAccel;
 

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class JumpSmashState : State
 {
-    public JumpSmashState(EnemyScript c) : base(c)
+    public JumpSmashState(BossScript c) : base(c)
     {
+        Id = (int)BehaviorStates.JUMPSMASH;
         stateMach = c.BehaviorStateMach;
     }
 
@@ -19,7 +20,10 @@ public class JumpSmashState : State
 
     public override int StateAction()
     {
-
+        if (character.OnGround && stateMach.StateTime > character.JumpSquatTime + .1f)
+        {
+            return (int)BehaviorStates.DEFENSIVE;
+        }
 
         return nextStateId;
     }
