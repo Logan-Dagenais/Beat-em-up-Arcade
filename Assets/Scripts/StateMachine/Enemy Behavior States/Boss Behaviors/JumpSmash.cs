@@ -11,6 +11,9 @@ public class JumpSmashState : State
     {
         base.StartState(prevState);
 
+        character.Direction.x = ((EnemyScript)character).PlayerToLeft ? -1 : 1;
+
+        //  jump input
         character.Direction.y = 1;
     }
 
@@ -23,7 +26,7 @@ public class JumpSmashState : State
 
     public override void EndState()
     {
-        
+        character.Direction = Vector2.zero;
         
         base.EndState();
     }

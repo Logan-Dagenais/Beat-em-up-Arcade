@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 77748cf2fff6f7940b3e7db7e0dd0693
+guid: c3b4e9d2facacde48a1e0ceda2fbac59
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -768801877209929550
-    second: rocketlmao_0
+      213: -3146269243580177707
+    second: rocketlmao 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rocketlmao_0
+      name: rocketlmao 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b8af3614caa455f0800000000000000
-      internalID: -768801877209929550
+      spriteID: 5d2aaa8eac43654d0800000000000000
+      internalID: -3146269243580177707
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rocketlmao_0: -768801877209929550
+      rocketlmao 1_0: -3146269243580177707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

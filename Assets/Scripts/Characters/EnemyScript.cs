@@ -55,7 +55,12 @@ public class EnemyScript : CharacterScript
 
         WalkBackwards = true;
 
-        //  behavior states
+        SetBehaviorStateList();
+    }
+
+    //  overridable so that we can change enemies states if needed
+    protected virtual void SetBehaviorStateList()
+    {
         BehaviorStateMach.StateList = new()
         {
             {(int)BehaviorStates.DEFENSIVE,
@@ -70,7 +75,7 @@ public class EnemyScript : CharacterScript
             {(int)BehaviorStates.CHASE,
             new ChaseState(this)}
         };
-    }
+    } 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
