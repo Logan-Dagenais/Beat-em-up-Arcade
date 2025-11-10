@@ -337,14 +337,15 @@ MonoBehaviour:
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
   JumpForce: 25
-  JumpSquatTime: 0.05
+  JumpSquatTime: 0.08
+  LandingLagTime: 0.1
   WalkSpeed: 7
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
   - Id: 0
     animName: LightATK
-    AttackID: 5
+    AttackID: 6
     Properties:
       Damage: 5
       GuardDamage: 5
@@ -358,7 +359,7 @@ MonoBehaviour:
       HitboxXOffset: 0.9
   - Id: 0
     animName: HeavyATK
-    AttackID: 6
+    AttackID: 7
     Properties:
       Damage: 10
       GuardDamage: 10
@@ -372,7 +373,7 @@ MonoBehaviour:
       HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchLight
-    AttackID: 7
+    AttackID: 8
     Properties:
       Damage: 5
       GuardDamage: 5
@@ -386,7 +387,7 @@ MonoBehaviour:
       HitboxXOffset: 0.5
   - Id: 0
     animName: CrouchHeavy
-    AttackID: 8
+    AttackID: 9
     Properties:
       Damage: 10
       GuardDamage: 10
@@ -400,7 +401,7 @@ MonoBehaviour:
       HitboxXOffset: 0.58
   - Id: 0
     animName: LightAerial
-    AttackID: 9
+    AttackID: 10
     Properties:
       Damage: 5
       GuardDamage: 5
@@ -414,7 +415,7 @@ MonoBehaviour:
       HitboxXOffset: 0
   - Id: 0
     animName: HeavyAerial
-    AttackID: 10
+    AttackID: 11
     Properties:
       Damage: 10
       GuardDamage: 10
@@ -432,7 +433,7 @@ MonoBehaviour:
   KnockdownHit: {fileID: 8627951373854860624}
   HealingSound: {fileID: 7043577230008206573}
   Friction: 1
-  Gravity: 2
+  Gravity: 1.5
   TerminalVelocity: 60
   Velocity: {x: 0, y: 0}
   EnemiesHit: []

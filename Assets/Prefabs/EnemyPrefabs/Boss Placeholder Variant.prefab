@@ -146,13 +146,14 @@ MonoBehaviour:
   GuardIntegrity: 0
   JumpForce: 30
   JumpSquatTime: 1
+  LandingLagTime: 0
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
   - Id: 0
     animName: HeavyATK
-    AttackID: 5
+    AttackID: 6
     Properties:
       Damage: 10
       GuardDamage: 100

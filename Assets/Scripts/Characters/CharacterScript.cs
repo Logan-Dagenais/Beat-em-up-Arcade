@@ -14,6 +14,7 @@ abstract public class CharacterScript : MonoBehaviour
 
     public float JumpForce;
     public float JumpSquatTime;
+    public float LandingLagTime;
     public float WalkSpeed;
     public float AirMobilityAccel;
 
@@ -130,6 +131,9 @@ abstract public class CharacterScript : MonoBehaviour
 
             {(int)GeneralStates.JUMPSQUAT,
             new JumpSquatState(this) },
+
+            {(int)GeneralStates.LANDING,
+            new LandingState(this) },
 
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},

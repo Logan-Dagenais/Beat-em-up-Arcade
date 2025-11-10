@@ -10,6 +10,7 @@ public enum GeneralStates
     AIR,
     CROUCH,
     JUMPSQUAT,
+    LANDING,
 
     //  combat states (woo hoo violence)
 

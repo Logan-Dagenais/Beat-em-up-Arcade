@@ -184,6 +184,7 @@ MonoBehaviour:
   BulletSpeed: 0
   pierce: 1
   HitList: []
+  lifeTime: 0
 --- !u!1 &2134140296272912202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,13 +1124,15 @@ MonoBehaviour:
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
   JumpForce: 25
+  JumpSquatTime: 0
+  LandingLagTime: 0
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
   - Id: 0
     animName: LightATK
-    AttackID: 5
+    AttackID: 6
     Properties:
       Damage: 5
       GuardDamage: 5
@@ -1143,6 +1146,9 @@ MonoBehaviour:
       HitboxXOffset: 0.56
   heavyHit: {fileID: 6939712240628110279}
   lightHit: {fileID: 3851120920121408148}
+  BlockHit: {fileID: 0}
+  KnockdownHit: {fileID: 0}
+  HealingSound: {fileID: 0}
   Friction: 1
   Gravity: 2
   TerminalVelocity: 60
@@ -1187,6 +1193,7 @@ MonoBehaviour:
   Blocking: 0
   WalkBackwards: 0
   Hit: 0
+  SuperArmor: 0
   AtkTaken:
     Damage: 0
     GuardDamage: 0
@@ -1222,7 +1229,10 @@ MonoBehaviour:
   BlockChance: 5
   CrouchChance: 0
   PlayerContact: 0
+  dropsItem: 0
+  coffeeCup: {fileID: 0}
   projectileOffset: {x: 0, y: 0}
+  shotSound: {fileID: 0}
 --- !u!82 &3851120920121408148
 AudioSource:
   m_ObjectHideFlags: 0

@@ -103,13 +103,26 @@ public class AttackState : State
     {
         base.StateAction();
 
-        //  cancels air attack when character touches ground
-        //  switches to idle after attack animation ends
-        if (((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) &&
-            character.OnGround) ||
-            (animTiming <= stateMach.StateTime && character.OnGround))
+        if (character.OnGround)
         {
-            return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
+            //  cancels air attack when character touches ground
+            //  switches to idle after attack animation ends
+            if (Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR)
+            {
+                return (int)GeneralStates.LANDING;
+            }
+
+            if (animTiming <= stateMach.StateTime)
+            {
+                return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
+            }
+        }
+        else
+        {
+            if (animTiming <= stateMach.StateTime && Id != (int)GeneralStates.ATKLIGHTAIR)
+            {
+                return (int)GeneralStates.AIR;
+            }
         }
 
         //  attack interruption

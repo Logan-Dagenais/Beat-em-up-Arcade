@@ -19,8 +19,7 @@ public class AirState : State
 
         if (character.OnGround && character.Velocity.y <= 0)
         {
-            return character.Direction.x == 0 ?
-                (int)GeneralStates.IDLE : (int)GeneralStates.WALK;
+            return (int)GeneralStates.LANDING;
         }
         else
         {
