@@ -389,7 +389,7 @@ PrefabInstance:
     - target: {fileID: 811017281912527541, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: fightCamCollider
       value: 
-      objectReference: {fileID: 845747798}
+      objectReference: {fileID: 1819191310}
     - target: {fileID: 811017281912527541, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: normalCamCollider
       value: 
@@ -5660,6 +5660,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!61 &149785666 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
+  m_PrefabInstance: {fileID: 1967506709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &178082451
 GameObject:
   m_ObjectHideFlags: 0
@@ -83312,7 +83317,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 102.005165, y: -1.5668654}
+  m_Offset: {x: 102.005165, y: -1.7039318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -83322,7 +83327,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 218.00804, y: 17.056}
+  m_Size: {x: 218.00804, y: 15.015236}
   m_EdgeRadius: 0
 --- !u!1 &851171056
 GameObject:
@@ -83408,7 +83413,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 5.43
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -88723,7 +88728,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5.43
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -88748,7 +88753,7 @@ Transform:
   m_GameObject: {fileID: 1793310890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.84518, y: -1.0668705, z: -10}
+  m_LocalPosition: {x: 0.48947895, y: -1.4700007, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88761,7 +88766,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793310890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
@@ -88895,6 +88900,11 @@ Transform:
   - {fileID: 51688054}
   m_Father: {fileID: 1772698512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1819191310 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
+  m_PrefabInstance: {fileID: 42332749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823857920
 GameObject:
   m_ObjectHideFlags: 0
@@ -89821,7 +89831,7 @@ PrefabInstance:
     - target: {fileID: 811017281912527541, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: fightCamCollider
       value: 
-      objectReference: {fileID: 845747798}
+      objectReference: {fileID: 149785666}
     - target: {fileID: 811017281912527541, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: normalCamCollider
       value: 
