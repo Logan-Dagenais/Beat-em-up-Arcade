@@ -1207,8 +1207,7 @@ MonoBehaviour:
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
-  GuardIntCooldown: 6
-  GuardIntTimer: 0
+  GuardIntTimer: 0.25
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
   Anim: {fileID: 0}

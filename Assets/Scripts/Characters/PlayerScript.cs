@@ -44,6 +44,11 @@ public class PlayerScript : CharacterScript
         guardMeter.value = MaxGuardIntegrity;
     }
 
+    private void Update()
+    {
+        guardMeter.value = GuardIntegrity;
+    }
+
     private void OnDestroy()
     {
         move.performed -= OnMove;
@@ -60,11 +65,13 @@ public class PlayerScript : CharacterScript
         healthBar.value = Health;
     }
 
+    /*
     public override void RecoverGuard()
     {
         base.RecoverGuard();
         guardMeter.value = GuardIntegrity;
     }
+    */
 
     public void SwitchSpriteDirection(bool left)
     {

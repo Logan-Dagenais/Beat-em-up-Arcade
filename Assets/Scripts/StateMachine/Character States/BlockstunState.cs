@@ -16,7 +16,15 @@ public class BlockstunState : StunState
 
         stunTime = character.AtkTaken.Blockstun;
 
-        character.GuardIntegrity -= character.AtkTaken.GuardDamage;
+        if (character.GuardIntegrity > character.AtkTaken.GuardDamage)
+        {
+            character.GuardIntegrity -= character.AtkTaken.GuardDamage;
+        }
+        else
+        {
+            character.GuardIntegrity = 0;
+        }
+
         //character.GetComponent<SpriteRenderer>().color = Color.blue;
 
         //character.Friction = .25f;

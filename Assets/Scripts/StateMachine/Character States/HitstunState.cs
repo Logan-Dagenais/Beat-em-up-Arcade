@@ -77,8 +77,6 @@ public class HitstunState : StunState
 
         //  replace this with an animation
         //character.GetComponent<SpriteRenderer>().color = Color.red;
-
-        character.GuardBreak = false;
     }
 
     public override int StateAction()
@@ -127,6 +125,8 @@ public class HitstunState : StunState
 
         knockedDown = false;
         comboCounter = 0;
+
+        character.GuardBreak = false;
 
         //  replace this with animation
         //character.GetComponent<SpriteRenderer>().color = Color.white;
