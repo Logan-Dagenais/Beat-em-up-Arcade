@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrouchState : State
+public class CrouchState : CharacterState
 {
     public CrouchState(CharacterScript c) : base(c)
     {

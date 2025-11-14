@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JumpSquatState : State
+public class JumpSquatState : CharacterState
 {
     public JumpSquatState(CharacterScript c) : base(c)
     {

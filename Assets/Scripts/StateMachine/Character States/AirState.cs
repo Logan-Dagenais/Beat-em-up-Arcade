@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class AirState : State
+public class AirState : CharacterState
 {
     public AirState(CharacterScript c) : base(c)
     {

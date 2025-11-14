@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LandingState : State
+public class LandingState : CharacterState
 {
     public LandingState(CharacterScript c) : base(c)
     {
@@ -16,6 +16,8 @@ public class LandingState : State
 
     public override int StateAction()
     {
+        base.StateAction();
+
         if (character.Hit)
         {
             return (int)GeneralStates.HITSTUN;

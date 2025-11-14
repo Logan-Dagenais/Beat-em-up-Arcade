@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class StunState : State
+public abstract class StunState : CharacterState
 {
     protected float stunTime;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalkState : State
+public class WalkState : CharacterState
 {
     public WalkState(CharacterScript c) : base(c)
     {

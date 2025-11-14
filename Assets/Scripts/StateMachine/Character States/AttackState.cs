@@ -55,7 +55,7 @@ public struct AttackProperties
 }
 
 [Serializable]
-public class AttackState : State
+public class AttackState : CharacterState
 {
     //  putting this here to make it easier to add attacks in inspector
     public GeneralStates AttackID;

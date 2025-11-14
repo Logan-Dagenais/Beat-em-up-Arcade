@@ -1150,7 +1150,7 @@ MonoBehaviour:
   KnockdownHit: {fileID: 0}
   HealingSound: {fileID: 0}
   Friction: 1
-  Gravity: 2
+  Gravity: 1.5
   TerminalVelocity: 60
   Velocity: {x: 0, y: 0}
   EnemiesHit: []

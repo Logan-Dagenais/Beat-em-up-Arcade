@@ -144,9 +144,9 @@ MonoBehaviour:
   Health: 0
   MaxGuardIntegrity: 50
   GuardIntegrity: 0
-  JumpForce: 30
+  JumpForce: 35
   JumpSquatTime: 1
-  LandingLagTime: 0
+  LandingLagTime: 1
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   KnockdownHit: {fileID: 0}
   HealingSound: {fileID: 0}
   Friction: 1
-  Gravity: 2
+  Gravity: 1.5
   TerminalVelocity: 60
   Velocity: {x: 0, y: 0}
   EnemiesHit: []
@@ -228,7 +228,6 @@ MonoBehaviour:
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
-  GuardIntCooldown: 6
   GuardIntTimer: 0
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}

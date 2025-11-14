@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PushState : State
+public class PushState : CharacterState
 {
     public PushState(EnemyScript c) : base(c)
     {

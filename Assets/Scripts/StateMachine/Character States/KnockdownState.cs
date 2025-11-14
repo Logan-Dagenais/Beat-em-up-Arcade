@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 //  i don't know if this needs to be its own class, might combine it with hitstun state
-public class KnockdownState : State
+public class KnockdownState : CharacterState
 {
     //  adjust later
     private float downTime = 1;
