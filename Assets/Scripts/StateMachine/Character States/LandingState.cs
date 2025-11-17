@@ -18,10 +18,7 @@ public class LandingState : CharacterState
     {
         base.StateAction();
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (stateMach.StateTime > character.LandingLagTime)
         {

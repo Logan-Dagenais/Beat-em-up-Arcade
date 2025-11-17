@@ -82,6 +82,36 @@ abstract public class State
         stateMach = c.StateMach;
     }
 
+    //  
+    protected int HitstunTransition(int nextStateId)
+    {
+        if (character.Hit)
+        {
+            if (character.SuperArmor && character.Health > 0)
+            {
+                character.TakeDamage();
+
+                if (character.AtkTaken.Heavy)
+                {
+                    character.PlayHeavySound();
+                }
+                else
+                {
+                    character.PlayLightSound();
+                }
+
+                character.Hit = false;
+
+                return nextStateId;
+            }
+
+            character.Hitboxes.gameObject.SetActive(false);
+            return (int)GeneralStates.HITSTUN;
+        }
+
+        return nextStateId;
+    }
+
     public virtual void StartState(int prevState)
     {
         stateComplete = false;

@@ -19,10 +19,7 @@ public class JumpSquatState : CharacterState
     {
         base.StateAction();
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (stateMach.StateTime > character.JumpSquatTime)
         {

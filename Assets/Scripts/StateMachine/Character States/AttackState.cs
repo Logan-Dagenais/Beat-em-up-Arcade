@@ -126,27 +126,7 @@ public class AttackState : CharacterState
         }
 
         //  attack interruption
-        if (character.Hit)
-        {
-            if (!character.SuperArmor)
-            {
-                character.Hitboxes.gameObject.SetActive(false);
-                return (int)GeneralStates.HITSTUN;
-            }
-
-            character.TakeDamage();
-
-            if (character.AtkTaken.Heavy)
-            {
-                character.PlayHeavySound();
-            }
-            else
-            {
-                character.PlayLightSound();
-            }
-
-            character.Hit = false;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         //  test attack state, remove this later
         /*

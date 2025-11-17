@@ -55,10 +55,7 @@ public class IdleState : CharacterState
             return (int)GeneralStates.BLOCK;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         return nextStateId;
     }

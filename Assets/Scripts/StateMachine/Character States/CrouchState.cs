@@ -40,10 +40,7 @@ public class CrouchState : CharacterState
             return (int)GeneralStates.ATKHEAVYCR;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (!character.WalkBackwards)
         {

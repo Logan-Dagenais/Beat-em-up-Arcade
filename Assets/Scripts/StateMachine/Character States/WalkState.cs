@@ -67,10 +67,7 @@ public class WalkState : CharacterState
             return (int)GeneralStates.BLOCK;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         character.Velocity.x = character.Direction.x * character.WalkSpeed;
 

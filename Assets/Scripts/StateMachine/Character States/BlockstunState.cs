@@ -40,7 +40,7 @@ public class BlockstunState : StunState
         if (character.GuardIntegrity <= 0)
         {
             character.GuardBreak = true;
-            return (int)GeneralStates.HITSTUN;
+            return HitstunTransition(nextStateId);
         }
 
         //  resets state when hit again

@@ -12,10 +12,7 @@ public class AirState : CharacterState
     {
         base.StateAction();
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (character.OnGround && character.Velocity.y <= 0)
         {
