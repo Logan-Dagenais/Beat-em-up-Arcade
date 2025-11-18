@@ -91,6 +91,17 @@ abstract public class State
             {
                 character.TakeDamage();
 
+                if (character.HitFromLeft)
+                {
+                    //character.RB2D.AddForceX(character.AtkTaken.Knockback);
+                    character.Velocity.x = character.AtkTaken.Knockback;
+                }
+                else
+                {
+                    //character.RB2D.AddForceX(-character.AtkTaken.Knockback);
+                    character.Velocity.x = -character.AtkTaken.Knockback;
+                }
+
                 if (character.AtkTaken.Heavy)
                 {
                     character.PlayHeavySound();

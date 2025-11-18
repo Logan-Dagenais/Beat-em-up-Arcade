@@ -13,7 +13,7 @@ public abstract class StunState : CharacterState
         //Debug.Log("pain");
         character.Hit = false;
 
-        character.Velocity.x = 0;
+        character.Velocity.y = 0;
         if (character.HitFromLeft)
         {
             //character.RB2D.AddForceX(character.AtkTaken.Knockback);
