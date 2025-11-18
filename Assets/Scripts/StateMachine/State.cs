@@ -82,7 +82,7 @@ abstract public class State
         stateMach = c.StateMach;
     }
 
-    //  
+    //  handles hit reaction and super armor
     protected int HitstunTransition(int nextStateId)
     {
         if (character.Hit)
