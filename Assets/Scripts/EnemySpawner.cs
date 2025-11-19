@@ -17,6 +17,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Collider2D normalCamCollider;
     [SerializeField] private GameObject cinemachineCam;
 
+    private struct Wall
+    {
+        public Transform left;
+        public Transform right;
+    }
+
+    private Wall wall;
+
     private Transform cam;
 
     private void Start()
@@ -26,12 +34,25 @@ public class EnemySpawner : MonoBehaviour
         if (transform.childCount != 0)
         {
             fightCamCollider = transform.GetChild(0).GetComponent<Collider2D>();
+
+            wall.left = transform.GetChild(0).GetChild(0);
+            wall.right = transform.GetChild(0).GetChild(0);
         }
     }
 
     public void SpawnEnemy(GameObject enemyType)
     {
-        Instantiate(enemyType, (Vector2)cam.position + spawnLocationOffset, Quaternion.identity);
+        Transform enemy = Instantiate(enemyType, (Vector2)cam.position + spawnLocationOffset, Quaternion.identity).transform;
+
+        //  if enemy spawns behind wall, teleport to other side of camera
+        //  kind of a bandage fix but it works
+        if (wall.left && wall.right)
+        {
+            if (enemy.position.x < wall.left.position.x || enemy.position.x > wall.right.position.x)
+            {
+                enemy.position = new Vector2(cam.position.x - spawnLocationOffset.x, cam.position.y + spawnLocationOffset.y);
+            }
+        }
     }
 
     public void SpawnEnemy(GameObject enemyType, Vector2 position)
