@@ -689,6 +689,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc66a8f027c8664e992b4038ca50ca2, type: 3}
+--- !u!1 &441685634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3436429333476248154, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
+  m_PrefabInstance: {fileID: 1638080558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &449166883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9055,6 +9060,8 @@ MonoBehaviour:
   MaxGuardIntegrity: 30
   GuardIntegrity: 0
   JumpForce: 20
+  JumpSquatTime: 0
+  LandingLagTime: 0
   WalkSpeed: 5
   AirMobilityAccel: 0
   Facingleft: 0
@@ -9122,7 +9129,6 @@ MonoBehaviour:
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
-  GuardIntCooldown: 6
   GuardIntTimer: 0
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
@@ -9365,6 +9371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3436429333476248154, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6967913810895942754, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -9405,6 +9415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142131167843091290, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
+      propertyPath: runFX
+      value: 
+      objectReference: {fileID: 441685634}
     - target: {fileID: 9142131167843091290, guid: 50859ef83d3944846be1f7b64b877fcd, type: 3}
       propertyPath: healthBar
       value: 

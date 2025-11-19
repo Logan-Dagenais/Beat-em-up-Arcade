@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2eba4e142cf3469fb7aefa7c0a235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossScript
-  MaxHealth: 100
+  MaxHealth: 300
   Health: 0
   MaxGuardIntegrity: 50
   GuardIntegrity: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   Blocking: 0
   WalkBackwards: 0
   Hit: 0
-  SuperArmor: 0
+  SuperArmor: 1
   AtkTaken:
     Damage: 0
     GuardDamage: 0
