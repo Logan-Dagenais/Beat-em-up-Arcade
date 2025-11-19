@@ -6337,19 +6337,19 @@ PrefabInstance:
       objectReference: {fileID: 8834794254588235158, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
     - target: {fileID: 1417807231060592166, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Size.x
-      value: 0.82032394
+      value: 0.2991333
       objectReference: {fileID: 0}
     - target: {fileID: 1417807231060592166, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Offset.x
-      value: -1.0200672
+      value: 5.308605
       objectReference: {fileID: 0}
     - target: {fileID: 5900233682768116567, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.25
+      value: 5.48
       objectReference: {fileID: 0}
     - target: {fileID: 5900233682768116567, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16999996
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 5900233682768116567, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6385,31 +6385,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513652653668443526, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Size.x
-      value: 0.90540886
+      value: 0.30977058
       objectReference: {fileID: 0}
     - target: {fileID: 6513652653668443526, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Offset.x
-      value: 1.0378675
+      value: 3.9043837
       objectReference: {fileID: 0}
     - target: {fileID: 7007840269083499389, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Name
       value: EnemySpawnerCamLock1
       objectReference: {fileID: 0}
+    - target: {fileID: 7027618097294176880, guid: bbcd911da50e54a41b89991491487488, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9704304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027618097294176880, guid: bbcd911da50e54a41b89991491487488, type: 3}
+      propertyPath: m_Offset.x
+      value: 4.539302
+      objectReference: {fileID: 0}
     - target: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Size.x
-      value: 18.288752
+      value: 24.170698
       objectReference: {fileID: 0}
     - target: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Size.y
-      value: 10.820847
+      value: 12.384401
       objectReference: {fileID: 0}
     - target: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Offset.x
-      value: 0.07543278
+      value: 4.654416
       objectReference: {fileID: 0}
     - target: {fileID: 7262540986509027325, guid: bbcd911da50e54a41b89991491487488, type: 3}
       propertyPath: m_Offset.y
-      value: -1.0310037
+      value: -0.5470464
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38050,7 +38058,7 @@ Transform:
   m_GameObject: {fileID: 845747796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.2, y: -1.1, z: -4.602541}
+  m_LocalPosition: {x: -11.2, y: -0.7, z: -4.602541}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42897,9 +42905,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 0.9994835
+    y: 0.118063755
+    width: 0.70874864
+    height: 0.70838255
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
