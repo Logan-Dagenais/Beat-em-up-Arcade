@@ -326,7 +326,7 @@ abstract public class CharacterScript : MonoBehaviour
     */
 
     //  passing in true will face left
-    public void SwitchSpriteDirection(bool left)
+    public virtual void SwitchSpriteDirection(bool left)
     {
         Facingleft = left;
         spriteRender.flipX = left;

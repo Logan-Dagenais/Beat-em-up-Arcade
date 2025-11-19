@@ -73,12 +73,11 @@ public class PlayerScript : CharacterScript
     }
     */
 
-    public void SwitchSpriteDirection(bool left)
+    public override void SwitchSpriteDirection(bool left)
     {
         base.SwitchSpriteDirection(left);
-        Debug.Log("hjklasfd;fjkl;");
 
-        runFX.transform.rotation = Quaternion.Euler(-30f, 90f, 0f);
+        runFX.transform.rotation = Facingleft ? Quaternion.Euler(-30f, 90f, 0f) : Quaternion.Euler(-30f, -90f, 0f);
     }
 
     void OnMove(InputAction.CallbackContext context)
