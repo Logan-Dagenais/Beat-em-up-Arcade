@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e893e9ea58895c4ca8b816f4c22d6bc
+guid: a6d0eaa2d2248a944bd4b560016c0f98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5872981015035218577
-    second: RockTilemap_0
+      213: -3903696994477251666
+    second: thatchedRoofCottegesTWo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RockTilemap_0
+      name: thatchedRoofCottegesTWo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 50
+        x: 349
+        y: 419
+        width: 292
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19a89c5ed15018150800000000000000
-      internalID: 5872981015035218577
+      spriteID: ea36c65244843d9c0800000000000000
+      internalID: -3903696994477251666
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RockTilemap_0: 5872981015035218577
+      thatchedRoofCottegesTWo_0: -3903696994477251666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
