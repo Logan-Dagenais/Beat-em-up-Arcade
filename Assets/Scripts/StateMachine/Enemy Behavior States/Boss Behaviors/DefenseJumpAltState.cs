@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class BossDefenseState : DefenseState
+public class DefenseJumpAltState : DefenseState
 {
-    public BossDefenseState(BossScript c) : base(c)
+    public DefenseJumpAltState(EnemyScript c) : base(c)
     {
     }
 
@@ -20,9 +20,9 @@ public class BossDefenseState : DefenseState
         nextStateId = base.StateAction();
 
         if (nextStateId == (int)BehaviorStates.OFFENSIVE &&
-            jumpRNG <= ((BossScript)character).JumpChance)
+            jumpRNG < ((EnemyScript)character).JumpChance)
         {
-            return (int)BehaviorStates.JUMPSMASH;
+            return (int)BehaviorStates.JUMP;
         }
 
         return nextStateId;

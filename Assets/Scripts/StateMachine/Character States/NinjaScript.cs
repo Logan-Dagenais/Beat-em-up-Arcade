@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BossScript : EnemyScript
+public class NinjaScript : EnemyScript
 {
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class BossScript : EnemyScript
             new DefenseJumpAltState(this)},
 
             {(int)BehaviorStates.OFFENSIVE,
-            new OffenseState(this)},
+            new NinjaOffenseState(this)},
 
             {(int)BehaviorStates.PUSH,
             new PushState(this)},
@@ -27,4 +27,5 @@ public class BossScript : EnemyScript
             new JumpOffenseState(this)}
         };
     }
+
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &47321352518159504
+--- !u!1001 &2089241687507490858
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,25 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2788297794749738596, guid: efa60b174b1899f43956380e322912b6, type: 3}
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.18
+      value: -5.441
       objectReference: {fileID: 0}
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.45
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60,49 +52,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 1.44
+      objectReference: {fileID: 0}
     - target: {fileID: 7039291030808924356, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a8349568dd6f15345a0cc8ea73a48be7, type: 2}
+      objectReference: {fileID: 9100000, guid: 04bff504b60b0384a9d3aaaa4012247c, type: 2}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: JumpForce
-      value: 30
+      propertyPath: JumpChance
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: MaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: MaxGuardIntegrity
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: projectileOffset.y
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: AttackList.Array.data[0].AttackID
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: AttackList.Array.data[0].animName
-      value: HeavyATK
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: AttackList.Array.data[0].Properties.Heavy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: AttackList.Array.data[0].Properties.Damage
+      propertyPath: CrouchChance
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: AttackList.Array.data[0].Properties.GuardDamage
-      value: 100
+      propertyPath: AttackList.Array.data[0].AttackID
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].animName
+      value: CrouchAtk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Low
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.CanKnockdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_Name
-      value: Boss Placeholder Variant
+      value: ninja enemy Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
@@ -111,62 +107,73 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       insertIndex: 6
-      addedObject: {fileID: 6330774290538533013}
+      addedObject: {fileID: 4457575733736875844}
   m_SourcePrefab: {fileID: 100100000, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
---- !u!82 &3880397082767111684 stripped
+--- !u!82 &2994775195119198910 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3851120920121408148, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-  m_PrefabInstance: {fileID: 47321352518159504}
+  m_PrefabInstance: {fileID: 2089241687507490858}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &6982498101172068183 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6939712240628110279, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-  m_PrefabInstance: {fileID: 47321352518159504}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8705471089223956548 stripped
+--- !u!1 &7243599573964352766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-  m_PrefabInstance: {fileID: 47321352518159504}
+  m_PrefabInstance: {fileID: 2089241687507490858}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6330774290538533013
+--- !u!114 &4457575733736875844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8705471089223956548}
+  m_GameObject: {fileID: 7243599573964352766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f2eba4e142cf3469fb7aefa7c0a235, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bbf8c50ac2b6fc47bfcb16a60e60f7f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossScript
-  MaxHealth: 300
+  m_EditorClassIdentifier: Assembly-CSharp::NinjaScript
+  MaxHealth: 30
   Health: 0
-  MaxGuardIntegrity: 50
+  MaxGuardIntegrity: 30
   GuardIntegrity: 0
-  JumpForce: 35
-  JumpSquatTime: 1
-  LandingLagTime: 1
+  JumpForce: 25
+  JumpSquatTime: 0.7
+  LandingLagTime: 0.7
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
   - Id: 0
-    animName: HeavyATK
-    AttackID: 6
+    animName: CrouchAtk
+    AttackID: 8
     Properties:
-      Damage: 10
-      GuardDamage: 100
+      Damage: 5
+      GuardDamage: 5
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 5
-      CanKnockdown: 0
-      Heavy: 1
+      CanKnockdown: 1
+      Heavy: 0
+      Low: 1
+      Unblockable: 0
+      HitboxXOffset: 0.34
+      MovementForce: 15
+  - Id: 0
+    animName: AirAtk
+    AttackID: 10
+    Properties:
+      Damage: 5
+      GuardDamage: 5
+      Hitstun: 0.25
+      Blockstun: 0.25
+      Knockback: 5
+      CanKnockdown: 1
+      Heavy: 0
       Low: 0
       Unblockable: 0
-      HitboxXOffset: 0.56
-  heavyHit: {fileID: 6982498101172068183}
-  lightHit: {fileID: 3880397082767111684}
+      HitboxXOffset: 0.28
+      MovementForce: 0
+  heavyHit: {fileID: 8984881080423402477}
+  lightHit: {fileID: 2994775195119198910}
   BlockHit: {fileID: 0}
   KnockdownHit: {fileID: 0}
   HealingSound: {fileID: 0}
@@ -214,7 +221,7 @@ MonoBehaviour:
   Blocking: 0
   WalkBackwards: 0
   Hit: 0
-  SuperArmor: 1
+  SuperArmor: 0
   AtkTaken:
     Damage: 0
     GuardDamage: 0
@@ -226,6 +233,7 @@ MonoBehaviour:
     Low: 0
     Unblockable: 0
     HitboxXOffset: 0
+    MovementForce: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntTimer: 0
@@ -252,5 +260,10 @@ MonoBehaviour:
   PlayerContact: 0
   dropsItem: 0
   coffeeCup: {fileID: 0}
-  projectileOffset: {x: 0, y: -1.5}
+  projectileOffset: {x: 0, y: 0}
   shotSound: {fileID: 0}
+--- !u!82 &8984881080423402477 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6939712240628110279, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+  m_PrefabInstance: {fileID: 2089241687507490858}
+  m_PrefabAsset: {fileID: 0}

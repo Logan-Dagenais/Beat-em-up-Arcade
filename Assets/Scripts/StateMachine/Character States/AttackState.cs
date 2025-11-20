@@ -30,6 +30,8 @@ public struct AttackProperties
 
     public float HitboxXOffset;
 
+    public float MovementForce;
+
     public AttackProperties(float damage,
                             float guardDamage,
                             float hitstun,
@@ -39,7 +41,8 @@ public struct AttackProperties
                             bool heavy,
                             bool low,
                             bool unblockable,
-                            float offset)
+                            float offset,
+                            float movement)
     {
         Damage = damage;
         GuardDamage = guardDamage;
@@ -51,6 +54,7 @@ public struct AttackProperties
         Low = low;
         Unblockable = unblockable;
         HitboxXOffset = offset;
+        MovementForce = movement;
     }
 }
 
@@ -74,7 +78,9 @@ public class AttackState : CharacterState
 
         if(character.OnGround && character.Direction.x != 0)
         {
-            character.Velocity.x = character.Direction.x * character.WalkSpeed;
+            character.Velocity.x = Properties.MovementForce == 0 ?
+                                   character.Direction.x * character.WalkSpeed :
+                                   character.Direction.x * Properties.MovementForce;
         }
 
         /*

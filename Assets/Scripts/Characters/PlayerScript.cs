@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerScript : CharacterScript
 {
     // private PlayerInput input;
-
+    [Header("player traits")]
     private InputAction move;
     private InputAction atkL;
     private InputAction atkH;

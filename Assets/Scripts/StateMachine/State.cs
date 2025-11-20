@@ -53,7 +53,7 @@ public enum BehaviorStates
     CHASE,
 
     //  unique boss behaviors
-    JUMPSMASH,
+    JUMP,
 
 }
 

@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class JumpSmashState : State
+public class JumpOffenseState : State
 {
-    public JumpSmashState(BossScript c) : base(c)
+    public JumpOffenseState(EnemyScript c) : base(c)
     {
-        Id = (int)BehaviorStates.JUMPSMASH;
+        Id = (int)BehaviorStates.JUMP;
         stateMach = c.BehaviorStateMach;
     }
 
@@ -20,6 +20,11 @@ public class JumpSmashState : State
 
     public override int StateAction()
     {
+        if (character.Velocity.y < 0)
+        {
+            character.AtkLight = true;
+        }
+
         if (character.OnGround && stateMach.StateTime > character.JumpSquatTime + .1f)
         {
             return (int)BehaviorStates.DEFENSIVE;
@@ -30,6 +35,7 @@ public class JumpSmashState : State
 
     public override void EndState()
     {
+        character.AtkLight = false;
         character.Direction = Vector2.zero;
         
         base.EndState();
