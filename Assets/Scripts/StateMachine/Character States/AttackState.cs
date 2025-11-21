@@ -30,6 +30,8 @@ public struct AttackProperties
 
     public float HitboxXOffset;
 
+    public float MovementForce;
+
     public AttackProperties(float damage,
                             float guardDamage,
                             float hitstun,
@@ -39,7 +41,8 @@ public struct AttackProperties
                             bool heavy,
                             bool low,
                             bool unblockable,
-                            float offset)
+                            float offset,
+                            float movement)
     {
         Damage = damage;
         GuardDamage = guardDamage;
@@ -51,11 +54,12 @@ public struct AttackProperties
         Low = low;
         Unblockable = unblockable;
         HitboxXOffset = offset;
+        MovementForce = movement;
     }
 }
 
 [Serializable]
-public class AttackState : State
+public class AttackState : CharacterState
 {
     //  putting this here to make it easier to add attacks in inspector
     public GeneralStates AttackID;
@@ -74,7 +78,9 @@ public class AttackState : State
 
         if(character.OnGround && character.Direction.x != 0)
         {
-            character.Velocity.x = character.Direction.x * character.WalkSpeed;
+            character.Velocity.x = Properties.MovementForce == 0 ?
+                                   character.Direction.x * character.WalkSpeed :
+                                   character.Direction.x * Properties.MovementForce;
         }
 
         /*
@@ -103,37 +109,30 @@ public class AttackState : State
     {
         base.StateAction();
 
-        //  cancels air attack when character touches ground
-        //  switches to idle after attack animation ends
-        if (((Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR) &&
-            character.OnGround) ||
-            (animTiming <= stateMach.StateTime && character.OnGround))
+        if (character.OnGround)
         {
-            return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
+            //  cancels air attack when character touches ground
+            //  switches to idle after attack animation ends
+            if (Id == (int)GeneralStates.ATKLIGHTAIR || Id == (int)GeneralStates.ATKHEAVYAIR)
+            {
+                return (int)GeneralStates.LANDING;
+            }
+
+            if (animTiming <= stateMach.StateTime)
+            {
+                return character.Direction.y < 0 ? (int)GeneralStates.CROUCH : (int)GeneralStates.IDLE;
+            }
+        }
+        else
+        {
+            if (animTiming <= stateMach.StateTime && Id != (int)GeneralStates.ATKLIGHTAIR)
+            {
+                return (int)GeneralStates.AIR;
+            }
         }
 
         //  attack interruption
-        if (character.Hit)
-        {
-            if (!character.SuperArmor)
-            {
-                character.Hitboxes.gameObject.SetActive(false);
-                return (int)GeneralStates.HITSTUN;
-            }
-
-            character.TakeDamage();
-
-            if (character.AtkTaken.Heavy)
-            {
-                character.PlayHeavySound();
-            }
-            else
-            {
-                character.PlayLightSound();
-            }
-
-            character.Hit = false;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         //  test attack state, remove this later
         /*

@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: AttackList.Array.data[1].AttackID
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: AttackList.Array.data[1].animName

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrouchState : State
+public class CrouchState : CharacterState
 {
     public CrouchState(CharacterScript c) : base(c)
     {
@@ -40,10 +40,7 @@ public class CrouchState : State
             return (int)GeneralStates.ATKHEAVYCR;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (!character.WalkBackwards)
         {

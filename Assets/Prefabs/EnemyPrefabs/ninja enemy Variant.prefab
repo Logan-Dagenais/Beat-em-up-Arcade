@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2089241687507490858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2788297794749738596, guid: efa60b174b1899f43956380e322912b6, type: 3}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.441
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039291030808924356, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 04bff504b60b0384a9d3aaaa4012247c, type: 2}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: JumpChance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: CrouchChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].AttackID
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].animName
+      value: CrouchAtk
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.Low
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: AttackList.Array.data[0].Properties.CanKnockdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Name
+      value: ninja enemy Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 4457575733736875844}
+  m_SourcePrefab: {fileID: 100100000, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+--- !u!82 &2994775195119198910 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3851120920121408148, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+  m_PrefabInstance: {fileID: 2089241687507490858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7243599573964352766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+  m_PrefabInstance: {fileID: 2089241687507490858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4457575733736875844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243599573964352766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbf8c50ac2b6fc47bfcb16a60e60f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NinjaScript
+  MaxHealth: 30
+  Health: 0
+  MaxGuardIntegrity: 30
+  GuardIntegrity: 0
+  JumpForce: 25
+  JumpSquatTime: 0.7
+  LandingLagTime: 0.7
+  WalkSpeed: 5
+  AirMobilityAccel: 1
+  Facingleft: 0
+  AttackList:
+  - Id: 0
+    animName: CrouchAtk
+    AttackID: 8
+    Properties:
+      Damage: 5
+      GuardDamage: 5
+      Hitstun: 0.25
+      Blockstun: 0.25
+      Knockback: 5
+      CanKnockdown: 1
+      Heavy: 0
+      Low: 1
+      Unblockable: 0
+      HitboxXOffset: 0.34
+      MovementForce: 15
+  - Id: 0
+    animName: AirAtk
+    AttackID: 10
+    Properties:
+      Damage: 5
+      GuardDamage: 5
+      Hitstun: 0.25
+      Blockstun: 0.25
+      Knockback: 5
+      CanKnockdown: 1
+      Heavy: 0
+      Low: 0
+      Unblockable: 0
+      HitboxXOffset: 0.28
+      MovementForce: 0
+  heavyHit: {fileID: 8984881080423402477}
+  lightHit: {fileID: 2994775195119198910}
+  BlockHit: {fileID: 0}
+  KnockdownHit: {fileID: 0}
+  HealingSound: {fileID: 0}
+  Friction: 1
+  Gravity: 1.5
+  TerminalVelocity: 60
+  Velocity: {x: 0, y: 0}
+  EnemiesHit: []
+  Hurtboxes: {fileID: 0}
+  Hitboxes: {fileID: 0}
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 8
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 45
+    maxNormalAngle: 135
+  slideMove:
+    <maxIterations>k__BackingField: 3
+    <surfaceSlideAngle>k__BackingField: 90
+    <gravitySlipAngle>k__BackingField: 46
+    <surfaceUp>k__BackingField: {x: 0, y: 1}
+    <surfaceAnchor>k__BackingField: {x: 0, y: 0}
+    <gravity>k__BackingField: {x: 0, y: -5}
+    <startPosition>k__BackingField: {x: 0, y: 0}
+    <selectedCollider>k__BackingField: {fileID: 0}
+    <layerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 8
+    <useLayerMask>k__BackingField: 1
+    <useStartPosition>k__BackingField: 0
+    <useNoMove>k__BackingField: 0
+    <useSimulationMove>k__BackingField: 0
+    <useAttachedTriggers>k__BackingField: 0
+  Direction: {x: 0, y: 0}
+  AtkLight: 0
+  AtkHeavy: 0
+  Blocking: 0
+  WalkBackwards: 0
+  Hit: 0
+  SuperArmor: 0
+  AtkTaken:
+    Damage: 0
+    GuardDamage: 0
+    Hitstun: 0
+    Blockstun: 0
+    Knockback: 0
+    CanKnockdown: 0
+    Heavy: 0
+    Low: 0
+    Unblockable: 0
+    HitboxXOffset: 0
+    MovementForce: 0
+  HitFromLeft: 0
+  GuardBreak: 0
+  GuardIntTimer: 0
+  RB2D: {fileID: 0}
+  StateMach: {fileID: 0}
+  Anim: {fileID: 0}
+  spriteRender: {fileID: 0}
+  BehaviorStateMach: {fileID: 0}
+  PlayerTransform: {fileID: 0}
+  PlayerScript: {fileID: 0}
+  CombatRangeDistance: 0
+  EngagementRange: 8
+  AttackRange: 1.5
+  TargetOffset: 0
+  AgressionTimer: 0
+  AggresionTimerMin: 1
+  AggresionTimerMax: 6
+  DefenseTimer: 0
+  DefenseTimerMin: 0.5
+  DefenseTimerMax: 1
+  BlockChance: 5
+  CrouchChance: 0
+  JumpChance: 4
+  PlayerContact: 0
+  dropsItem: 0
+  coffeeCup: {fileID: 0}
+  projectileOffset: {x: 0, y: 0}
+  shotSound: {fileID: 0}
+--- !u!82 &8984881080423402477 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6939712240628110279, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+  m_PrefabInstance: {fileID: 2089241687507490858}
+  m_PrefabAsset: {fileID: 0}

@@ -140,18 +140,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2eba4e142cf3469fb7aefa7c0a235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossScript
-  MaxHealth: 100
+  MaxHealth: 300
   Health: 0
   MaxGuardIntegrity: 50
   GuardIntegrity: 0
-  JumpForce: 30
+  JumpForce: 35
+  JumpSquatTime: 1
+  LandingLagTime: 1
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:
   - Id: 0
     animName: HeavyATK
-    AttackID: 5
+    AttackID: 6
     Properties:
       Damage: 10
       GuardDamage: 100
@@ -169,7 +171,7 @@ MonoBehaviour:
   KnockdownHit: {fileID: 0}
   HealingSound: {fileID: 0}
   Friction: 1
-  Gravity: 2
+  Gravity: 1.5
   TerminalVelocity: 60
   Velocity: {x: 0, y: 0}
   EnemiesHit: []
@@ -212,7 +214,7 @@ MonoBehaviour:
   Blocking: 0
   WalkBackwards: 0
   Hit: 0
-  SuperArmor: 0
+  SuperArmor: 1
   AtkTaken:
     Damage: 0
     GuardDamage: 0
@@ -226,7 +228,6 @@ MonoBehaviour:
     HitboxXOffset: 0
   HitFromLeft: 0
   GuardBreak: 0
-  GuardIntCooldown: 6
   GuardIntTimer: 0
   RB2D: {fileID: 0}
   StateMach: {fileID: 0}
@@ -247,6 +248,7 @@ MonoBehaviour:
   DefenseTimerMax: 1
   BlockChance: 5
   CrouchChance: 0
+  JumpChance: 4
   PlayerContact: 0
   dropsItem: 0
   coffeeCup: {fileID: 0}

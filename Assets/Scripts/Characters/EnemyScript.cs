@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 
 public class EnemyScript : CharacterScript
 {
+    [Header("enemy traits")]
     public StateMachine BehaviorStateMach;
 
     public Transform PlayerTransform;
@@ -38,6 +39,7 @@ public class EnemyScript : CharacterScript
     [Range(0, 10)] public float BlockChance;
 
     [Range(0, 10)] public float CrouchChance;
+    [Range(0, 10)] public float JumpChance;
 
     public bool PlayerContact;
 
@@ -73,7 +75,10 @@ public class EnemyScript : CharacterScript
             new PushState(this)},
 
             {(int)BehaviorStates.CHASE,
-            new ChaseState(this)}
+            new ChaseState(this)},
+
+            {(int)BehaviorStates.JUMP,
+            new JumpOffenseState(this)}
         };
     } 
 

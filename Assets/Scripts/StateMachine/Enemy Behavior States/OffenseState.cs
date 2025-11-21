@@ -55,6 +55,11 @@ public class OffenseState : State
 
         character.AtkLight = !(crouchChanceRng <= ((EnemyScript)character).CrouchChance);
 
+        if (character.Direction.y < 0)
+        {
+            character.Direction.y = 0;
+        }
+
         base.EndState();
     }
 }

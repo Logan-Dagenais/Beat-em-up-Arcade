@@ -12,7 +12,7 @@ public class BossScript : EnemyScript
         BehaviorStateMach.StateList = new()
         {
             {(int)BehaviorStates.DEFENSIVE,
-            new DefenseState(this)},
+            new DefenseJumpAltState(this)},
 
             {(int)BehaviorStates.OFFENSIVE,
             new OffenseState(this)},
@@ -21,7 +21,10 @@ public class BossScript : EnemyScript
             new PushState(this)},
 
             {(int)BehaviorStates.CHASE,
-            new ChaseState(this)}
+            new ChaseState(this)},
+
+            {(int)BehaviorStates.JUMP,
+            new JumpOffenseState(this)}
         };
     }
 }

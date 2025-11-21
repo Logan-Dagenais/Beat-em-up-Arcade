@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlockState : State
+public class BlockState : CharacterState
 {
 
     private AttackProperties atkTaken;
@@ -65,12 +65,12 @@ public class BlockState : State
             if (character.GuardIntegrity <= 0)
             {
                 character.GuardBreak = true;
-                return (int)GeneralStates.HITSTUN;
+                return HitstunTransition(nextStateId);
             }
 
             if (character.Facingleft != character.HitFromLeft || character.AtkTaken.Low != blockLow || character.AtkTaken.Unblockable)
             {
-                return (int)GeneralStates.HITSTUN;
+                return HitstunTransition(nextStateId);
             }
 
             /*
