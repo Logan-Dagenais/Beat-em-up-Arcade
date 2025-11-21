@@ -9966,7 +9966,7 @@ TilemapRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -68966,7 +68966,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -88295,10 +88295,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 1.0086704
     y: 0
-    width: 1
-    height: 1.000036
+    width: 1.0815672
+    height: 1.0822622
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -88328,7 +88328,7 @@ Transform:
   m_GameObject: {fileID: 1793310890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4948119, y: -1.4699956, z: -10}
+  m_LocalPosition: {x: 99.84516, y: -1.4699956, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100863,7 +100863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3556515771179782099, guid: 64b103f3349ce404284e980767c92c84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3931708312917574329, guid: 64b103f3349ce404284e980767c92c84, type: 3}
       propertyPath: m_AnchorMax.x
