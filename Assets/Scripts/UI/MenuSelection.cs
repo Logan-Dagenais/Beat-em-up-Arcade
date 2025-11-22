@@ -13,6 +13,7 @@ public class MenuSelection : MonoBehaviour
     [SerializeField] GameObject ControlsUI;
     [SerializeField] GameObject OptionsUI;
     [SerializeField] GameObject GeneralPauseUI;
+    [SerializeField] GameObject OnscreenUI;
     [Serializable]
     public struct Option
     {
@@ -165,6 +166,7 @@ public class MenuSelection : MonoBehaviour
     {
         Debug.Log("resume game");
         transform.parent.gameObject.SetActive(false);
+        OnscreenUI.SetActive(true);
     }
 
     private void Credits()

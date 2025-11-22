@@ -5826,7 +5826,7 @@ MonoBehaviour:
   - OptionTrans: {fileID: 7290799608851454673}
     menuName: 3
   Cursor: {fileID: 1736403229150806640}
-  cursorOffset: {x: -300, y: 0}
+  cursorOffset: {x: -850, y: 0}
   CreditsUI: {fileID: 0}
 --- !u!1 &3680423010788536998
 GameObject:
