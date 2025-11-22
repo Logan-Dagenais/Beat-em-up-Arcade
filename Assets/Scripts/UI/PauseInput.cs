@@ -22,10 +22,10 @@ public class PauseInput : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext ctx)
     {
-        if (!MenuSelection.CanPause)
-        {
-            return;
-        }
+        //if (!MenuSelection.CanPause)
+        //{
+        //    return;
+        //}
 
         Time.timeScale = 0;
         PauseUI.SetActive(!PauseUI.activeSelf);

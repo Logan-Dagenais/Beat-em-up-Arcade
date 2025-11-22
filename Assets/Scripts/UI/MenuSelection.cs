@@ -4,9 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuSelection : MonoBehaviour
 {
+
+    [SerializeField] SelectionAnim SAS; //unused cause unity sucks
+    [SerializeField] GameObject ControlsUI;
+    [SerializeField] GameObject OptionsUI;
+    [SerializeField] GameObject GeneralPauseUI;
     [Serializable]
     public struct Option
     {
@@ -23,7 +29,9 @@ public class MenuSelection : MonoBehaviour
         Credits,
         Quit,
         Reset,
-        MainMenu
+        MainMenu,
+        Options,
+        Controls
     }
 
     public static bool CanPause;
@@ -58,12 +66,15 @@ public class MenuSelection : MonoBehaviour
         Time.timeScale = 0;
         menuIndex = 0;
         Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
+        SAS.MenuSwitch();
     }
+
 
     private void OnDisable()
     {
         // Debug.Log("inactive");
         Time.timeScale = 1;
+        SAS.MenuClosed();
     }
 
     private void OnDestroy()
@@ -108,9 +119,37 @@ public class MenuSelection : MonoBehaviour
                 case (OptionName.MainMenu):
                     menuActions.Add(() => ReturnMainMenu());
                     break;
+
+                case (OptionName.Options):
+                    menuActions.Add(() => OpenOptions());
+                    break;
+
+                case (OptionName.Controls):
+                    menuActions.Add(() => OpenControls());
+                    break;
             }
         }
 
+    }
+
+    private void OpenControls()
+    {
+        ControlsUI.SetActive(true);
+        OptionsUI.SetActive(false);
+        GeneralPauseUI.SetActive(false);
+    }
+    private void CloseWindows()
+    {
+        ControlsUI.SetActive(false);
+        OptionsUI.SetActive(false);
+        GeneralPauseUI.SetActive(true);
+    }
+
+    private void OpenOptions()
+    {
+        ControlsUI.SetActive(false);
+        OptionsUI.SetActive(true);
+        GeneralPauseUI.SetActive(false);
     }
 
     private void StartGame()
@@ -163,6 +202,8 @@ public class MenuSelection : MonoBehaviour
 
         if(menuIndex < menuOptions.Count)
             Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
+            //SAS.StopAnimation();
+            SAS.MenuSwitch();
     }
 
     private void OnSelect(InputAction.CallbackContext ctx)
