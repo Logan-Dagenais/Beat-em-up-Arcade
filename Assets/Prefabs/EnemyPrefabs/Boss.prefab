@@ -8,18 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 615259968203716223, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6265211023787185201, guid: ce40f69a4eb8b0745b17d20d4234d59b, type: 3}
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.18
@@ -59,6 +51,18 @@ PrefabInstance:
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347054355241773607, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532949390710679242, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7039291030808924356, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_Controller
@@ -100,9 +104,21 @@ PrefabInstance:
       propertyPath: AttackList.Array.data[0].Properties.GuardDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.x
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Size.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669536864453824578, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.22
+      objectReference: {fileID: 0}
     - target: {fileID: 8680711723495371988, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_Name
-      value: Boss Placeholder Variant
+      value: Boss
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
@@ -146,7 +162,7 @@ MonoBehaviour:
   GuardIntegrity: 0
   JumpForce: 35
   JumpSquatTime: 1
-  LandingLagTime: 1
+  LandingLagTime: 1.5
   WalkSpeed: 5
   AirMobilityAccel: 1
   Facingleft: 0
@@ -164,7 +180,8 @@ MonoBehaviour:
       Heavy: 1
       Low: 0
       Unblockable: 0
-      HitboxXOffset: 0.56
+      HitboxXOffset: 1.788
+      MovementForce: 0
   heavyHit: {fileID: 6982498101172068183}
   lightHit: {fileID: 3880397082767111684}
   BlockHit: {fileID: 0}
@@ -226,6 +243,7 @@ MonoBehaviour:
     Low: 0
     Unblockable: 0
     HitboxXOffset: 0
+    MovementForce: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntTimer: 0
@@ -246,7 +264,7 @@ MonoBehaviour:
   DefenseTimer: 0
   DefenseTimerMin: 0.5
   DefenseTimerMax: 1
-  BlockChance: 5
+  BlockChance: 0
   CrouchChance: 0
   JumpChance: 4
   PlayerContact: 0
