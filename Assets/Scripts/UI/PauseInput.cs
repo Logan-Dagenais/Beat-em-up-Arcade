@@ -5,6 +5,7 @@ public class PauseInput : MonoBehaviour
 {
     private InputAction Pause;
     [SerializeField] private GameObject PauseUI;
+    [SerializeField] private GameObject OnscreenUI;
 
     private void Start()
     {
@@ -22,12 +23,14 @@ public class PauseInput : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext ctx)
     {
-        if (!MenuSelection.CanPause)
-        {
-            return;
-        }
+        //if (!MenuSelection.CanPause)
+        //{
+        //    return;
+        //}
 
         Time.timeScale = 0;
+        OnscreenUI.SetActive(PauseUI.activeSelf);
         PauseUI.SetActive(!PauseUI.activeSelf);
+        
     }
 }

@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
             fightCamCollider = transform.GetChild(0).GetComponent<Collider2D>();
 
             wall.left = transform.GetChild(0).GetChild(0);
-            wall.right = transform.GetChild(0).GetChild(0);
+            wall.right = transform.GetChild(0).GetChild(1);
         }
     }
 
@@ -48,9 +48,18 @@ public class EnemySpawner : MonoBehaviour
         //  kind of a bandage fix but it works
         if (wall.left && wall.right)
         {
-            if (enemy.position.x < wall.left.position.x || enemy.position.x > wall.right.position.x)
+            //  kinda stupid i have to do the set active thing for it to actually move the enemy position but hey it works
+            if (enemy.position.x < wall.left.position.x)
             {
-                enemy.position = new Vector2(cam.position.x - spawnLocationOffset.x, cam.position.y + spawnLocationOffset.y);
+                enemy.gameObject.SetActive(false);
+                enemy.position = new Vector2(cam.position.x + Mathf.Abs(spawnLocationOffset.x), cam.position.y + spawnLocationOffset.y);
+                enemy.gameObject.SetActive(true);
+            }
+            else if (enemy.position.x > wall.right.position.x)
+            {
+                enemy.gameObject.SetActive(false);
+                enemy.position = new Vector2(cam.position.x - Mathf.Abs(spawnLocationOffset.x), cam.position.y + spawnLocationOffset.y);
+                enemy.gameObject.SetActive(true);
             }
         }
     }

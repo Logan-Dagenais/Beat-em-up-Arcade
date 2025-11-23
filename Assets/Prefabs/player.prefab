@@ -357,6 +357,7 @@ MonoBehaviour:
       Low: 0
       Unblockable: 0
       HitboxXOffset: 0.9
+      MovementForce: 0
   - Id: 0
     animName: HeavyATK
     AttackID: 7
@@ -371,6 +372,7 @@ MonoBehaviour:
       Low: 0
       Unblockable: 0
       HitboxXOffset: 0.5
+      MovementForce: 0
   - Id: 0
     animName: CrouchLight
     AttackID: 8
@@ -385,6 +387,7 @@ MonoBehaviour:
       Low: 1
       Unblockable: 0
       HitboxXOffset: 0.5
+      MovementForce: 0
   - Id: 0
     animName: CrouchHeavy
     AttackID: 9
@@ -399,6 +402,7 @@ MonoBehaviour:
       Low: 1
       Unblockable: 0
       HitboxXOffset: 0.58
+      MovementForce: 0
   - Id: 0
     animName: LightAerial
     AttackID: 10
@@ -413,6 +417,7 @@ MonoBehaviour:
       Low: 0
       Unblockable: 0
       HitboxXOffset: 0
+      MovementForce: 0
   - Id: 0
     animName: HeavyAerial
     AttackID: 11
@@ -427,6 +432,7 @@ MonoBehaviour:
       Low: 0
       Unblockable: 0
       HitboxXOffset: 0
+      MovementForce: 0
   heavyHit: {fileID: 4908781883948852664}
   lightHit: {fileID: 5207870390097014173}
   BlockHit: {fileID: -3431277248070820204}
@@ -488,6 +494,7 @@ MonoBehaviour:
     Low: 0
     Unblockable: 0
     HitboxXOffset: 0
+    MovementForce: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntTimer: 0.25
