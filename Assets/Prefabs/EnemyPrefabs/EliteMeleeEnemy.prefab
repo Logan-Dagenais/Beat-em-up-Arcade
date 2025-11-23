@@ -5778,7 +5778,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5532949390710679242}
@@ -6070,8 +6070,8 @@ MonoBehaviour:
   CrouchChance: 0
   JumpChance: 0
   PlayerContact: 0
-  dropsItem: 0
-  coffeeCup: {fileID: 0}
+  dropsItem: 1
+  coffeeCup: {fileID: 1122073533190862044, guid: 6a904c1006e140f4d8a0a98623935161, type: 3}
   projectileOffset: {x: 0, y: 0}
   shotSound: {fileID: 0}
 --- !u!82 &3851120920121408148

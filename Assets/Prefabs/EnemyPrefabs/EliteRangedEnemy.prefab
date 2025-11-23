@@ -9866,6 +9866,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4541638618760167867, guid: 568820b1c9676dd4ab8b59095caa85db, type: 3}
     - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265837938726375022, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -9912,6 +9920,14 @@ PrefabInstance:
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: WalkSpeed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: coffeeCup
+      value: 
+      objectReference: {fileID: 1122073533190862044, guid: 6a904c1006e140f4d8a0a98623935161, type: 3}
+    - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
+      propertyPath: dropsItem
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461141600666098917, guid: c1fda459596c54d4f8ff4a87d111cc08, type: 3}
       propertyPath: shotSound

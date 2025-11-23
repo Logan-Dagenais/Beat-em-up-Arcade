@@ -4913,6 +4913,10 @@ PrefabInstance:
       propertyPath: dropsItem
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8615219742021379495, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
+      propertyPath: PlayerContact
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8834794254588235158, guid: 77ccecd6df83cf94094e7e07c6e41c8d, type: 3}
       propertyPath: m_Name
       value: eliteEnemyPrefab
