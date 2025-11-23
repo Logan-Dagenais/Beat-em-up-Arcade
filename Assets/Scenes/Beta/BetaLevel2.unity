@@ -75549,6 +75549,58 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.sizeAffectsLifetime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061087593334485118, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 2251878818355610066, guid: 8abf8e6d9e0bd5d489226c145bb8848e, type: 3}
       propertyPath: m_Name
       value: mysticalPortalToHell
@@ -76598,7 +76650,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.999877
+    height: 1.0000162
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -76628,7 +76680,7 @@ Transform:
   m_GameObject: {fileID: 1437683925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13034625, y: -0.76615095, z: -10}
+  m_LocalPosition: {x: 0.13742961, y: -0.8151828, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86650,7 +86702,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 147.04286, y: 23.01353}
+    - - {x: 143.51466, y: 22.199333}
       - {x: 129.48949, y: 15.657516}
       - {x: 114.28492, y: 10.608161}
       - {x: 92.140045, y: 10.626096}
@@ -86665,9 +86717,20 @@ PolygonCollider2D:
       - {x: 6.4018044, y: 7.5415244}
       - {x: -9.114046, y: 7.4186053}
       - {x: -9.049528, y: -6.349659}
-      - {x: 141.06682, y: -6.393248}
-      - {x: 141.1139, y: -5.7340903}
-      - {x: 149.70445, y: 16.315947}
+      - {x: 137.18878, y: -7.4089255}
+      - {x: 145.68971, y: 2.3289146}
+      - {x: 161.77956, y: 10.168515}
+      - {x: 193.70885, y: 10.177845}
+      - {x: 201.30931, y: 6.102799}
+      - {x: 211.10817, y: 5.737666}
+      - {x: 218.94751, y: 1.0239439}
+      - {x: 228.31387, y: 0.60234594}
+      - {x: 255.83607, y: 0.5436201}
+      - {x: 255.81415, y: 10.336477}
+      - {x: 255.79565, y: 18.590912}
+      - {x: 232.31313, y: 19.003103}
+      - {x: 199.33038, y: 30.679499}
+      - {x: 158.95401, y: 29.257505}
   m_UseDelaunayMesh: 0
 --- !u!4 &1517515349
 Transform:
