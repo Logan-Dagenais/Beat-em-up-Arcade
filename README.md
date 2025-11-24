@@ -1,15 +1,4 @@
-Controls:
-z - light attack
-x - heavy attack
-c - block
-AD/⇽⇾ - Move left or right
-W/↑/spacebar - Jump
-S/↓ - Crouch
-Enter - Pause
-Escape - Quit
-Land a Z and then X to start a combo
-Crouch and X to launch enemies backwards
-Hold C and walk to block while moving
+Controls are currently set up for the Arcade build, not the PC version.
 
 Bugs:
-No known bugs
+The options and controls menu found when the game is paused while playing CANNOT be exited or interacted with while playing on the arcade machine. Their functionality is currently exclusive to the PC build.
