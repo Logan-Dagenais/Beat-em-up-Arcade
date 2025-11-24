@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2eba4e142cf3469fb7aefa7c0a235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossScript
-  MaxHealth: 300
+  MaxHealth: 250
   Health: 0
   MaxGuardIntegrity: 50
   GuardIntegrity: 0
