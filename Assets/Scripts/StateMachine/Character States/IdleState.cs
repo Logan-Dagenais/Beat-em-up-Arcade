@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleState : State
+public class IdleState : CharacterState
 {
     public IdleState(CharacterScript c) : base(c)
     {
@@ -55,10 +55,7 @@ public class IdleState : State
             return (int)GeneralStates.BLOCK;
         }
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         return nextStateId;
     }

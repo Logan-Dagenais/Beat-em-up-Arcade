@@ -6,6 +6,7 @@ public class ProjectileScript : MonoBehaviour
 {
 
     [SerializeField] public AttackProperties atk;
+    [SerializeField] private SpriteRenderer sr;
 
     [HideInInspector] public Vector2 Direction;
     [SerializeField] private float BulletSpeed;
@@ -20,6 +21,13 @@ public class ProjectileScript : MonoBehaviour
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+
+        sr = GetComponent<SpriteRenderer>();
+
+        if (Direction.x < 0)
+        {
+            sr.flipX = true;    
+        }
     }
 
     private void FixedUpdate()

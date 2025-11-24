@@ -10,6 +10,7 @@ public enum GeneralStates
     AIR,
     CROUCH,
     JUMPSQUAT,
+    LANDING,
 
     //  combat states (woo hoo violence)
 
@@ -52,7 +53,7 @@ public enum BehaviorStates
     CHASE,
 
     //  unique boss behaviors
-    JUMPSMASH,
+    JUMP,
 
 }
 
@@ -62,10 +63,6 @@ abstract public class State
     [HideInInspector] public int Id;
 
     protected bool stateComplete;
-
-    protected bool animPlaying;
-    protected float animTiming;
-    [SerializeField] protected string animName;
 
     protected int prevStateId;
     protected int nextStateId;
@@ -77,10 +74,6 @@ abstract public class State
     {
         character = c;
         stateMach = c.StateMach;
-
-        //  theoretically, all names of animations should match the state scripts
-        animName = GetType().Name;
-        animName = animName.Substring(0, animName.Length - 5);
     }
 
     public void SetCharacter(CharacterScript c)
@@ -89,32 +82,58 @@ abstract public class State
         stateMach = c.StateMach;
     }
 
+    //  handles hit reaction and super armor
+    protected int HitstunTransition(int nextStateId)
+    {
+        if (character.Hit)
+        {
+            if (character.SuperArmor && character.Health > 0)
+            {
+                character.TakeDamage();
+
+                if (character.HitFromLeft)
+                {
+                    //character.RB2D.AddForceX(character.AtkTaken.Knockback);
+                    character.Velocity.x = character.AtkTaken.Knockback;
+                }
+                else
+                {
+                    //character.RB2D.AddForceX(-character.AtkTaken.Knockback);
+                    character.Velocity.x = -character.AtkTaken.Knockback;
+                }
+
+                if (character.AtkTaken.Heavy)
+                {
+                    character.PlayHeavySound();
+                }
+                else
+                {
+                    character.PlayLightSound();
+                }
+
+                character.Hit = false;
+
+                return nextStateId;
+            }
+
+            character.Hitboxes.gameObject.SetActive(false);
+            return (int)GeneralStates.HITSTUN;
+        }
+
+        return nextStateId;
+    }
+
     public virtual void StartState(int prevState)
     {
         stateComplete = false;
         prevStateId = prevState;
         nextStateId = Id;
         stateMach.StateTime = 0;
-        animPlaying = false;
-
-
-        character.Anim.Play(animName);
-        
     }
 
     //  this should only be ran in FixedUpdate()
     public virtual int StateAction()
     {
-        //  annoying i have to do things this way, for some reason putting
-        //  this functionality in start still results in the clip info
-        //  being of the previous playing animation
-        if (!animPlaying)
-        {
-            AnimatorClipInfo[] clipInfo = character.Anim.GetCurrentAnimatorClipInfo(0);
-            animTiming = clipInfo.Length > 0 ? clipInfo[0].clip.length : .5f;
-            animPlaying = true;
-        }
-
         return nextStateId;
     }
 

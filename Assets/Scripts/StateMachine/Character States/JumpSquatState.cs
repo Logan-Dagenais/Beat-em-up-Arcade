@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class JumpSquatState : State
+public class JumpSquatState : CharacterState
 {
-    private float jumpSquatTime = .05f;
-
     public JumpSquatState(CharacterScript c) : base(c)
     {
         Id = (int)GeneralStates.JUMPSQUAT;
@@ -21,12 +19,9 @@ public class JumpSquatState : State
     {
         base.StateAction();
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
-        if (stateMach.StateTime > jumpSquatTime)
+        if (stateMach.StateTime > character.JumpSquatTime)
         {
             character.Velocity.y = character.JumpForce;
             character.Velocity.x = character.Direction.x * character.WalkSpeed;

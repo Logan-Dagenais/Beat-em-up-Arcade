@@ -16,7 +16,15 @@ public class BlockstunState : StunState
 
         stunTime = character.AtkTaken.Blockstun;
 
-        character.GuardIntegrity -= character.AtkTaken.GuardDamage;
+        if (character.GuardIntegrity > character.AtkTaken.GuardDamage)
+        {
+            character.GuardIntegrity -= character.AtkTaken.GuardDamage;
+        }
+        else
+        {
+            character.GuardIntegrity = 0;
+        }
+
         //character.GetComponent<SpriteRenderer>().color = Color.blue;
 
         //character.Friction = .25f;
@@ -32,7 +40,7 @@ public class BlockstunState : StunState
         if (character.GuardIntegrity <= 0)
         {
             character.GuardBreak = true;
-            return (int)GeneralStates.HITSTUN;
+            return HitstunTransition(nextStateId);
         }
 
         //  resets state when hit again

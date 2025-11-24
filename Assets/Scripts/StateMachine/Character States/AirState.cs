@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class AirState : State
+public class AirState : CharacterState
 {
     public AirState(CharacterScript c) : base(c)
     {
@@ -12,15 +12,11 @@ public class AirState : State
     {
         base.StateAction();
 
-        if (character.Hit)
-        {
-            return (int)GeneralStates.HITSTUN;
-        }
+        nextStateId = HitstunTransition(nextStateId);
 
         if (character.OnGround && character.Velocity.y <= 0)
         {
-            return character.Direction.x == 0 ?
-                (int)GeneralStates.IDLE : (int)GeneralStates.WALK;
+            return (int)GeneralStates.LANDING;
         }
         else
         {

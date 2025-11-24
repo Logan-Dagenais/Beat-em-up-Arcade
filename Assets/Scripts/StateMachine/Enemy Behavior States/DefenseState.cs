@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class DefenseState : State
 {
@@ -27,14 +28,7 @@ public class DefenseState : State
 
         SwitchDestination();
 
-        //  maybe instead of this, have enemy go into a separate state
-        //  reuse knockdownstate? have some kind of reaction getting up?
-        if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
-        {
-            character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
-        }
-
-        character.Direction = Vector2.zero;
+        // character.Direction = Vector2.zero;
 
         playerSideSwitch = false;
         playerToLeft = ((EnemyScript)character).PlayerToLeft;
@@ -85,12 +79,17 @@ public class DefenseState : State
         {
             character.Blocking = blockChanceRNG <= ((EnemyScript)character).BlockChance;
             character.Direction.x = 0;
+        }
 
-            //  blocking the direction the player is in
-            if (character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
-            {
+        //  always face player
+        switch (character.StateMach.CurrentState)
+        {
+            case ((int)GeneralStates.IDLE):
+            case ((int)GeneralStates.BLOCK):
+            case ((int)GeneralStates.WALK):
+            case ((int)GeneralStates.CROUCH):
                 character.SwitchSpriteDirection(((EnemyScript)character).PlayerToLeft);
-            }
+                break;
         }
 
         if (destinationSwitchTimer < stateMach.StateTime)

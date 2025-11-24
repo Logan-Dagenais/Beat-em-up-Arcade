@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerScript : CharacterScript
 {
     // private PlayerInput input;
-
+    [Header("player traits")]
     private InputAction move;
     private InputAction atkL;
     private InputAction atkH;
@@ -44,6 +44,11 @@ public class PlayerScript : CharacterScript
         guardMeter.value = MaxGuardIntegrity;
     }
 
+    private void Update()
+    {
+        guardMeter.value = GuardIntegrity;
+    }
+
     private void OnDestroy()
     {
         move.performed -= OnMove;
@@ -60,18 +65,19 @@ public class PlayerScript : CharacterScript
         healthBar.value = Health;
     }
 
+    /*
     public override void RecoverGuard()
     {
         base.RecoverGuard();
         guardMeter.value = GuardIntegrity;
     }
+    */
 
-    public void SwitchSpriteDirection(bool left)
+    public override void SwitchSpriteDirection(bool left)
     {
         base.SwitchSpriteDirection(left);
-        Debug.Log("hjklasfd;fjkl;");
 
-        runFX.transform.rotation = Quaternion.Euler(-30f, 90f, 0f);
+        runFX.transform.rotation = Facingleft ? Quaternion.Euler(-30f, 90f, 0f) : Quaternion.Euler(-30f, -90f, 0f);
     }
 
     void OnMove(InputAction.CallbackContext context)

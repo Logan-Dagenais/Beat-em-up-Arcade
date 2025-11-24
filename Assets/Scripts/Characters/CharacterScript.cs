@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -13,6 +14,8 @@ abstract public class CharacterScript : MonoBehaviour
     public float GuardIntegrity;
 
     public float JumpForce;
+    public float JumpSquatTime;
+    public float LandingLagTime;
     public float WalkSpeed;
     public float AirMobilityAccel;
 
@@ -68,8 +71,8 @@ abstract public class CharacterScript : MonoBehaviour
     public bool HitFromLeft;
     public bool GuardBreak;
 
-    [SerializeField] protected float GuardIntCooldown;
-    public float GuardIntTimer;
+    //[SerializeField] protected float GuardIntCooldown;
+    [SerializeField] protected float GuardIntTimer;
 
     //  components
     [Header("components (they are assigned on awake)")]
@@ -130,6 +133,9 @@ abstract public class CharacterScript : MonoBehaviour
             {(int)GeneralStates.JUMPSQUAT,
             new JumpSquatState(this) },
 
+            {(int)GeneralStates.LANDING,
+            new LandingState(this) },
+
             {(int)GeneralStates.HITSTUN,
             new HitstunState(this)},
 
@@ -151,6 +157,7 @@ abstract public class CharacterScript : MonoBehaviour
             StateMach.StateList.Add(AttackList[i].Id, AttackList[i]);
         }
 
+        StartCoroutine(GuardRecover());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -266,9 +273,32 @@ abstract public class CharacterScript : MonoBehaviour
 
         RB2D.Slide(Velocity, Time.deltaTime, slideMove);
 
-        RecoverGuard();
+        //RecoverGuard();
     }
 
+    IEnumerator GuardRecover()
+    {
+        if (GuardBreak)
+        {
+            GuardIntegrity = 0;
+            yield return new WaitForSeconds(AtkTaken.Hitstun * 1.25f + 1f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(GuardIntTimer);
+        }
+
+        if(GuardIntegrity < MaxGuardIntegrity &&
+            StateMach.CurrentState != (int)GeneralStates.BLOCKSTUN &&
+            StateMach.CurrentState != (int)GeneralStates.BLOCK)
+        {
+            GuardIntegrity++;
+        }
+
+        StartCoroutine(GuardRecover());
+    }
+
+    /*
     public virtual void RecoverGuard()
     {
         if (GuardIntTimer >= GuardIntCooldown)
@@ -293,9 +323,10 @@ abstract public class CharacterScript : MonoBehaviour
 
         }
     }
+    */
 
     //  passing in true will face left
-    public void SwitchSpriteDirection(bool left)
+    public virtual void SwitchSpriteDirection(bool left)
     {
         Facingleft = left;
         spriteRender.flipX = left;
