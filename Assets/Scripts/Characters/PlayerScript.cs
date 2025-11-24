@@ -42,6 +42,7 @@ public class PlayerScript : CharacterScript
         healthBar.value = MaxHealth;
         guardMeter.maxValue = MaxGuardIntegrity;
         guardMeter.value = MaxGuardIntegrity;
+        EnemySpawner.TotalEnemyCount = 0;
     }
 
     private void Update()

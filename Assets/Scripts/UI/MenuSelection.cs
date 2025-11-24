@@ -67,7 +67,8 @@ public class MenuSelection : MonoBehaviour
         Time.timeScale = 0;
         menuIndex = 0;
         Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
-        SAS.MenuSwitch();
+        if(SAS)
+            SAS.MenuSwitch();
     }
 
 
@@ -75,7 +76,8 @@ public class MenuSelection : MonoBehaviour
     {
         // Debug.Log("inactive");
         Time.timeScale = 1;
-        SAS.MenuClosed();
+       if(SAS)
+            SAS.MenuClosed();
     }
 
     private void OnDestroy()
@@ -205,6 +207,7 @@ public class MenuSelection : MonoBehaviour
         if(menuIndex < menuOptions.Count)
             Cursor.anchoredPosition = menuOptions[menuIndex].OptionTrans.anchoredPosition + cursorOffset;
             //SAS.StopAnimation();
+        if(SAS)
             SAS.MenuSwitch();
     }
 
