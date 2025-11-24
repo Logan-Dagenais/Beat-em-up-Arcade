@@ -1357,9 +1357,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5466746162652096236, guid: dcad55b5a9fff9c4e8857b8b38891cfa, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 86a4ccf7af7417241afbaeb0718d05cc, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0570e5fe49a7bed4c985a8d819f3999e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1753,6 +1753,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5f3f4e47710254ba578f8d453390ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SAS: {fileID: 0}
+  ControlsUI: {fileID: 0}
+  OptionsUI: {fileID: 0}
+  GeneralPauseUI: {fileID: 0}
+  OnscreenUI: {fileID: 0}
   menuIndex: 0
   menuOptions:
   - OptionTrans: {fileID: 479256313}
@@ -2438,10 +2443,12 @@ MonoBehaviour:
     Manager, Programming Support
 
 
+    Sean Crawford - Music Designer, Audio Consultant
 
 
 
-    Press Any Button To Exit
+    Press
+    Any Button To Exit
 
 
 '
@@ -2730,6 +2737,7 @@ GameObject:
   - component: {fileID: 2109246205}
   - component: {fileID: 2109246207}
   - component: {fileID: 2109246206}
+  - component: {fileID: 2109246208}
   m_Layer: 5
   m_Name: TeamIcon
   m_TagString: Untagged
@@ -2791,6 +2799,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109246204}
   m_CullTransparentMesh: 1
+--- !u!114 &2109246208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109246204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Shadow
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4.08, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
