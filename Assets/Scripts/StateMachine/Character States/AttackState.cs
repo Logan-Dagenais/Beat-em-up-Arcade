@@ -32,6 +32,8 @@ public struct AttackProperties
 
     public float MovementForce;
 
+    public bool DoesChipDamage;
+
     public AttackProperties(float damage,
                             float guardDamage,
                             float hitstun,
@@ -42,7 +44,8 @@ public struct AttackProperties
                             bool low,
                             bool unblockable,
                             float offset,
-                            float movement)
+                            float movement,
+                            bool chip)
     {
         Damage = damage;
         GuardDamage = guardDamage;
@@ -55,6 +58,7 @@ public struct AttackProperties
         Unblockable = unblockable;
         HitboxXOffset = offset;
         MovementForce = movement;
+        DoesChipDamage = chip;
     }
 }
 

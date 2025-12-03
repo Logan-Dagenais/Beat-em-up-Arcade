@@ -268,6 +268,7 @@ MonoBehaviour:
       Unblockable: 0
       HitboxXOffset: 1.788
       MovementForce: 0
+      DoesChipDamage: 1
   - Id: 0
     animName: AirAtk
     AttackID: 10
@@ -283,6 +284,7 @@ MonoBehaviour:
       Unblockable: 0
       HitboxXOffset: 1.08
       MovementForce: 0
+      DoesChipDamage: 1
   heavyHit: {fileID: 6982498101172068183}
   lightHit: {fileID: 3880397082767111684}
   BlockHit: {fileID: 0}
@@ -345,6 +347,7 @@ MonoBehaviour:
     Unblockable: 0
     HitboxXOffset: 0
     MovementForce: 0
+    DoesChipDamage: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntTimer: 0

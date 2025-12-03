@@ -14,15 +14,23 @@ public class BlockstunState : StunState
         if(character.BlockHit)
             character.BlockHit.Play();
 
-        stunTime = character.AtkTaken.Blockstun;
+        AttackProperties atkTaken = character.AtkTaken;
 
-        if (character.GuardIntegrity > character.AtkTaken.GuardDamage)
+        stunTime = atkTaken.Blockstun;
+
+        if (character.GuardIntegrity > atkTaken.GuardDamage)
         {
-            character.GuardIntegrity -= character.AtkTaken.GuardDamage;
+            character.GuardIntegrity -= atkTaken.GuardDamage;
         }
         else
         {
             character.GuardIntegrity = 0;
+            character.Hit = true;
+        }
+
+        if (character.AtkTaken.DoesChipDamage)
+        {
+            character.TakeDamage();
         }
 
         //character.GetComponent<SpriteRenderer>().color = Color.blue;
@@ -55,7 +63,6 @@ public class BlockstunState : StunState
 
             StartState(prevStateId);
         }
-
 
         return nextStateId;
     }
