@@ -215,6 +215,11 @@ abstract public class CharacterScript : MonoBehaviour
         }
     }
 
+    public void ResetEnemyHitList()
+    {
+        EnemiesHit.Clear();
+    }
+
     public void HitReaction(AttackProperties atkTaken, bool hitFromLeft)
     {
         AtkTaken = atkTaken;
