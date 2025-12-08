@@ -46,6 +46,7 @@ public class MenuSelection : MonoBehaviour
     [SerializeField] private Vector2 cursorOffset;
 
     [SerializeField] private GameObject CreditsUI;
+    private bool subTabOn;
 
     private InputAction Navigate;
     private InputAction Select;
@@ -174,6 +175,7 @@ public class MenuSelection : MonoBehaviour
     private void Credits()
     {
         CreditsUI.SetActive(!CreditsUI.activeSelf);
+        subTabOn = CreditsUI.activeSelf;
         Debug.Log("Display Credits");
     }
 
@@ -197,7 +199,9 @@ public class MenuSelection : MonoBehaviour
 
     private void OnNavigate(InputAction.CallbackContext ctx)
     {
-        if ((CreditsUI && CreditsUI.activeSelf) || !transform.parent.gameObject.activeSelf)
+        bool subTabCheck = (CreditsUI && subTabOn);
+
+        if (subTabCheck || !transform.parent.gameObject.activeSelf)
         {
             return;
         }

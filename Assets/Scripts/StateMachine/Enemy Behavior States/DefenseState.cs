@@ -103,8 +103,8 @@ public class DefenseState : State
         }
 
         if (((EnemyScript)character).PlayerContact &&
-            aggressionTimer > stateMach.StateTime &&
-            character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN)
+            character.StateMach.CurrentState != (int)GeneralStates.KNOCKDOWN &&
+            character.StateMach.CurrentState != (int)GeneralStates.HITSTUN)
         {
             return (int)BehaviorStates.PUSH;
         }

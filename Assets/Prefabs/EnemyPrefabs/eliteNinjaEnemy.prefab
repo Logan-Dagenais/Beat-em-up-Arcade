@@ -4991,7 +4991,7 @@ MonoBehaviour:
   JumpForce: 25
   JumpSquatTime: 0.7
   LandingLagTime: 0.7
-  WalkSpeed: 5
+  WalkSpeed: 8
   AirMobilityAccel: 1
   Facingleft: 0
   AttackList:

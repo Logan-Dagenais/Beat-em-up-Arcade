@@ -80,7 +80,19 @@ public class EnemyScript : CharacterScript
             {(int)BehaviorStates.JUMP,
             new JumpOffenseState(this)}
         };
-    } 
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        //  checking for player layer
+        if (collision.gameObject.layer == 0 && collision.CompareTag("Player"))
+        {
+            Debug.Log(collision.gameObject.name + " collided");
+            PlayerContact = true;
+        }
+
+        base.OnTriggerEnter2D (collision);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
