@@ -138,9 +138,8 @@ public class MenuSelection : MonoBehaviour
 
     private void OpenControls()
     {
-        ControlsUI.SetActive(true);
-        OptionsUI.SetActive(false);
-        GeneralPauseUI.SetActive(false);
+        ControlsUI.SetActive(!ControlsUI.activeSelf);
+        subTabOn = ControlsUI.activeSelf;
     }
     private void CloseWindows()
     {
@@ -199,7 +198,7 @@ public class MenuSelection : MonoBehaviour
 
     private void OnNavigate(InputAction.CallbackContext ctx)
     {
-        bool subTabCheck = (CreditsUI && subTabOn);
+        bool subTabCheck = (CreditsUI || ControlsUI) && subTabOn;
 
         if (subTabCheck || !transform.parent.gameObject.activeSelf)
         {
