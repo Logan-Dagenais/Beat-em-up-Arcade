@@ -106,9 +106,6 @@ AnimatorStateMachine:
     m_State: {fileID: -548450392620480451}
     m_Position: {x: 240, y: 570, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 6006318365105007479}
-    m_Position: {x: 590, y: 280, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 1532768985974290669}
     m_Position: {x: 518.3757, y: 524.92584, z: 0}
   - serializedVersion: 1
@@ -306,32 +303,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4a4c2beae8d9ad040a5fad4c50a93938, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &6006318365105007479
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LightATK
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 222fd3a31a7b6f849aa8dac5f922d90f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
