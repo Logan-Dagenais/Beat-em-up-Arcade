@@ -70803,7 +70803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &665086659
 Transform:
   m_ObjectHideFlags: 0
@@ -81340,7 +81340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &964190308
 Transform:
   m_ObjectHideFlags: 0
@@ -87177,7 +87177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1244133358
 Transform:
   m_ObjectHideFlags: 0
@@ -92694,7 +92694,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1.0000162
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

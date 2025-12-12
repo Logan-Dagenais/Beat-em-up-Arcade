@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class BossScript : EnemyScript
 {
+    [SerializeField] private LightningAnim lAnim;
+
+    protected void Start()
+    {
+        lAnim = transform.GetChild(2).GetComponent<LightningAnim>();
+    }
+
     private void Awake()
     {
         base.Awake();
@@ -26,5 +33,10 @@ public class BossScript : EnemyScript
             {(int)BehaviorStates.JUMP,
             new JumpOffenseState(this)}
         };
+    }
+
+    public void LightningEffect()
+    {
+        lAnim.PlayEffect();
     }
 }
