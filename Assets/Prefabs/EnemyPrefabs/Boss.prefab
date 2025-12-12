@@ -538,7 +538,7 @@ MonoBehaviour:
     AttackID: 7
     Properties:
       Damage: 2
-      GuardDamage: 2
+      GuardDamage: 10
       Hitstun: 0.25
       Blockstun: 0.25
       Knockback: 3
