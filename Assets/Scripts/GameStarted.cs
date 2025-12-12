@@ -6,6 +6,7 @@ public class GameStarted : MonoBehaviour
     void Start()
     {
         AudioListener.volume = 1f;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
