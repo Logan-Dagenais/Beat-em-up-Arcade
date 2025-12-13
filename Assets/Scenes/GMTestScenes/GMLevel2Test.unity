@@ -86690,6 +86690,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1813856353}
     m_Modifications:
+    - target: {fileID: 2048852123857775587, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2090140999540884789, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -93213,10 +93217,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.60877866
     y: 0
-    width: 1
-    height: 0.99971735
+    width: 0.72094995
+    height: 0.72074616
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -93246,7 +93250,7 @@ Transform:
   m_GameObject: {fileID: 1437683925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13743417, y: -0.8151727, z: -10}
+  m_LocalPosition: {x: 0.13218829, y: -0.8154574, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -104710,10 +104714,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1244326374}
-  - {fileID: 840183642}
   - {fileID: 765478502}
   - {fileID: 528998039}
+  - {fileID: 1244326374}
+  - {fileID: 840183642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
