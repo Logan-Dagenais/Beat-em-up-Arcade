@@ -76,6 +76,11 @@ public class MenuSelection : MonoBehaviour
     private void OnDisable()
     {
         // Debug.Log("inactive");
+        if (subTabOn)
+        {
+            OpenControls();
+        }
+
         Time.timeScale = 1;
        if(SAS)
             SAS.MenuClosed();
