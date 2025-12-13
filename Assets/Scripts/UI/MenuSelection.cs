@@ -185,8 +185,8 @@ public class MenuSelection : MonoBehaviour
 
     private void RestartLevel()
     {
+        AudioListener.volume = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
     }
 
     private void ReturnMainMenu()

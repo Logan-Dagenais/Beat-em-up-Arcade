@@ -7,6 +7,8 @@ public class BossScript : EnemyScript
     [SerializeField] private Slider healthbar;
     [SerializeField] private LightningAnim lAnim;
     [SerializeField] private SpriteRenderer sr;
+    public bool laughstart;
+    [SerializeField] private AudioSource laugh;
 
     protected void Start()
     {
@@ -60,6 +62,14 @@ public class BossScript : EnemyScript
 
     public void LightningEffect()
     {
-        lAnim.PlayEffect();
+        print("Lightning");
+    }
+
+    private void Update()
+    {
+        if (laughstart && !laugh.isPlaying)
+        {
+            laugh.Play();
+        }
     }
 }

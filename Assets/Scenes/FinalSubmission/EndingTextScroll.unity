@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 40706853}
   - component: {fileID: 40706856}
   - component: {fileID: 40706855}
-  - component: {fileID: 40706854}
   m_Layer: 5
   m_Name: Cursor (2)
   m_TagString: Untagged
@@ -157,20 +156,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.050003, y: -27.6}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &40706854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40706852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9cda1380dcd8474788fc78300a47777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipButton: {fileID: 40706852}
-  timer: 0
 --- !u!114 &40706855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &862526534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3273,16 +3258,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your name is John Cubicle.\n\nYour friends call you "Mr. Office".\n\nLife
-    is good, nothing unusual. Until one day when the sky went dark and the world
-    went inside out.\n\nYou were pulled through a portal. A warp that sucked you
-    into a new reality. Here, time collides, and you're given a distinct order.\n\nMake
-    it to the end. If you don't, you die here. Beat all of those who would hold you
-    back, and prove that your timeline deserves life most of all. Be careful, there
-    are no second chances.\n\nDavid from Accounting waits at the top of the tallest
-    mountain, the exit lies behind him. Dare not die, lest you be lost in time. Should
-    you win, you will be named the truest of warriors.\n\n\nThe Riftborn stands alone.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhy
-    the hell haven't you skipped yet...
+  m_text: 'Having beaten David from Accounting, you are finally free to make your
+    way home.\n\nYour experience was... weird, but not so hard to believe. That is,
+    until you wake up, and are left wondering.\n\nWhat the hell just happened?\nWas
+    it a dream, or real?\n\n\nUnluckily for you, the title of Riftborn doesn''t mean
+    much more then a fancy title usually does.\n\nSo yes, you still have to go in
+    for work tomorrow.\n\n\n\nProfessionally Unprofessional\n_________________\n\n\nMicah
+    Cosby - Producer of Project, UI/UX, Primary Support\n\nVan Zwirek - Lead Designer,
+    Quality Manager, Programming Support\n\nMatthew Cruz - Lead Programmer, Art Support\n\nLogan
+    Dagenais - Technical Manager, Testing Manager, Art Development\n\nMacy Foster
+    - Art Lead, Concept Development\n\nSean Crawford - Sound Designer, Composer\n\n\n\nThank
+    you so much for playing our game! We had a blast making this, and hope that you
+    enjoyed. Thank you so much for your time, and this time don''t get caught in
+    a rift.\n\nMuch love,\nProfessionally Unprofessional <3
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -3420,7 +3410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Or
+  m_text: 'Up or down to
 
     Move Text'
   m_isRightToLeft: 0
@@ -3556,7 +3546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1321907601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3590,6 +3580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipButton: {fileID: 1321907600}
   timer: 0
+  EndGame: 1
 --- !u!114 &1321907603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3636,7 +3627,6 @@ GameObject:
   - component: {fileID: 1431763265}
   - component: {fileID: 1431763268}
   - component: {fileID: 1431763267}
-  - component: {fileID: 1431763266}
   m_Layer: 5
   m_Name: Cursor (1)
   m_TagString: Untagged
@@ -3663,20 +3653,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3.800003, y: 14.39}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1431763266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431763264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9cda1380dcd8474788fc78300a47777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipButton: {fileID: 1431763264}
-  timer: 0
 --- !u!114 &1431763267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,15 +3747,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your name is John Cubicle.\n\nYour friends call you "Mr. Office".\n\nLife
-    is good, nothing unusual. Until one day when the sky went dark and the world
-    went inside out.\n\nYou were pulled through a portal. A warp that sucked you
-    into a new reality. Here, time collides, and you're given a distinct order.\n\nMake
-    it to the end. If you don't, you die here. Beat all of those who would hold you
-    back, and prove that your timeline deserves life most of all. Be careful, there
-    are no second chances.\n\nDavid from Accounting waits at the top of the tallest
-    mountain, the exit lies behind him. Dare not die, lest you be lost in time. Should
-    you win, you will be named the truest of warriors.\n\n\nThe Riftborn stands alone.
+  m_text: 'Having beaten David from Accounting, you are finally free to make your
+    way home.\n\nYour experience was... weird, but not so hard to believe. That is,
+    until you wake up, and are left wondering.\n\nWhat the hell just happened?\nWas
+    it a dream, or real?\n\n\nUnluckily for you, the title of Riftborn doesn''t mean
+    much more then a fancy title usually does.\n\nSo yes, you still have to go in
+    for work tomorrow.\n\n\n\nProfessionally Unprofessional\n_________________\n\n\nMicah
+    Cosby - Producer of Project, UI/UX, Primary Support\n\nVan Zwirek - Lead Designer,
+    Quality Manager, Programming Support\n\nMatthew Cruz - Lead Programmer, Art Support\n\nLogan
+    Dagenais - Technical Manager, Testing Manager, Art Development\n\nMacy Foster
+    - Art Lead, Concept Development\n\nSean Crawford - Sound Designer, Composer\n\n\n\nThank
+    you so much for playing our game! We had a blast making this, and hope that you
+    enjoyed. Thank you so much for your time, and this time don''t get caught in
+    a rift.\n\nMuch love,\nProfessionally Unprofessional <3
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
