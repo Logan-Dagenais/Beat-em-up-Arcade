@@ -33,8 +33,7 @@ public enum GeneralStates
     BLOCKSTUN,
 
     //  pain avoidance
-    BLOCK,
-    DODGE
+    BLOCK
 }
 
 

@@ -9,6 +9,7 @@ public class SkipScroll : MonoBehaviour
     public float timer;
     private InputAction Select;
     private InputAction Pause;
+    [SerializeField] private bool EndGame;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class SkipScroll : MonoBehaviour
     private void OnSelect(InputAction.CallbackContext ctx)
     {
         MoveOn();
-        
+
     }
 
     private void OnDestroy()
@@ -35,6 +36,13 @@ public class SkipScroll : MonoBehaviour
 
     public void MoveOn()
     {
-        SceneManager.LoadScene(2);
+        if (!EndGame)
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

@@ -215,6 +215,11 @@ abstract public class CharacterScript : MonoBehaviour
         }
     }
 
+    public void ResetEnemyHitList()
+    {
+        EnemiesHit.Clear();
+    }
+
     public void HitReaction(AttackProperties atkTaken, bool hitFromLeft)
     {
         AtkTaken = atkTaken;
@@ -226,8 +231,22 @@ abstract public class CharacterScript : MonoBehaviour
     public virtual void TakeDamage()
     {
         //  take half damage on guardbreak
-        Health -= !GuardBreak ?
-            AtkTaken.Damage : AtkTaken.Damage / 2;
+        if (!GuardBreak)
+        {
+            if (StateMach.CurrentState != (int)GeneralStates.BLOCKSTUN)
+            {
+                Health -= AtkTaken.Damage;
+            }
+            else
+            {
+                Health -= Mathf.Round(AtkTaken.Damage * 0.2f);
+            }
+        }
+        else
+        {
+            Health -= AtkTaken.Damage / 2;
+        }
+
     }
 
     public virtual void DeadState()

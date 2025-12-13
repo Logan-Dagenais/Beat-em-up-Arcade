@@ -181,6 +181,8 @@ MonoBehaviour:
     Unblockable: 1
     HitboxXOffset: 0
     MovementForce: 0
+    DoesChipDamage: 0
+  sr: {fileID: 0}
   Direction: {x: 0, y: 0}
   BulletSpeed: 0
   pierce: 1
@@ -5984,6 +5986,7 @@ MonoBehaviour:
       Unblockable: 0
       HitboxXOffset: 0.56
       MovementForce: 0
+      DoesChipDamage: 1
   heavyHit: {fileID: 6939712240628110279}
   lightHit: {fileID: 3851120920121408148}
   BlockHit: {fileID: 0}
@@ -6046,6 +6049,7 @@ MonoBehaviour:
     Unblockable: 0
     HitboxXOffset: 0
     MovementForce: 0
+    DoesChipDamage: 0
   HitFromLeft: 0
   GuardBreak: 0
   GuardIntTimer: 0.25

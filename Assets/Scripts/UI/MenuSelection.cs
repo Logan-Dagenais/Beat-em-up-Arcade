@@ -46,6 +46,7 @@ public class MenuSelection : MonoBehaviour
     [SerializeField] private Vector2 cursorOffset;
 
     [SerializeField] private GameObject CreditsUI;
+    private bool subTabOn;
 
     private InputAction Navigate;
     private InputAction Select;
@@ -75,6 +76,11 @@ public class MenuSelection : MonoBehaviour
     private void OnDisable()
     {
         // Debug.Log("inactive");
+        if (subTabOn)
+        {
+            OpenControls();
+        }
+
         Time.timeScale = 1;
        if(SAS)
             SAS.MenuClosed();
@@ -137,9 +143,8 @@ public class MenuSelection : MonoBehaviour
 
     private void OpenControls()
     {
-        ControlsUI.SetActive(true);
-        OptionsUI.SetActive(false);
-        GeneralPauseUI.SetActive(false);
+        ControlsUI.SetActive(!ControlsUI.activeSelf);
+        subTabOn = ControlsUI.activeSelf;
     }
     private void CloseWindows()
     {
@@ -174,13 +179,14 @@ public class MenuSelection : MonoBehaviour
     private void Credits()
     {
         CreditsUI.SetActive(!CreditsUI.activeSelf);
+        subTabOn = CreditsUI.activeSelf;
         Debug.Log("Display Credits");
     }
 
     private void RestartLevel()
     {
+        AudioListener.volume = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
     }
 
     private void ReturnMainMenu()
@@ -197,7 +203,9 @@ public class MenuSelection : MonoBehaviour
 
     private void OnNavigate(InputAction.CallbackContext ctx)
     {
-        if ((CreditsUI && CreditsUI.activeSelf) || !transform.parent.gameObject.activeSelf)
+        bool subTabCheck = (CreditsUI || ControlsUI) && subTabOn;
+
+        if (subTabCheck || !transform.parent.gameObject.activeSelf)
         {
             return;
         }
