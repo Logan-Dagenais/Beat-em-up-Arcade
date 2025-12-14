@@ -13,10 +13,11 @@ public class LightningAnim : MonoBehaviour
         childAnim = transform.GetChild(0).GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    public void PlayEffect()
     {
         anim.Play("lightning");
         childAnim.Play("lightning 2");
+
         if (!sound1.isPlaying)
         {
             sound1.Play();
