@@ -2015,7 +2015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4062696819706355871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4162,8 +4162,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move the joystick down to make John crouch. While crouched you can move
-    slowly left or right.
+  m_text: Move the joystick down to make John crouch. While crouched you cannot move,
+    but can shield.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}

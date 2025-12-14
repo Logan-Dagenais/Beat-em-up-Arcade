@@ -9,6 +9,8 @@ public class QuitScript : MonoBehaviour
     {
         Quit = InputSystem.actions.FindAction("Quit");
         Quit.performed += QuitGame;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void QuitGame(InputAction.CallbackContext context)
