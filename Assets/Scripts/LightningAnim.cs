@@ -7,7 +7,7 @@ public class LightningAnim : MonoBehaviour
     public AudioSource sound1;
     public AudioSource sound2;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         childAnim = transform.GetChild(0).GetComponent<Animator>();
