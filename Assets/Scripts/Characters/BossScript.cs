@@ -62,14 +62,8 @@ public class BossScript : EnemyScript
 
     public void LightningEffect()
     {
-        print("Lightning");
+        laugh.Play();
+        lAnim.PlayEffect();
     }
 
-    private void Update()
-    {
-        if (laughstart && !laugh.isPlaying)
-        {
-            laugh.Play();
-        }
-    }
 }

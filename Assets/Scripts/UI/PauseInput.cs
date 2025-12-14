@@ -29,6 +29,11 @@ public class PauseInput : MonoBehaviour
         //    return;
         //}
 
+        if (PlayerScript.GameOver)
+        {
+            return;
+        }
+
         Time.timeScale = 0;
         OnscreenUI.SetActive(PauseUI.activeSelf);
         PauseUI.SetActive(!PauseUI.activeSelf);
