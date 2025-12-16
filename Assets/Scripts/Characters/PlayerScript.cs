@@ -16,6 +16,7 @@ public class PlayerScript : CharacterScript
 
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider guardMeter;
+    static public bool GameOver;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject runFX;
 
@@ -126,6 +127,8 @@ public class PlayerScript : CharacterScript
         yield return new WaitForSeconds(1);
         gameOverScreen.SetActive(true);
         AudioListener.volume = 0f;
+
+        GameOver = true;
 
         StopCoroutine(PlayerDeath());
     }

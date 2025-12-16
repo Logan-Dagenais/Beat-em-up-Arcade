@@ -76,6 +76,11 @@ public class MenuSelection : MonoBehaviour
     private void OnDisable()
     {
         // Debug.Log("inactive");
+        if (subTabOn)
+        {
+            OpenControls();
+        }
+
         Time.timeScale = 1;
        if(SAS)
             SAS.MenuClosed();
@@ -158,6 +163,7 @@ public class MenuSelection : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Start Game");
+        PlayerScript.GameOver = false;
         CanPause = true;
         SceneManager.LoadScene(1);
     }
@@ -180,8 +186,9 @@ public class MenuSelection : MonoBehaviour
 
     private void RestartLevel()
     {
+        AudioListener.volume = 1f;
+        PlayerScript.GameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
     }
 
     private void ReturnMainMenu()

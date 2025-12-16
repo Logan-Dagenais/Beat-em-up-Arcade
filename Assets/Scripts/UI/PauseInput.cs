@@ -6,6 +6,7 @@ public class PauseInput : MonoBehaviour
     private InputAction Pause;
     [SerializeField] private GameObject PauseUI;
     [SerializeField] private GameObject OnscreenUI;
+    [SerializeField] private GameObject ControlsUI;
 
     private void Start()
     {
@@ -28,9 +29,18 @@ public class PauseInput : MonoBehaviour
         //    return;
         //}
 
+        if (PlayerScript.GameOver)
+        {
+            return;
+        }
+
         Time.timeScale = 0;
         OnscreenUI.SetActive(PauseUI.activeSelf);
         PauseUI.SetActive(!PauseUI.activeSelf);
+        if (ControlsUI.activeSelf)
+        {
+            ControlsUI.SetActive(false);
+        }
         
     }
 }

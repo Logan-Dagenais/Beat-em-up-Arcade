@@ -74,21 +74,39 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Beta/BetaBossLevel 1.unity
     guid: 03dde37c70833054a9e2fb49e13d16b1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GMTestScenes/GMMainMenuTest.unity
     guid: 6fc7583c0e7cd474185943a61e82b4f7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GMTestScenes/GMTextScrollTest.unity
     guid: b4cc45cfabc4f2d49afa8fe8cdfd4b28
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GMTestScenes/GMLevel1Test.unity
     guid: d967c7d8e2674b54784be5a00e3f0f45
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GMTestScenes/GMLevel2Test.unity
     guid: d428a17d27b18b14db0db5c314957e1a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GMTestScenes/GMBossLevelTest.unity
     guid: f5f51de016e0c284cb0a095faf6e6056
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/RiftbornMainMenu.unity
+    guid: ee9c2c13185fe4b4997b73548fa508a0
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/OpeningTextScroll.unity
+    guid: a6ccf8fc50f35634ea84e541d2e4ea34
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/RiftbornLevel1Main.unity
+    guid: d07b873823b2a2247801e746e8fad7ab
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/RiftbornLevel2Main.unity
+    guid: f78935d0eed0ac74ca496525684754df
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/RiftbornBoss.unity
+    guid: 7017f2804b6008f44a03fabeb10d1d9c
+  - enabled: 1
+    path: Assets/Scenes/FinalSubmission/EndingTextScroll.unity
+    guid: ee302a15cb6990941a81aa7acc3dfe25
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
