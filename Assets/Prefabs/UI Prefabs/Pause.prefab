@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move the Joystick up to make John jump. Make sure to give John time to
+  m_text: Use W or the Spacebar to make John jump. Make sure to give John time to
     wind up!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -2369,8 +2369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack with Button 1 to do a light attack. Small damage, but quick and
-    easy.
+  m_text: Attack with J to do a light attack. Small damage, but quick and easy.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -2854,8 +2853,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack with Button 2 to do a Heavy Attack. Slower then the light, but deals
-    good damage, with a longer range.
+  m_text: Attack with K to do a Heavy Attack. Slower then the light, but deals good
+    damage, with a longer range.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -3676,8 +3675,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold Button 3 to block. While blocking, you can walk around and stay safe,
-    but move slower and can't attack.
+  m_text: Hold L to block. While blocking, you can walk around and stay safe, but
+    move slower and can't attack.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -4162,8 +4161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move the joystick down to make John crouch. While crouched you cannot move,
-    but can shield.
+  m_text: Press S to make John crouch. While crouched you cannot move, but can shield.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
@@ -4646,7 +4644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move the joystick left to right to move your character Left or RIght.
+  m_text: Use A or D to move your character Left or RIght.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
   m_sharedMaterial: {fileID: 4771195559583158252, guid: 4a99dfab68d3381478ef13a2407d12c6, type: 2}
