@@ -26203,7 +26203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2090140999540884789, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2508751744061462840, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
       propertyPath: m_text
@@ -26303,6 +26303,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8559608054363686323, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111804464766232050, guid: b3977fbf0a165fa4cbad41d484f18df9, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -59903,6 +59907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gameover (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7379308317202114594, guid: 5091b96eaebe3d54c9557a152f0a0948, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82642,9 +82650,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.049157303
+    y: 0
     width: 1
-    height: 0.900632
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -82674,7 +82682,7 @@ Transform:
   m_GameObject: {fileID: 1793310890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5705261, y: -5.540002, z: -10}
+  m_LocalPosition: {x: -0.51719666, y: -5.540002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
